@@ -7,7 +7,7 @@ This browser based web application to ...
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
 * I am Rahul and I am glad to be on this collaborative project.
-* Hi, my name is Juhyun! I am excited to start this journey of creating a web application.
+* Hi, my name is Juhyun. I am excited to start this journey of creating a web application.
 * My name is Roy! I'll do my best.
 	
 ## 3. Technologies and Resources Used
