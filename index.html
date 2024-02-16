@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>My BCIT Project</title>
-
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <!-- Tailwind Library CSS CDN go here -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
 
     <!-- Tailwind Library JS CDN  go here -->
     <script src = "https://cdn.tailwindcss.com"></script>
 
-    <!-- Other libraries go here -->
+    <!-- Other Libraries-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap" rel="stylesheet">
-    <!-- Link to styles of your own -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap" rel="stylesheet">
+
     <!-- Tailwind Config -->
     <script>
         tailwind.config = {
@@ -33,108 +32,40 @@
                             300: "#192638"
                         },
                     },
+                    fontFamily: {
+                        petit: ["Petit Formal Script"],
+                        leckerli: ['Leckerli One']
+
+                    },
                 },
             },
         }
     </script>
 </head>
 
-<body>
-    <!------------------------------>
-    <!-- Your HTML Layout go here -->
-
+<body class = "bg-dominant">
     <header>
         <nav class="fixed top-0 left-0 w-full h-24 bg-dominant">
             <div class = "flex justify-between h-full object-contain">
-                <img src = "images/Hamburger.png" class = "cursor-pointer m-6">
-                <img src = "images/Logo - Transparent.png">
-                <img src = "images/Profile.webp" class = "cursor-pointer m-6">
+                <img src = "images/Logo - Transparent.png" class = "ml-2 my-2">
+                <img src = "images/Info.png" class = "mr-1 my-4">
             </div>
         </nav>
     </header>
-
-    <!------------------------------>
-    <!-- Stuff for body goes here -->
-
-    <section class = "bg-accent-100 mx-4 max-w-lg cursor-pointer rounded-lg  mt-28 mb-8">
-        <div class = "p-6">
-            <h2 class = "text-xl font-semibold">Welcome to Heemang!</h2>
-            <p class = "leading-none text-base text-gray-500 mt-2">Today's Quote:</p>
-            <p class = "leading-none text-base text-gray-500 mt-2">"Let's do our best!" - DTC04</p>
-            </p>
+    <section >
+        <div class = "mt-52">
+            <h1 class = "text-center text-6xl font-bold font-petit">Heemang</h1>
         </div>
-    </section>
-    <article class = "flex mx-4 items-center mb-8">
-        <section class = "basis-1/5 mx-2">
-            <img src = "images/Calender.png">
-        </section>
-        <section class = "flex mx-2 basis-4/5 bg-accent-50 rounded-lg max-w-lg">
-            <div class = "p-8">
-                <h1 class = "leading-none text-xl font-semibold text-gray-800">Date</h1>
-                <p class = "leading-none text-base text-gray-500 mt-2">Journal Entry</p>
-            </div>
-        </section>
-    </article>
+        <div class = "flex items-center justify-center mt-36">
+            <div class="bg-white w-4/5 shadow-3xl rounded-xl">
+                <div class="bg-accent-300 absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full p-4 md:p-8">
+                    <image src = "images/Habit.svg" class = "rounded-full h-16"></image>
+                </div>
+                
 
-    <article class = "flex justify-center">
-        <section class = "flex-col basis-1/2 text-center">
-            <div>
-                <p class = "leading-none text-xl font-semibold mt-2">Routines</p>
-                <ul class = "text-left">
-                    <li class="flex justify-between border-2 m-2 p-1">
-                        <p class="font-sans leading-6 text-gray-900">Lorem ipsum dolor sit amet.</p>
-                    </li>
-                    <li class="flex justify-between border-2 m-2 p-1">
-                        <p class="font-sans leading-6 text-gray-900">Lorem ipsum dolor sit amet.</p>
-                    </li>
-                    <li class="flex justify-between border-2 m-2 p-1">
-                        <p class="font-sans leading-6 text-gray-900">Lorem ipsum dolor sit amet.</p>
-                    </li>
-                </ul>
                 
             </div>
-            <div>
-                <p class = "leading-none text-xl font-semibold mt-2">Tasks</p>
-                <ul>
-                    <li class="flex justify-between py-2 px-4">
-                        <div class="flex">
-                        <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="images/Placeholder.png">
-                        <p class="font-sans leading-6 text-gray-900">Lorem ipsum dolor sit amet.</p>
-                        </div>
-                    </li>
-                    <li class="flex justify-between py-2 px-4">
-                        <div class="flex">
-                            <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="images/Placeholder.png">
-                            <p class="font-sans leading-6 text-gray-900">Lorem ipsum dolor sit amet.</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        <section class = "basis-1/2 text-center">
-            <div>
-                <p class = "leading-none text-xl font-semibold mt-2">Recommendations</p>
-            </div>
-        </section>
-    </article>
-
-    <!-- Bottom Nav-->
-    <footer class="fixed bottom-0 left-0 w-full h-24 bg-dominant">
-        <div class = "flex justify-between h-full object-contain">
-            <img src = "images/Home.png" class = "cursor-pointer my-4">
-            <img src = "images/Goal.webp" class = "cursor-pointer my-5">
-            <img src = "images/Checklist.png" class = "cursor-pointer my-5">
-            <img src = "images/Discover.png" class = "cursor-pointer my-4">
         </div>
-    </footer>
-
-    <!---------------------------------------------->
-    <!-- Your own JavaScript functions go here    -->
-    <!---------------------------------------------->
-
-    <!-- Link to scripts of your own -->
-    <!-- <script src="./scripts/script.js"></script> -->
-
+       </section>
 </body>
-
 </html>
