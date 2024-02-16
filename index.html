@@ -3,7 +3,6 @@
 
 <head>
     <title>My BCIT Project</title>
-    <meta name="comp1800 template" content="My 1800 App">
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -11,71 +10,37 @@
 
     <!-- Tailwind Library CSS CDN go here -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
+
     <!-- Tailwind Library JS CDN  go here -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src = "https://cdn.tailwindcss.com"></script>
+
     <!-- Other libraries go here -->
+    <!-- Link to styles of your own -->
+    <!-- Tailwind Config -->
     <script>
         tailwind.config = {
-            purge:['./*.html'],
-            darkMode: false, // or 'media' or 'class'
             theme: {
-                fontFamily: {
-                display: ['Inter', 'system-ui', 'sans-serif'],
-                body: ['Inter', 'system-ui', 'sans-serif'],
-                },
-                extend: {
-                colors:{
-                    fuchsia:colors.fuchsia,
-                    cyan:colors.cyan,
-                    emerald:colors.emerald,
-                    teal:colors.teal,
-                    orange:colors.orange,
-                    yellow:colors.yellow,
-                },
-                maxHeight:{
-                    116:"29rem", /*464px*/
-                    125:"31.25rem", /*500px*/
-                    140:"35rem", /*560px*/
-                    150:"37.5rem", /*600px*/
-                    190:"47.5rem", /*760px*/
-                },
-                height:{
-                    116:"29rem", /*464px*/
-                    125:"31.25rem", /*500px*/
-                    140:"35rem", /*560px*/
-                    150:"37.5rem", /*600px*/
-                },
-                minHeight:{
-                    18:"4.5rem", /*72*/
-                    62:"15.5rem", /*248px*/
-                    150:"37.5rem", /*600px*/
-                },
+                extend: {   
+                    colors: {
+                        dominant: "#aaffff",
+                        accent: {
+                            50: "#cc41ff",
+                            100: "#05bbaa",
+                            200: "#eb5951"
+                        },
+                    },
                 },
             },
-            variants: {
-                extend: {
-                display: ["group-hover"],
-                opacity: ["group-hover"],
-                translate: ["group-hover"],
-                transform: ["group-hover"],
-                width: ["group-hover", "hover"],
-                height: ["group-hover", "hover"],
-                padding: ["group-hover", "hover"],
-                animation: ["group-hover", "hover"],
-                scale: ["group-hover", "hover"],
-                },
-            },
-            plugins: [],
-            }
+        }
     </script>
-    <!-- Link to styles of your own -->
-    <!-- <link rel="stylesheet" href="./styles/style.css"> -->
-
 </head>
 
 <body>
+    <!------------------------------>
+    <!-- Your HTML Layout go here -->
+
     <header>
-        <footer class="fixed top-0 left-0 w-full h-24 bg-gray-300">
+        <nav class="fixed top-0 left-0 w-full h-24 bg-dominant">
             <div class = "flex justify-between h-full object-contain">
                 <img src = "images/Hamburger.png" class = "cursor-pointer my-2 mx-2">
                 <img src = "images/Logo - Transparent.png">
@@ -85,29 +50,19 @@
     </header>
 
     <!------------------------------>
-    <!-- Your HTML Layout go here -->
-    <!------------------------------>
     <!-- Stuff for body goes here -->
 
-    <section class = "flex bg-gray-100 mx-auto max-w-lg mb-8 mt-32">
-        <div class = "p-10 my-auto">
-            <h1 class = "text-2xl font-semibold text-gray-800">Welcome to Heemang!</h1>
-            <p class = "text-base text-gray-500 mt-2">Today's Quote:</p>
-            <p class = "text-base text-gray-500 justify-center mt-2">"Do your best." - DTC04</p>
-        </div>
-    </section>
-    <section class = "bg-gray-100 mx-auto max-w-lg w-full cursor-pointer rounded-md mb-8">
-        <div class = "p-8 mb-10 mt-2">
-            <h2 class = "text-3xl mt-2">To-Do List</h2>
-            <p class = "text-xl text-gray-500 mt-2">
-                Task<br>
-                Task<br>
-                Task<br>
-                Task
-            </p>
-        </div>
-    </section>
-    <section class = "bg-gray-100 mx-auto max-w-lg w-full cursor-pointer rounded-md mb-32">
+    <article class = "flex items-center w-full h-64 mt-32">
+        <img src = "images/Calender.png" class = "h-full">
+        <section class = "flex bg-accent-50 mx-auto rounded-lg max-w-lg my-8">
+            <div class = "p-10 my-auto">
+                <h1 class = "text-2xl font-semibold text-gray-800">Welcome to Heemang!</h1>
+                <p class = "text-base text-gray-500 mt-2">Today's Quote:</p>
+                <p class = "text-base text-gray-500 justify-center mt-2">"Do your best." - DTC04</p>
+            </div>
+        </section>
+    </article>
+    <section class = "bg-accent-100 mx-auto max-w-lg w-full cursor-pointer rounded-lg mb-8">
         <div class = "p-8 mb-10 mt-2">
             <h2 class = "text-3xl mt-2">Goals</h2>
             <p class = "text-xl text-gray-500 mt-2">
@@ -118,14 +73,24 @@
             </p>
         </div>
     </section>
+    <section class = "bg-accent-200 mx-auto max-w-lg w-full cursor-pointer rounded-lg mb-32">
+        <div class = "p-8 mb-10 mt-2">
+            <h2 class = "text-3xl mt-2">To-Do List</h2>
+            <p class = "text-xl text-gray-500 mt-2">
+                Task<br>
+                Task<br>
+                Task<br>
+                Task
+            </p>
+        </div>
+    </section>
 
-    <footer class="fixed bottom-0 left-0 w-full h-24 bg-gray-300">
+    <footer class="fixed bottom-0 left-0 w-full h-24 bg-dominant">
         <div class = "flex justify-between h-full object-contain">
+            <img src = "images/Home.png" class = "cursor-pointer my-2">
             <img src = "images/Goal.webp" class = "cursor-pointer my-3 mx-2">
             <img src = "images/Checklist.png" class = "cursor-pointer my-4">
-            <img src = "images/Home.png" class = "cursor-pointer my-2">
-            <img src = "images/Lightbulb.png" class = "cursor-pointer my-3">
-            <img src = "images/Journey.png" class = "cursor-pointer">
+            <img src = "images/Discover.png" class = "cursor-pointer my-3">
         </div>
     </footer>
 
