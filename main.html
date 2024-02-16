@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Tailwind Library CSS CDN go here -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
+
+    <!-- Tailwind Library JS CDN  go here -->
+    <script src = "https://cdn.tailwindcss.com"></script>
+
+    <!-- Other Libraries-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {   
+                    colors: {
+                        dominant: "#4A6FA5",
+                        accent: {
+                            50: "#DBE9EE",
+                            100: "#C0D6DF",
+                            200: "#2C4263",
+                            300: "#192638"
+                        },
+                    },
+                    fontFamily: {
+                        petit: ["Petit Formal Script"],
+                        leckerli: ['Leckerli One']
+
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class = "bg-dominant">
+    <header>
+        <nav class="fixed top-0 left-0 w-full h-24 bg-dominant">
+            <div class = "flex justify-between h-full object-contain">
+                <img src = "images/Logo - Transparent.png" class = "ml-2 my-2">
+                <img src = "images/Info.png" class = "mr-1 my-4">
+            </div>
+        </nav>
+    </header>
+    
+</body>
+</html>
