@@ -15,6 +15,9 @@
     <script src = "https://cdn.tailwindcss.com"></script>
 
     <!-- Other libraries go here -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap" rel="stylesheet">
     <!-- Link to styles of your own -->
     <!-- Tailwind Config -->
     <script>
@@ -22,11 +25,12 @@
             theme: {
                 extend: {   
                     colors: {
-                        dominant: "#aaffff",
+                        dominant: "#4A6FA5",
                         accent: {
-                            50: "#cc41ff",
-                            100: "#05bbaa",
-                            200: "#eb5951"
+                            50: "#DBE9EE",
+                            100: "#C0D6DF",
+                            200: "#2C4263",
+                            300: "#192638"
                         },
                     },
                 },
@@ -42,9 +46,9 @@
     <header>
         <nav class="fixed top-0 left-0 w-full h-24 bg-dominant">
             <div class = "flex justify-between h-full object-contain">
-                <img src = "images/Hamburger.png" class = "cursor-pointer my-2 mx-2">
+                <img src = "images/Hamburger.png" class = "cursor-pointer m-6">
                 <img src = "images/Logo - Transparent.png">
-                <img src = "images/Profile.webp" class = "cursor-pointer">
+                <img src = "images/Profile.webp" class = "cursor-pointer m-6">
             </div>
         </nav>
     </header>
@@ -52,7 +56,7 @@
     <!------------------------------>
     <!-- Stuff for body goes here -->
 
-    <section class = "bg-accent-100 mx-4 max-w-lg cursor-pointer rounded-lg  mt-32 mb-8">
+    <section class = "bg-accent-100 mx-4 max-w-lg cursor-pointer rounded-lg  mt-28 mb-8">
         <div class = "p-6">
             <h2 class = "text-xl font-semibold">Welcome to Heemang!</h2>
             <p class = "leading-none text-base text-gray-500 mt-2">Today's Quote:</p>
@@ -76,26 +80,31 @@
         <section class = "flex-col basis-1/2 text-center">
             <div>
                 <p class = "leading-none text-xl font-semibold mt-2">Routines</p>
+                <ul class = "text-left">
+                    <li class="flex justify-between border-2 m-2 p-1">
+                        <p class="font-sans leading-6 text-gray-900">Lorem ipsum dolor sit amet.</p>
+                    </li>
+                    <li class="flex justify-between border-2 m-2 p-1">
+                        <p class="font-sans leading-6 text-gray-900">Lorem ipsum dolor sit amet.</p>
+                    </li>
+                    <li class="flex justify-between border-2 m-2 p-1">
+                        <p class="font-sans leading-6 text-gray-900">Lorem ipsum dolor sit amet.</p>
+                    </li>
+                </ul>
                 
             </div>
             <div>
                 <p class = "leading-none text-xl font-semibold mt-2">Tasks</p>
                 <ul>
-                    <li class="flex justify-between gap-x-6 py-2 px-4">
+                    <li class="flex justify-between py-2 px-4">
                         <div class="flex">
-                        <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="images/drink1.jpg" alt="">
+                        <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="images/Placeholder.png">
                         <p class="font-sans leading-6 text-gray-900">Lorem ipsum dolor sit amet.</p>
                         </div>
                     </li>
-                    <li class="flex justify-between gap-x-6 py-2 px-4">
+                    <li class="flex justify-between py-2 px-4">
                         <div class="flex">
-                            <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="images/drink2.jpg" alt="">
-                            <p class="font-sans leading-6 text-gray-900">Lorem ipsum dolor sit amet.</p>
-                        </div>
-                    </li>
-                    <li class="flex justify-between gap-x-6 py-2 px-4">
-                        <div class="flex">
-                            <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="images/drink3.jpg" alt="">
+                            <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="images/Placeholder.png">
                             <p class="font-sans leading-6 text-gray-900">Lorem ipsum dolor sit amet.</p>
                         </div>
                     </li>
@@ -112,10 +121,10 @@
     <!-- Bottom Nav-->
     <footer class="fixed bottom-0 left-0 w-full h-24 bg-dominant">
         <div class = "flex justify-between h-full object-contain">
-            <img src = "images/Home.png" class = "cursor-pointer my-2">
-            <img src = "images/Goal.webp" class = "cursor-pointer my-3 mx-2">
-            <img src = "images/Checklist.png" class = "cursor-pointer my-4">
-            <img src = "images/Discover.png" class = "cursor-pointer my-3">
+            <img src = "images/Home.png" class = "cursor-pointer my-4">
+            <img src = "images/Goal.webp" class = "cursor-pointer my-5">
+            <img src = "images/Checklist.png" class = "cursor-pointer my-5">
+            <img src = "images/Discover.png" class = "cursor-pointer my-4">
         </div>
     </footer>
 
