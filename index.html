@@ -52,39 +52,64 @@
     <!------------------------------>
     <!-- Stuff for body goes here -->
 
-    <article class = "flex items-center w-full h-64 mt-32">
-        <img src = "images/Calender.png" class = "h-full">
-        <section class = "flex bg-accent-50 mx-auto rounded-lg max-w-lg my-8">
-            <div class = "p-10 my-auto">
-                <h1 class = "text-2xl font-semibold text-gray-800">Welcome to Heemang!</h1>
-                <p class = "text-base text-gray-500 mt-2">Today's Quote:</p>
-                <p class = "text-base text-gray-500 justify-center mt-2">"Do your best." - DTC04</p>
+    <section class = "bg-accent-100 mx-4 max-w-lg cursor-pointer rounded-lg  mt-32 mb-8">
+        <div class = "p-6">
+            <h2 class = "text-xl font-semibold">Welcome to Heemang!</h2>
+            <p class = "leading-none text-base text-gray-500 mt-2">Today's Quote:</p>
+            <p class = "leading-none text-base text-gray-500 mt-2">"Let's do our best!" - DTC04</p>
+            </p>
+        </div>
+    </section>
+    <article class = "flex mx-4 items-center mb-8">
+        <section class = "basis-1/5 mx-2">
+            <img src = "images/Calender.png">
+        </section>
+        <section class = "flex mx-2 basis-4/5 bg-accent-50 rounded-lg max-w-lg">
+            <div class = "p-8">
+                <h1 class = "leading-none text-xl font-semibold text-gray-800">Date</h1>
+                <p class = "leading-none text-base text-gray-500 mt-2">Journal Entry</p>
             </div>
         </section>
     </article>
-    <section class = "bg-accent-100 mx-auto max-w-lg w-full cursor-pointer rounded-lg mb-8">
-        <div class = "p-8 mb-10 mt-2">
-            <h2 class = "text-3xl mt-2">Goals</h2>
-            <p class = "text-xl text-gray-500 mt-2">
-                Goal<br>
-                Goal<br>
-                Goal<br>
-                Goal
-            </p>
-        </div>
-    </section>
-    <section class = "bg-accent-200 mx-auto max-w-lg w-full cursor-pointer rounded-lg mb-32">
-        <div class = "p-8 mb-10 mt-2">
-            <h2 class = "text-3xl mt-2">To-Do List</h2>
-            <p class = "text-xl text-gray-500 mt-2">
-                Task<br>
-                Task<br>
-                Task<br>
-                Task
-            </p>
-        </div>
-    </section>
 
+    <article class = "flex justify-center">
+        <section class = "flex-col basis-1/2 text-center">
+            <div>
+                <p class = "leading-none text-xl font-semibold mt-2">Routines</p>
+                
+            </div>
+            <div>
+                <p class = "leading-none text-xl font-semibold mt-2">Tasks</p>
+                <ul>
+                    <li class="flex justify-between gap-x-6 py-2 px-4">
+                        <div class="flex">
+                        <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="images/drink1.jpg" alt="">
+                        <p class="font-sans leading-6 text-gray-900">Lorem ipsum dolor sit amet.</p>
+                        </div>
+                    </li>
+                    <li class="flex justify-between gap-x-6 py-2 px-4">
+                        <div class="flex">
+                            <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="images/drink2.jpg" alt="">
+                            <p class="font-sans leading-6 text-gray-900">Lorem ipsum dolor sit amet.</p>
+                        </div>
+                    </li>
+                    <li class="flex justify-between gap-x-6 py-2 px-4">
+                        <div class="flex">
+                            <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="images/drink3.jpg" alt="">
+                            <p class="font-sans leading-6 text-gray-900">Lorem ipsum dolor sit amet.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class = "basis-1/2 text-center">
+            <div>
+                <p class = "leading-none text-xl font-semibold mt-2">Recommendations</p>
+            </div>
+        </section>
+    </article>
+
+    <!-- Bottom Nav-->
     <footer class="fixed bottom-0 left-0 w-full h-24 bg-dominant">
         <div class = "flex justify-between h-full object-contain">
             <img src = "images/Home.png" class = "cursor-pointer my-2">
