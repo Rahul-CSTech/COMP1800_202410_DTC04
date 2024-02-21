@@ -17,4 +17,4 @@ var uiConfig = {
     privacyPolicyUrl: '<your-privacy-policy-url>'
   };
 
-  ui.start('', uiConfig);
+//   ui.start('', uiConfig);
