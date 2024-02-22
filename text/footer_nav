@@ -1,0 +1,8 @@
+<footer class="fixed bottom-0 left-0 w-full h-20 bg-dominant">
+    <div class = "flex justify-between h-full object-contain">
+        <img src = "images/Home.png" class = "cursor-pointer my-4">
+        <img src = "images/Goal.webp" class = "cursor-pointer my-5">
+        <img src = "images/Checklist.png" class = "cursor-pointer my-5">
+        <img src = "images/Discover.png" class = "cursor-pointer my-4">
+    </div>
+</footer>
