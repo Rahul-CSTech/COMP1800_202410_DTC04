@@ -13,64 +13,38 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
     <!-- Tailwind Library JS CDN  go here -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Other libraries go here -->
+    <!-- Other Libraries-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <script>
         tailwind.config = {
-            purge:['./*.html'],
-            darkMode: false, // or 'media' or 'class'
             theme: {
-                fontFamily: {
-                display: ['Inter', 'system-ui', 'sans-serif'],
-                body: ['Inter', 'system-ui', 'sans-serif'],
-                },
-                extend: {
-                colors:{
-                    fuchsia:colors.fuchsia,
-                    cyan:colors.cyan,
-                    emerald:colors.emerald,
-                    teal:colors.teal,
-                    orange:colors.orange,
-                    yellow:colors.yellow,
-                },
-                maxHeight:{
-                    116:"29rem", /*464px*/
-                    125:"31.25rem", /*500px*/
-                    140:"35rem", /*560px*/
-                    150:"37.5rem", /*600px*/
-                    190:"47.5rem", /*760px*/
-                },
-                height:{
-                    116:"29rem", /*464px*/
-                    125:"31.25rem", /*500px*/
-                    140:"35rem", /*560px*/
-                    150:"37.5rem", /*600px*/
-                },
-                minHeight:{
-                    18:"4.5rem", /*72*/
-                    62:"15.5rem", /*248px*/
-                    150:"37.5rem", /*600px*/
-                },
+                extend: {   
+                    colors: {
+                        dominant: "#4A6FA5",
+                        accent: {
+                            50: "#DBE9EE",
+                            100: "#C0D6DF",
+                            200: "#2C4263",
+                            300: "#192638"
+                        },
+                    },
+                    fontFamily: {
+                        petit: ["Petit Formal Script"],
+                        leckerli: ['Leckerli One']
+
+                    },
                 },
             },
-            variants: {
-                extend: {
-                display: ["group-hover"],
-                opacity: ["group-hover"],
-                translate: ["group-hover"],
-                transform: ["group-hover"],
-                width: ["group-hover", "hover"],
-                height: ["group-hover", "hover"],
-                padding: ["group-hover", "hover"],
-                animation: ["group-hover", "hover"],
-                scale: ["group-hover", "hover"],
-                },
-            },
-            plugins: [],
-            }
+        }
     </script>
     <!-- Link to styles of your own -->
     <!-- <link rel="stylesheet" href="./styles/style.css"> -->
-
 </head>
 
 <body>
