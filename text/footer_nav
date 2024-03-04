@@ -1,8 +1,37 @@
 <footer class="fixed bottom-0 left-0 w-full h-20 bg-dominant">
     <div class = "flex justify-between h-full object-contain">
-        <img src = "images/Home.png" class = "cursor-pointer my-4">
-        <img src = "images/Goal.webp" class = "cursor-pointer my-5">
-        <img src = "images/Checklist.png" class = "cursor-pointer my-5">
-        <img src = "images/Discover.png" class = "cursor-pointer my-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="cursor-pointer m-4 icon icon-tabler icon-tabler-home" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+            <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+            <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="cursor-pointer m-4 icon icon-tabler icon-tabler-target-arrow" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M12 7a5 5 0 1 0 5 5" />
+            <path d="M13 3.055a9 9 0 1 0 7.941 7.945" />
+            <path d="M15 6v3h3l3 -3h-3v-3z" />
+            <path d="M15 9l-3 3" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="cursor-pointer m-4 icon icon-tabler icon-tabler-list-check" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3.5 5.5l1.5 1.5l2.5 -2.5" />
+            <path d="M3.5 11.5l1.5 1.5l2.5 -2.5" />
+            <path d="M3.5 17.5l1.5 1.5l2.5 -2.5" />
+            <path d="M11 6l9 0" />
+            <path d="M11 12l9 0" />
+            <path d="M11 18l9 0" />
+          </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="cursor-pointer m-4 icon icon-tabler icon-tabler-report-search" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M8 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h5.697" />
+            <path d="M18 12v-5a2 2 0 0 0 -2 -2h-2" />
+            <path d="M8 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+            <path d="M8 11h4" />
+            <path d="M8 15h3" />
+            <path d="M16.5 17.5m-2.5 0a2.5 2.5 0 1 0 5 0a2.5 2.5 0 1 0 -5 0" />
+            <path d="M18.5 19.5l2.5 2.5" />
+          </svg>
     </div>
 </footer>
