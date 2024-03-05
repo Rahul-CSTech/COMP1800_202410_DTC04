@@ -13,7 +13,7 @@ function updateDateTime() {
 setInterval(updateDateTime, 1000);
 
 // Motivaitional Quote API
-// const api_url ="https://api.quotable.io/quotes/random";
+const api_url ="https://api.quotable.io/quotes/random";
 
 async function getapi(url)
 {
