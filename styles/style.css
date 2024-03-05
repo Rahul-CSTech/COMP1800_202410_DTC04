@@ -1,1 +1,56 @@
 
+  
+  .board {
+	font-family: "Caveat";
+	font-size: 1rem; 
+	/* adjust the font size to scale the whole board  */
+	letter-spacing: .15em;
+	text-transform: uppercase;
+	line-height: 1.5;
+
+	
+	width: auto;
+	height: 175px;
+	padding: 10px;
+	overflow: hidden;
+	color: #fff;
+	border: 10px solid #eee;
+	
+	background: rgba(21, 129, 237, 0.75);
+	
+	&:focus {
+		outline: none;
+	}
+	
+	
+}
+
+.circle {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0.5rem;
+    border-radius: 50%;
+    background: #FFCDB2;
+    overflow: hidden;
+  }
+.circle.per-50 {
+    background-image: conic-gradient(#ebf926 50%, #4bd42c 0);
+  }
+
+  .circle .inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 115px;
+    height: 115px;
+    background: white;
+    border-radius: 50%;
+    font-size: 1.85em;
+    font-weight: 600;
+    color: rgba(21, 129, 237, 0.75);
+  }

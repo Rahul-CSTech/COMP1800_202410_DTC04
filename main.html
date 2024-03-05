@@ -17,12 +17,20 @@
     <!-- Other libraries go here -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+
+      
+    
+    <script src="scripts/script.js"></script>
+
     <!-- Link to styles of your own -->
+    <link rel="stylesheet" href="styles/style.css">
     <!-- Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
+                
+               
                 extend: {   
                     colors: {
                         dominant: "#4A6FA5",
@@ -34,7 +42,7 @@
                         },
                     },
                 },
-            },
+            }
         }
     </script>
 </head>
@@ -44,10 +52,10 @@
     <!-- Your HTML Layout go here -->
 
     <header>
-        <nav class="fixed top-0 left-0 w-full h-24 bg-dominant">
-            <div class = "flex justify-between h-full object-contain">
-                <img src = "images/Hamburger.png" class = "cursor-pointer m-6">
-                <img src = "images/Logo - Transparent.png">
+        <nav class="flex justify-around h-20  object-contain w-full text-black">
+           
+                <img src = "images/Calender.png" class = "cursor-pointer m-6">
+                <span id="dateSpan" class="font-extrabold self-center"></span>
                 <img src = "images/Profile.webp" class = "cursor-pointer m-6">
             </div>
         </nav>
@@ -55,15 +63,24 @@
 
     <!------------------------------>
     <!-- Stuff for body goes here -->
+    <section class="flex justify-around relative flex-row p-5">
 
-    <section class = "bg-accent-100 mx-4 max-w-lg cursor-pointer rounded-lg  mt-28 mb-8">
-        <div class = "p-6">
-            <h2 class = "text-xl font-semibold">Welcome to Heemang!</h2>
-            <p class = "leading-none text-base text-gray-500 mt-2">Today's Quote:</p>
-            <p class = "leading-none text-base text-gray-500 mt-2">"Let's do our best!" - DTC04</p>
-            </p>
+        <div class="circle per-50">
+            <div class="inner">50%</div>
+        </div>
+
+        <div contenteditable class="board font-Caveat">
+            <p>Today's agenda</p>
+            <p>Today is ⛅</p>
+            <p><u>Go get it!</u></p>
         </div>
     </section>
+
+    <section class="h-40 bg-sky-400/50 mx-8 static" id="motivQuote">
+        <span class="text-xs relative bottom-0 right-0">Inspirational quotes provided by<a href="https://api.quotable.io/ target="_blank">ZenQuotes API</a></span>
+
+    </section>
+
     <article class = "flex mx-4 items-center mb-8">
         <section class = "basis-1/5 mx-2">
             <img src = "images/Calender.png">
