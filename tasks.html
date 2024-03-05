@@ -27,20 +27,12 @@
     <!-- Other libraries go here -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-      
-    
-    <script src="scripts/script.js"></script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap" rel="stylesheet">
     <!-- Link to styles of your own -->
-    <link rel="stylesheet" href="styles/style.css">
     <!-- Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
-                
-               
                 extend: {   
                     colors: {
                         dominant: "#4A6FA5",
@@ -51,93 +43,80 @@
                             300: "#192638"
                         },
                     },
+                    fontFamily: {
+                        petit: ["Petit Formal Script"],
+                        leckerli: ['Leckerli One']
+
+                    },
                 },
-            }
+            },
         }
     </script>
     
 </head>
 
-<body class= "max-w-screen-md m-auto">
-    <!------------------------------>
-    <!-- Your HTML Layout go here -->
+<body class = "bg-accent-50">
+    <section class = "mt-28">
+        <div class = "mb-4">
+            <div class = "sticky top-0 rounded-e-full bg-dominant py-2 mr-8">
+                <span class = "text-slate-50 font-bold text-2xl ml-8">
+                    Today's Tasks
+                </span>
+            </div>
+            <div class = "max-h-72 overflow-y-scroll">
+                <div id = "emptyTaskToday" class = "bg-accent-100 mr-10 rounded-e-full my-4 py-4">
+                    <h1 id = "emptyTaskNameToday" class = "mx-8 text-accent-300 text-xl font-bold">It doesn't look like there's anything here.</h1>
+                    <p id = "emptyTaskDateToday"class = "mx-8 font-semibold">Task date.</p>
+                    <p id = "emptyTaskInfoToday" class = "mx-8">Add a task using the plus symbol!</p>
+                </div>
+            </div>
+        </div>
+        <div class = "">
+            <div class = "sticky top-28 rounded-e-full bg-dominant py-2 mr-8">
+                <span class = "text-slate-50 font-bold text-2xl ml-8">
+                    Future Tasks
+                </span>
+            </div>
+            <div class = "max-h-72 overflow-y-scroll">
+                <div id = "emptyTaskFuture" class = "bg-accent-100 mr-10 rounded-e-full my-4 py-4">
+                    <h1 id = "emptyTaskNameFuture" class = "mx-8 text-accent-300 text-xl font-bold">It doesn't look like there's anything here.</h1>
+                    <p id = "emptyTaskDateFuture"class = "mx-8 font-semibold">Task date.</p>
+                    <p id = "emptyTaskInfoFuture" class = "mx-8">Add a task using the plus symbol!</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class = "fixed bottom-28 right-4 bg-dominant rounded-full">
+        <svg xmlns="http://www.w3.org/2000/svg" class="cursor-pointer icon icon-tabler icon-tabler-circle-plus" width="88" height="88" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+            <path d="M9 12h6" />
+            <path d="M12 9v6" />
+          </svg>
+    </div>
 
     <header>
-        <nav class="flex flex-row justify-around h-22 object-contain w-full text-black">
-           
-                <img src = "" class="cursor-pointer m-6 h-18 ">
-                <span id="dateSpan" class="font-extrabold self-center"></span>
-                <span class="material-symbols-outlined m-6">
-                    manage_accounts
-                    </span>
+        <nav class="fixed top-0 left-0 w-full h-20 bg-dominant">
+            <div class = "flex justify-between h-full object-contain">
+                <svg xmlns="http://www.w3.org/2000/svg" class="cursor-pointer m-4 icon icon-tabler icon-tabler-arrow-back-up" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M9 14l-4 -4l4 -4" />
+                    <path d="M5 10h11a4 4 0 1 1 0 8h-1" />
+                  </svg>
+                <img src = "images/Habit.svg" class = "mt-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="cursor-pointer m-4 icon icon-tabler icon-tabler-user-square-rounded" width="48" height="48" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M12 13a3 3 0 1 0 0 -6a3 3 0 0 0 0 6z" />
+                    <path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z" />
+                    <path d="M6 20.05v-.05a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v.05" />
+                  </svg>
             </div>
         </nav>
     </header>
-    <!------------------------------>
-    <!-- Stuff for body goes here -->
-    <section class="flex justify-around relative flex-row p-5">
 
-        <div class="circle per-50">
-            <div class="inner">50%</div>
-        </div>
-
-        <div contenteditable class="board font-Caveat">
-            <p>Today's agenda</p>
-            <p>Today is ⛅</p>
-            <p><u>Go get it!</u></p>
-        </div>
-    </section>
-
-    <section class="h-40 bg-sky-400/50 mx-8 static text-xl" >
-        <span class="text-xl relative bottom-0 right-0 m-auto" id="motivQuote">Inspirational quotes provided by<a href="https://api.quotable.io/ target="_blank">ZenQuotes API</a></span>
-
-    </section>
-
-    <article class = "flex flex-row ">
-        <section class = "flex-col basis-1/2 text-center">
-            <div>
-                <p class = "leading-none text-xl font-semibold mt-2">Tasks</p>
-                <ul class = "text-left">
-                    <li class="flex justify-between border-2 m-5 p-1">
-                        <p class="font-sans leading-6 text-gray-900">Lorem ipsum dolor sit amet.</p>
-                    </li>
-                    <li class="flex justify-between border-2 m-5 p-1">
-                        <p class="font-sans leading-6 text-gray-900">Lorem ipsum dolor sit amet.</p>
-                    </li>
-                    <li class="flex justify-between border-2 m-5 p-1">
-                        <p class="font-sans leading-6 text-gray-900">Lorem ipsum dolor sit amet.</p>
-                    </li>
-                    <li class="flex justify-between border-2 m-5 p-1">
-                        <p class="font-sans leading-6 text-gray-900">Lorem ipsum dolor sit amet.</p>
-                    </li>
-                </ul>
-            </section>
-                
-            </div>
-            <div>
-                <p class = "leading-none text-xl font-semibold mt-2">Recomended actions</p>
-                <ul>
-                    <li class="flex justify-between py-2 px-4">
-                        <div class="flex">
-                        <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="images/Placeholder.png">
-                        <p class="font-sans leading-6 text-gray-900">Lorem ipsum dolor sit amet.</p>
-                        </div>
-                    </li>
-                    <li class="flex justify-between py-2 px-4">
-                        <div class="flex">
-                            <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="images/Placeholder.png">
-                            <p class="font-sans leading-6 text-gray-900">Lorem ipsum dolor sit amet.</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-        
-        </section>
-    </article>
-
-    <!-- Bottom Nav-->
-    <footer class="sticky  w-full h-20 bg-dominant">
+    <footer class="fixed bottom-0 left-0 w-full h-20 bg-dominant">
         <div class = "flex justify-between h-full object-contain">
             <a href = "/main.html">
                 <svg xmlns="http://www.w3.org/2000/svg" class = "cursor-pointer m-4 icon icon-tabler icon-tabler-home" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -166,7 +145,7 @@
                     <path d="M11 18l9 0" />
                 </svg>
             </a>
-            <a href = "/methodlogy_loading.html">
+            <a href = "/methodlogies.html">
                 <svg xmlns="http://www.w3.org/2000/svg" class="cursor-pointer m-4 icon icon-tabler icon-tabler-report-search" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                     <path d="M8 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h5.697" />
@@ -180,19 +159,5 @@
             </a>
         </div>
     </footer>
-
-    <!---------------------------------------------->
-    <!-- Your own JavaScript functions go here    -->
-    <!---------------------------------------------->
-
-    <!-- Link to scripts of your own -->
-    <!-- <script src="./scripts/script.js"></script> -->
-
-    <script src="./scripts/firebaseAPI_TEAM04.js"></script>
-    <script src="./scripts/script.js"></script>
-    <script src="./scripts/authentication.js"></script>
-    <script src="./scripts/skeleton.js"></script>
-
 </body>
-
 </html>
