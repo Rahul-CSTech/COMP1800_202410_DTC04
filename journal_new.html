@@ -61,22 +61,25 @@
 <body>
     <nav id = "headerNav"></nav>
 
-    <section class = "mt-28 mx-8 mb-28 text-slate-50">
+    <section class = "my-28 text-slate-50">
         <div class = "h-auto rounded-2xl">
-            <form class = "m-8 flex flex-col gap-y-4">
+            <form class = "m-8 flex flex-col gap-y-2">
                 <input id = "title" placeholder = "Title" class = "focus:outline-none placeholder-slate-50 bg-submissive rounded-2xl p-4 w-full"><br>
                 
                 <input id = "date" placeholder = "Date" class = "focus:outline-none placeholder-slate-50 bg-submissive rounded-2xl p-4 w-full"><br>
                 
                 <textarea type = "text" id= "note" placeholder = "Enter note here." col=56 rows=16 class = "focus:outline-none placeholder-slate-50 bg-submissive rounded-2xl p-4 w-full overflow-scroll"></textarea><br>     
             </form>
-            <button class = "bg-submissive">SAVE</button>       
-            <button class = "bg-submissive">DISCARD</button>   
         </div>
-    </section>
+        <div class = "flex justify-center">
+
+            <button id = "save" class = "bg-dominant w-48 b-4 h-20 rounded-2xl text-2xl font-semibold">SAVE</button>       
+        </div>
+        </section>
         
     <nav id = 'footerNav'></nav>
 
     <script src = "/scripts/skeleton.js"></script>
     <script src = "/scripts/journal.js"></script>
+    <script src = "/scripts/firebaseAPI_TEAM04.js"></script>
 </body>
