@@ -65,32 +65,18 @@
     <!------------------------------>
     <!-- Your HTML Layout go here -->
 
-    <section class = "grid justify-center grid-cols-2 mt-16">
-        <div id = "emptyNote" class = "cursor-pointer justify-self-center bg-submissive mt-12 w-44 h-56 basis-1/2 rounded-2xl overflow-hidden">
+    <template id = "note_template">
+        <div id = "display_bg" class = "cursor-pointer justify-self-center mt-12 w-44 h-56 basis-1/2 rounded-2xl overflow-hidden">
             <div class = "mx-4 my-4 flex flex-col gap-y-2">
-                <h1 class = "text-slate-50 text-xl font-bold">It doesn't look like there's anything here.</h1>
-                <p class = "font-semibold text-slate-50">Note date.</p>
-                <p class = "text-slate-50">Add a note using the plus symbol! </p>
+                <h1 id = "display_title" class = "text-slate-50 text-xl font-bold"></h1>
+                <p id = "display_date" class = "font-semibold text-slate-50"></p>
+                <p id = "display_note" class = "text-slate-50"></p>
             </div>
         </div>
-        <!--
-            <div id = "addNote" class = "cursor-pointer justify-self-center bg-dominant mt-12 w-36 h-48 basis-1/2 rounded-2xl flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto icon icon-tabler icon-tabler-square-rounded-plus" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z" />
-                    <path d="M15 12h-6" />
-                <path d="M12 9v6" />
-            </svg>
-        </div>
-        <div id = "addNote" class = "cursor-pointer justify-self-center bg-dominant mt-12 w-36 h-48 basis-1/2 rounded-2xl flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto icon icon-tabler icon-tabler-square-rounded-plus" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z" />
-                <path d="M15 12h-6" />
-                <path d="M12 9v6" />
-            </svg>
-        </div>
-    -->
+    </template>
+
+    <section id = "note_card" class = "grid grid-cols-2 mt-16">
+            
     </section>
 
     <div class = "fixed bottom-28 right-4 bg-dominant rounded-full">
@@ -115,6 +101,7 @@
 
     <!-- Link to scripts of your own -->
     <script src = "/scripts/skeleton.js"></script>
+    <script src = "/scripts/firebaseAPI_TEAM04.js"></script>
     <script src = "/scripts/journal.js"></script>
 
 </body>
