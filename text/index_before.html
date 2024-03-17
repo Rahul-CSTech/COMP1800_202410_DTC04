@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Tailwind Library CSS CDN go here -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
+
+    <!-- Tailwind Library JS CDN  go here -->
+    <script src = "https://cdn.tailwindcss.com"></script>
+
+    <!-- Firebse 8 library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+    <!-- Other Libraries-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {   
+                    colors: {
+                        dominant: "#4A6FA5",
+                        accent: {
+                            50: "#DBE9EE",
+                            100: "#C0D6DF",
+                            200: "#2C4263",
+                            300: "#192638"
+                        },
+                    },
+                    fontFamily: {
+                        petit: ["Petit Formal Script"],
+                        leckerli: ['Leckerli One']
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class = "bg-dominant">
+    <header>
+        <nav class="fixed top-0 left-0 w-full h-24 bg-dominant">
+            <div class = "flex justify-between">
+                <a>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="m-4 icon icon-tabler icon-tabler-settings" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z" />
+                        <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+                    </svg> 
+                </a>
+                <a>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="m-4 icon icon-tabler icon-tabler-info-circle" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+                        <path d="M12 9h.01" />
+                        <path d="M11 12h1v4h1" />
+                    </svg>
+                </a>
+            </div>
+        </nav>
+    </header>
+    <section class = "">
+        <div class = "mt-72">
+            <h1 class = "text-slate-50 text-center text-6xl font-bold font-petit">Heemang</h1>
+        </div>
+        <div class = "grid justify-center mt-16">
+            <a href="./login.html" role="button" class="bg-accent-300 font-semibold p-2 md:p-4 text-white w-full rounded mb-4">LOGIN</a>          
+        </div>
+       
+        <span class="block mx-auto text-center text-white text-sm mt-4"><a class = "cursor-pointer">Terms and conditions</a><span>  |  </span><a class = "cursor-pointer">Privacy Policy</a></span>
+       </section>
+
+
+       <script src="./scripts/firebaseAPI_TEAM04.js"></script>
+       <script src="./scripts/script.js"></script>
+       <script src="./scripts/authentication.js"></script>
+       <script src="./scripts/skeleton.js"></script>
+
+</body>
+</html>
