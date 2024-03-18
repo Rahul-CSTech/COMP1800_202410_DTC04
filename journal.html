@@ -63,11 +63,11 @@
     <nav id = "headerNav"></nav>
 
     <!------------------------------>
-    <!-- Your HTML Layout go here -->
+    <!-- Template -->
 
     <template id = "note_template">
         <a class = "mx-auto">
-        <div id = "display_bg" class = "cursor-pointer justify-self-center mt-12 w-44 h-56 basis-1/2 rounded-2xl overflow-hidden">
+        <div id = "display_bg" class = "cursor-pointer justify-self-center mt-8 w-44 h-56 basis-1/2 rounded-2xl overflow-hidden">
             <div class = "mx-4 my-4 flex flex-col gap-y-2">
                 <h1 id = "display_title" class = "text-slate-50 text-xl font-bold"></h1>
                 <p id = "display_date" class = "font-semibold text-slate-50"></p>
@@ -77,9 +77,16 @@
         </a>
     </template>
 
-    <section id = "note_card" class = "grid grid-cols-2 mt-16">
-            
-    </section>
+    <!------------------------------>
+    <!-- Information header -->
+    <div class = "mx-6 bg-dominant h-40 mt-24 rounded-2xl">
+        <h2 class = "font-semibold text-lg text-slate-50 text-center px-16 pt-4">This is where you can jot down your days!</h2>
+        <p class = "text-slate-50 text-center px-6">Aim to reflect on the things you could improve, but more importantly the things you did well!</p>
+    </div>
+
+    <!------------------------------>
+    <!-- Scripts arrive here -->
+    <section id = "note_card" class = "grid grid-cols-2"></section>
 
     <div class = "fixed bottom-28 right-4 bg-dominant rounded-full">
         <a href = "/journal_new.html">
@@ -92,8 +99,7 @@
         </a>
     </div>
         
-    <!------------------------------>
-    <!-- Stuff for body goes here -->
+
 
     <nav id = 'footerNav'></nav>
 
