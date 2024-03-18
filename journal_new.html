@@ -68,7 +68,12 @@
             <form class = "m-8 flex flex-col gap-y-2">
                 <input id = "title" placeholder = "Title" class = "focus:outline-none placeholder-slate-50 bg-submissive rounded-2xl p-4 w-full"><br>
                 
-                <input id = "date" placeholder = "Date" class = "focus:outline-none placeholder-slate-50 bg-submissive rounded-2xl p-4 w-full"><br>
+                <p id = "" class = "focus:outline-none placeholder-slate-50 bg-submissive rounded-2xl p-4 w-full">
+                    <span>Created on:</span>
+                    <br>
+                    <span id = "date">
+                    </span>
+                </p>
                 
                 <textarea type = "text" id= "note" placeholder = "Enter note here." col=56 rows=16 class = "focus:outline-none placeholder-slate-50 bg-submissive rounded-2xl p-4 w-full overflow-scroll"></textarea><br>     
             </form>
@@ -82,6 +87,6 @@
     <nav id = 'footerNav'></nav>
 
     <script src = "/scripts/skeleton.js"></script>
-    <script src = "/scripts/journal.js"></script>
     <script src = "/scripts/firebaseAPI_TEAM04.js"></script>
+    <script src = "/scripts/journal_new.js"></script>
 </body>
