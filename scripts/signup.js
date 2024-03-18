@@ -25,8 +25,7 @@ document.getElementById("signup").addEventListener("click", () => {
                 email: htmlEmail,
                 user: htmlUser,
             })
-            console.log("New user UID:", user.uid)
-            signupSuccess = true
+            .then (() => window.location.href = "main.html");
         })
         .catch((error) => {
             var errorCode = error.code;
@@ -67,9 +66,4 @@ document.getElementById("signup").addEventListener("click", () => {
             }
         // ..
         })
-        
-        .then (() => {
-            if (signupSuccess == true)
-                window.location.href = "main.html"
-        });
 })
