@@ -70,24 +70,26 @@
     <section class="my-28 text-slate-50">
         <div class="h-auto rounded-2xl max-w-4xl">
             <form class="m-8 flex flex-col gap-y-2">
-                <input id="title" placeholder="Enter the name of the task"
+                <input id="taskName" placeholder="Enter the name of the task"
                     class="focus:outline-gray-400 placeholder-slate-50 bg-submissive rounded-2xl p-4 w-full"><br>
 
-                <section class="focus:outline-none placeholder-slate-50 bg-dominant rounded-2xl p-4 w-full">
+                <section class="focus:outline-none placeholder-slate-50  bg-dominant rounded-2xl p-4 w-full">
                     <span>Date:</span>
-                    <br>
-                    <input class="text-blue-800 " type="date" value="" />
+                    <input id="taskDate" class="text-blue-800" type="date" value="" />
                     </input>
-                    
+                    <br>
+                    <br>
+                    <label for="taskTime">Time:</label>
+                    <input id = "taskTime" class="text-blue-800" type="time"   placeholder="13:00" value="13:00" />
                 </section>
 
                 <textarea type="text" id="taskInfo" placeholder="Enter note here."
-                    class="focus:outline-gray-400 placeholder-slate-50 h-6xl bg-submissive rounded-2xl p-4 w-full "></textarea><br>
+                    class="click:outline-gray-400 placeholder-slate-50 h-400 bg-submissive rounded-2xl p-4 w-full "></textarea>
             </form>
         </div>
         <div class="flex justify-center">
 
-            <button id="save" class="bg-dominant w-48 b-4 h-20 rounded-2xl text-2xl font-semibold">SAVE</button>
+            <button id="save" class="bg-dominant w-48 b-4 h-10 rounded-2xl text-2xl font-semibold">SAVE</button>
         </div>
     </section>
 
@@ -100,8 +102,19 @@
     <script>
         dateNow = new Date().toISOString();
         console.log(dateNow);
-        let dateControl = document.querySelector('input[type="date"]')
+        let dateControl = document.querySelector('input[id="taskDate"]')
         dateControl.value = dateNow.substring(0, 10)
+        
+        let timeValue = document.querySelector('input[id="taskTime"]')
+        console.log('time is', timeValue.value)
+        
 
+        function submitconsole(event) {
+            
+
+            event.preventDefault();
+        }
+
+        document.getElementById("save").addEventListener("click", submitconsole);
     </script>
 </body>
