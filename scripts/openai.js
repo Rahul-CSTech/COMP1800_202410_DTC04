@@ -15,7 +15,7 @@ const port = 3000;
 const cors = require('cors'); 
 
 
-const openaiApiKey = ''; // the API key is deactivated
+const openaiApiKey = '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';
 
 app.use(express.json());
 
