@@ -1,3 +1,13 @@
+/*
+download requirements with npm:
+express, axios, cors
+
+node server should be working to connect 3000 OpenAI server.
+firewall should be disconnected
+
+firebase can interrupt with OpenAI server
+*/
+
 const express = require('express');
 const axios = require('axios');
 const app = express();
