@@ -15,7 +15,7 @@ firebase.auth().onAuthStateChanged(function(user) {
             document.getElementById("title").value = title;
             document.getElementById("date").innerHTML = date;
             document.getElementById("note").value = detail;
-        } );
+        })
         
         try {
             document.getElementById("save").addEventListener("click", () => {
@@ -25,15 +25,15 @@ firebase.auth().onAuthStateChanged(function(user) {
                     title: document.getElementById("title").value,
                     note: document.getElementById("note").value
                 })
+                .then(() => {
+                    history.back()
+                })
             })
             document.getElementById("delete").addEventListener("click", () => {
-                
-                    db.collection("users").doc(firebase.auth().currentUser.uid).collection('notes').doc(ID).delete()
-                    .then(() => {
-                        history.back()
-                    })
-                
-                
+                db.collection("users").doc(firebase.auth().currentUser.uid).collection('notes').doc(ID).delete()
+                .then(() => {
+                    history.back()
+                })
             })
         } catch(TypeError) {
             console.log("Save button type error")
