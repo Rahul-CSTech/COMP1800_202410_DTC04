@@ -1,4 +1,4 @@
-date_creation = document.getElementById("date").innerHTML = new Date().toLocaleDateString();
+date_creation = document.getElementById("date").innerHTML = new Date().toLocaleString();
 
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {

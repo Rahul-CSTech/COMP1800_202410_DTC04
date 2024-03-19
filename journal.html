@@ -37,6 +37,10 @@
         tailwind.config = {
             theme: {
                 extend: {   
+                    borderWidth: {
+                        10: '19px',
+                    }
+                    ,
                     colors: {
                         dominant: "#4A6FA5",
                         submissive: "#7997c3",
@@ -66,9 +70,9 @@
     <!-- Template -->
 
     <template id = "note_template">
-        <a class = "mx-auto">
-        <div id = "display_bg" class = "cursor-pointer justify-self-center mt-8 w-44 h-56 basis-1/2 rounded-2xl overflow-hidden">
-            <div class = "mx-4 my-4 flex flex-col gap-y-2">
+        <a class = "">
+        <div id = "display_bg" class = "cursor-pointer justify-self-center mt-8 w-40 h-52 border-10 border-submissive basis-1/2 rounded-2xl overflow-hidden">
+            <div class = "flex flex-col gap-y-2">
                 <h1 id = "display_title" class = "text-slate-50 text-xl font-bold"></h1>
                 <p id = "display_date" class = "font-semibold text-slate-50"></p>
                 <p id = "display_note" class = "text-slate-50"></p>
@@ -86,9 +90,9 @@
 
     <!------------------------------>
     <!-- Scripts arrive here -->
-    <section id = "note_card" class = "grid grid-cols-2"></section>
+    <section id = "note_card" class = "grid grid-cols-2 place-items-center mx-8 gap-x-10 mb-24"></section>
 
-    <div class = "fixed bottom-28 right-4 bg-dominant rounded-full">
+    <div class = "fixed bottom-28 right-4 bg-dominant active:bg-accent-400 rounded-full">
         <a href = "/journal_new.html">
             <svg xmlns="http://www.w3.org/2000/svg" class="cursor-pointer icon icon-tabler icon-tabler-circle-plus" width="88" height="88" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
