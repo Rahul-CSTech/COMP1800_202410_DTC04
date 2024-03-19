@@ -59,7 +59,7 @@
 </head>
 
 <body>
-    <nav id = "headerNav"></nav>
+    <nav id="headerNav"></nav>
 
     <section class="bg-dominant mx-4 max-w-lg rounded-lg  mt-28 mb-8 p-2">
         <div class="">
@@ -69,17 +69,45 @@
     </section>
 
     <section class="bg-accent-100 mx-4 rounded-lg">
-        <div class="p-6">
-            <h2 class="text-xl font-semibold">Insert API functionality here.</h2>
-        </div>
+        <input type="text" id="promptInput">
+        <button id="generateButton">result!</button>
+        <div id="response"></div>
     </section>
 
-    <nav id = "footerNav"></nav>
+    <nav id="footerNav"></nav>
+
+    <script>
+        const promptInput = document.getElementById('promptInput');
+        const generateButton = document.getElementById('generateButton');
+        const responseDiv = document.getElementById('response');
+
+        generateButton.addEventListener('click', async () => {
+            const prompt = promptInput.value;
+
+            try {
+                const response = await fetch('http://localhost:3000/generate', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({prompt})
+                });
+
+                const data = await response.json();
+                responseDiv.textContent = data.text;
+            } catch (error) {
+                console.error(error);
+                responseDiv.textContent = error.message;
+            }
+
+        });
+    </script>
 
     <script src="./scripts/firebaseAPI_TEAM04.js"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/authentication.js"></script>
     <script src="./scripts/skeleton.js"></script>
+
 </body>
 
 </html>
