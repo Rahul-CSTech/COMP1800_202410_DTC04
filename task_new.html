@@ -97,24 +97,7 @@
 
     <script src="/scripts/skeleton.js"></script>
     <script src="/scripts/firebaseAPI_TEAM04.js"></script>
-    <script src="/scripts/journal_new.js"></script>
+    <script src="/scripts/task_new.js"></script>
 
-    <script>
-        dateNow = new Date().toISOString();
-        console.log(dateNow);
-        let dateControl = document.querySelector('input[id="taskDate"]')
-        dateControl.value = dateNow.substring(0, 10)
-        
-        let timeValue = document.querySelector('input[id="taskTime"]')
-        console.log('time is', timeValue.value)
-        
-
-        function submitconsole(event) {
-            
-
-            event.preventDefault();
-        }
-
-        document.getElementById("save").addEventListener("click", submitconsole);
-    </script>
+   
 </body>

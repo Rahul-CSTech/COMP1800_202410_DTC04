@@ -4,7 +4,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         function readNote() {
             let cardTemplate = document.getElementById("note_template")
         
-            db.collection("users").doc(user.uid).collection("notes").get()
+            db.collection("users").doc(user.uid).collection("notes").orderBy("date").get()
                 .then((querySnapshot) => {
                     querySnapshot.forEach((doc) => {
                         var title = doc.data().title
@@ -21,6 +21,8 @@ firebase.auth().onAuthStateChanged(function(user) {
                     })
                 })
         }
+
+        
         readNote();
     } else {
         // No user is signed in.
