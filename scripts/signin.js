@@ -23,7 +23,7 @@ document.getElementById("login").addEventListener("click", () => {
                 document.getElementById("email_label").innerHTML="Email does not exist."
                 console.log(errorMessage)
             }
-            if (errorCode == "auth/invalid-password") {
+            if (errorCode == "auth/wrong-password") {
                 document.getElementById("email").classList.remove("border-2", "border-red-500")
                 document.getElementById("password").classList.remove("border-2", "border-red-500")
                 document.getElementById("email_label").classList.remove("pb-2")

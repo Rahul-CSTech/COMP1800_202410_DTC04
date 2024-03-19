@@ -2,7 +2,6 @@ document.getElementById("signup").addEventListener("click", () => {
     var htmlEmail = document.getElementById('email').value
     var htmlUser = document.getElementById('username').value
     var htmlPass = document.getElementById("password").value
-    let signupSuccess = false
 
     if (htmlUser.length == 0){
         document.getElementById("email").classList.remove("border-2", "border-red-500")
@@ -39,6 +38,9 @@ document.getElementById("signup").addEventListener("click", () => {
                 document.getElementById("username_label").classList.remove("mb-2")
                 document.getElementById("email").classList.add("border-2", "border-red-500")
                 document.getElementById("email_label").classList.add("mb-2")
+                document.getElementById("email_label").innerHTML=""
+                document.getElementById("username_label").innerHTML=""
+                document.getElementById("password_label").innerHTML=""
                 document.getElementById("email_label").innerHTML="Email already in use."
                 console.log(errorMessage)
             }
