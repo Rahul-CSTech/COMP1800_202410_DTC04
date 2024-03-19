@@ -11,6 +11,9 @@ document.getElementById("signup").addEventListener("click", () => {
         document.getElementById("email_label").classList.remove("mb-2")
         document.getElementById("username").classList.add("border-2", "border-red-500")
         document.getElementById("username_label").classList.add("mb-2")
+        document.getElementById("email_label").innerHTML=""
+        document.getElementById("username_label").innerHTML=""
+        document.getElementById("password_label").innerHTML=""
         document.getElementById("username_label").innerHTML="Enter a username."
         console.log("Nothing was entered for username.")
         return
@@ -52,6 +55,9 @@ document.getElementById("signup").addEventListener("click", () => {
                 document.getElementById("username_label").classList.remove("mb-2")
                 document.getElementById("email").classList.add("border-2", "border-red-500")
                 document.getElementById("email_label").classList.add("mb-2")
+                document.getElementById("email_label").innerHTML=""
+                document.getElementById("username_label").innerHTML=""
+                document.getElementById("password_label").innerHTML=""
                 document.getElementById("email_label").innerHTML="Enter an email."
                 console.log(errorMessage)
             }
@@ -63,6 +69,9 @@ document.getElementById("signup").addEventListener("click", () => {
                 document.getElementById("username_label").classList.remove("mb-2")
                 document.getElementById("password").classList.add("border-2", "border-red-500")
                 document.getElementById("password_label").classList.add("mb-2")
+                document.getElementById("email_label").innerHTML=""
+                document.getElementById("username_label").innerHTML=""
+                document.getElementById("password_label").innerHTML=""
                 document.getElementById("password_label").innerHTML="Password must be longer than 5 characters."
                 console.log(errorMessage)
             }
