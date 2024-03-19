@@ -12,8 +12,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
 
     <!-- Tailwind Library JS CDN  go here -->
-    <script src = "https://cdn.tailwindcss.com"></script>
-    
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <!-- Firebse 8 library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
@@ -33,7 +33,7 @@
     <script>
         tailwind.config = {
             theme: {
-                extend: {   
+                extend: {
                     colors: {
                         dominant: "#4A6FA5",
                         accent: {
@@ -54,57 +54,62 @@
     </script>
 </head>
 
-<body class = "">
-    <section class = "mt-28">
-        <div class = "mb-4">
-            <div class = "sticky top-0 rounded-e-full bg-dominant py-2 mr-8">
-                <span class = "text-slate-50 font-bold text-2xl ml-8">
-                    Today's Tasks
+<body class="">
+    <section class="mt-28">
+        <div class="mb-4">
+            <div class="sticky top-0 rounded-e-full bg-dominant py-2 mr-8">
+                <span class="text-slate-50 font-bold text-2xl ml-8">
+                    Your Tasks
                 </span>
             </div>
-            <div class = "max-h-72 overflow-y-scroll">
-                <div id = "emptyTaskToday" class = "bg-accent-100 mr-10 rounded-e-full my-4 py-4">
-                    <h1 id = "emptyTaskNameToday" class = "mx-8 text-accent-300 text-xl font-bold">It doesn't look like there's anything here.</h1>
-                    <p id = "emptyTaskDateToday"class = "mx-8 font-semibold">Task date.</p>
-                    <p id = "emptyTaskInfoToday" class = "mx-8">Add a task using the plus symbol!</p>
+            <div id="todayTaskList" class="max-h-72">
+                <div id="taskToday" class="bg-accent-100 mr-10 rounded-e-full my-4 py-4">
+                    <h1 id="taskTodayName" class="mx-8 text-accent-300 text-xl font-bold">Nothing here</h1>
+                    <span id="taskTodayDate" class="mx-8 font-semibold"></span>
+                    <span id="taskTodayTime" class="mx-8 font-semibold"></span>
+                    <p id="taskTodayInfo" class="mx-8">Click the add button to add tasks</p>
                 </div>
             </div>
         </div>
-        <div class = "">
-            <div class = "sticky top-28 rounded-e-full bg-dominant py-2 mr-8">
+        <div class="">
+            <!-- <div class = "sticky top-28 rounded-e-full bg-dominant py-2 mr-8">
                 <span class = "text-slate-50 font-bold text-2xl ml-8">
                     Future Tasks
                 </span>
-            </div>
-            <div class = "max-h-72 overflow-y-scroll">
-                <div id = "emptyTaskFuture" class = "bg-accent-100 mr-10 rounded-e-full my-4 py-4">
-                    <h1 id = "emptyTaskNameFuture" class = "mx-8 text-accent-300 text-xl font-bold">It doesn't look like there's anything here.</h1>
-                    <p id = "emptyTaskDateFuture"class = "mx-8 font-semibold">Task date.</p>
-                    <p id = "emptyTaskInfoFuture" class = "mx-8">Add a task using the plus symbol!</p>
-                </div>
+            </div> -->
+            <!-- <div id ="futureTaskList" class= "max-h-72 overflow-y-scroll">
+                <div id = "taskFuture" class = "bg-accent-100 mr-10 rounded-e-full my-4 py-4">
+                    <h1 id = "taskFutureName" class = "mx-8 text-accent-300 text-xl font-bold">It doesn't look like there's anything here.</h1>
+                    <p id = "taskFutureDate"class = "mx-8 font-semibold"></p>
+                    <p id = "taskFutureInfo" class = "mx-8"></p>
+                </div> -->
 
-            </div>
+        </div>
         </div>
     </section>
 
-    <div class = "fixed bottom-28 right-4 bg-dominant rounded-full">
-        <svg xmlns="http://www.w3.org/2000/svg" class="cursor-pointer icon icon-tabler icon-tabler-circle-plus" width="88" height="88" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+    <a href="task_new.html" class="fixed bottom-28 right-4 bg-dominant rounded-full">
+        <svg xmlns="http://www.w3.org/2000/svg" class="cursor-pointer icon icon-tabler icon-tabler-circle-plus"
+            width="88" height="88" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
             <path d="M9 12h6" />
             <path d="M12 9v6" />
-          </svg>
-    </div>
+        </svg>
+    </a>
 
-    <nav id = "headerNav"></nav>
+    <nav id="headerNav"></nav>
 
-    <nav id = "footerNav"></nav>
+    <nav id="footerNav"></nav>
 
     <!-- Link to scripts of your own -->
-    <script src="./scripts/script.js"></script>
-    <script src="./scripts/firebaseAPI_TEAM04.js"></script>
-    <script src="./scripts/script.js"></script>
-    <script src="./scripts/authentication.js"></script>
     <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/firebaseAPI_TEAM04.js"></script>
+    <script src="./scripts/tasks.js"></script>
+    <!-- <script src="./scripts/script.js"></script> -->
+    <!-- <script src="./scripts/authentication.js"></script> -->
+
 </body>
+
 </html>

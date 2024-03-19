@@ -1,30 +1,35 @@
 firebase.auth().onAuthStateChanged(function(user) {
+  
     if (user) {
         // User is signed in.
-        function readTask() {
-            let cardTemplate = document.getElementById("todayTaskList")
-        
+        function makeCard() {
+         
             db.collection("users").doc(user.uid).collection("tasks").get()
                 .then((querySnapshot) => {
                     querySnapshot.forEach((doc) => {
-                        var taskTime = doc.data.taskTime
-                        var taskDate = doc.data().taskDate
-                        var taskInfo = doc.data().taskInfo
-                        var taskName = doc.data().taskName
-                        let newcard = document.importNode(cardTemplate.content, true)
-                        // newcard.getElementById("display_bg").classList.add("bg-submissive")
-                        newcard.getElementById("taskTodayName").innerHTML = "test"
-                        newcard.getElementById("taskTodayDate").innerHTML = taskDate
-                        newcard.getElementById("taskTodayInfo").innerHTML = taskInfo
-                        newcard.getElementById("taskTodayTime").innnerHTML = taskTime
+                    var taskTime = doc.data().taskTime
+                    var taskDate = doc.data().taskDate
+                    var taskInfo = doc.data().taskInfo
+                    var taskName = doc.data().taskName
+
+                    var newcard= document.getElementById("taskToday").cloneNode(true)
+                    const thislist = document.getElementById("taskToday")
+                    thislist.remove()
+                    newcard.id = taskName
+                    newcard.querySelector("#taskTodayName").innerHTML = taskName;
+                    newcard.querySelector("#taskTodayInfo").innerHTML = taskInfo;
+                    newcard.querySelector("#taskTodayDate").innerHTML = taskDate; 
+                    newcard.querySelector("#taskTodayTime").innerHTML = taskTime;
+                   
+                    document.getElementById("todayTaskList").appendChild(newcard);
+                        
                         // newcard.querySelector('a').href = "journal_edit.html?docID="+doc.id
-        
-                        document.getElementById("todayTaskList").appendChild(newcard)
-                        console.log(newcard)
-                    })
+                        
+                    }
+                    )
                 })
         }
-        readTask();
+        makeCard();
     } else {
         // No user is signed in.
         console.log("No user is signed in.")
