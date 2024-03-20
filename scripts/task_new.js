@@ -17,9 +17,10 @@ firebase.auth().onAuthStateChanged(function(user)  {
         taskDate: document.getElementById("taskDate").value,
         taskTime: document.getElementById("taskTime").value,
         taskInfo: document.getElementById("taskInfo").value,
-       
-    }) 
-        event.preventDefault();
+        })
+        .then(() => {
+            history.back()
+        })
     }
 
     try {

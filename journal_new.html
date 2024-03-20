@@ -65,24 +65,27 @@
 
     <section class = "my-28 text-slate-50">
         <div class = "h-auto rounded-2xl">
-            <form class = "m-8 flex flex-col gap-y-2">
-                <input id = "title" placeholder = "Title" class = "focus:outline-none placeholder-slate-50 bg-submissive rounded-2xl p-4 w-full"><br>
-                
-                <p id = "" class = "focus:outline-none placeholder-slate-50 bg-dominant rounded-2xl p-4 w-full">
-                    <span>Created on:</span>
-                    <br>
-                    <span id = "date">
-                    </span>
-                </p>
-                
-                <textarea type = "text" id= "note" placeholder = "Enter note here." col=56 rows=16 class = "focus:outline-none placeholder-slate-50 bg-submissive rounded-2xl p-4 w-full overflow-scroll"></textarea><br>     
+            <form class = "mx-8 mb-6 flex flex-col gap-y-4">
+                <div>
+
+                    <input id = "title" placeholder = "Title" class = "focus:outline-none placeholder-slate-50 bg-submissive rounded-2xl p-4 w-full"><br>
+                </div>
+                <div>
+                    <p id = "" class = "focus:outline-none placeholder-slate-50 bg-dominant rounded-2xl p-4 w-full">
+                        Created on:
+                        <br>
+                        <span id = "date"></span>
+                    </p>
+                </div>
+                <div>
+                    <textarea type = "text" id= "note" placeholder = "Enter note here." col=56 rows=16 class = "focus:outline-none placeholder-slate-50 bg-submissive rounded-2xl p-4 w-full overflow-scroll"></textarea><br>     
+                </div>
             </form>
         </div>
         <div class = "flex justify-center">
-
-            <button id = "save" class = "bg-dominant w-48 b-4 h-20 rounded-2xl text-2xl font-semibold">SAVE</button>       
+            <button id = "save" class = "bg-dominant w-48 h-20 rounded-2xl text-2xl font-semibold">SAVE</button>       
         </div>
-        </section>
+    </section>
         
     <nav id = 'footerNav'></nav>
 

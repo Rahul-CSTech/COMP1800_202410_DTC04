@@ -36,11 +36,13 @@
                 extend: {
                     colors: {
                         dominant: "#4A6FA5",
+                        submissive: "#7997c3",
                         accent: {
                             50: "#DBE9EE",
                             100: "#C0D6DF",
                             200: "#2C4263",
-                            300: "#192638"
+                            300: "#2C4263",
+                            400: "#192638"       
                         },
                     },
                     fontFamily: {
@@ -54,10 +56,8 @@
     </script>
 </head>
 
-<body >
-    
-
-    <section class="mt-28">
+<body>
+    <section class="mt-24">
         <div class="mb-4">
             <div class="sticky top-0 rounded-e-full bg-dominant py-2 mr-8">
                 <span class="text-slate-50 font-bold text-2xl ml-8">
@@ -65,8 +65,8 @@
                 </span>
             </div>
             <div id="todayTaskList" class="mb-100px">
-                <div id="taskToday" class="bg-accent-100 mr-10 rounded-e-full my-4 py-4">
-                    <h1 id="taskTodayName" class="mx-8 text-accent-300 text-xl font-bold">Nothing here</h1>
+                <div id="taskToday" class="bg-submissive mr-10 text-slate-50 rounded-e-full my-4 py-4">
+                    <h1 id="taskTodayName" class="mx-8 text-xl font-bold">Nothing here</h1>
                     <span id="taskTodayDate" class="mx-8 font-semibold"></span>
                     <span id="taskTodayTime" class="mx-8 font-semibold"></span>
                     <p id="taskTodayInfo" class="mx-8">Click the add button to add tasks</p>

@@ -1,25 +1,26 @@
-// function logout() {
-//     firebase.auth().signOut().then(() => {
-//         console.log("logging out");
-//       }).catch((error) => {
-//       });
-// }
-
-function updateDateTime() {
-    // create a new `Date` object
-    const now = new Date();
-
-    // get the current date and time as a string
-    const currentDateTime = now.toLocaleString();
-
-    // update the `textContent` property of the `span` element with the `id` of `dateSpan`
-    document.querySelector('#dateSpan').textContent = currentDateTime.substring(0,8);
-
-}
-setInterval(updateDateTime, 1000);
+function logout() {
+    firebase.auth().signOut().then(() => {
+        console.log("logging out");
+      }).catch((error) => {
+        });
+  }
 
 // Motivaitional Quote API
 const api_url ="https://api.quotable.io/quotes/random";
+
+// function updateDateTime() {
+//     // create a new `Date` object
+//     const now = new Date();
+
+//     // get the current date and time as a string
+//     const currentDateTime = now.toLocaleString();
+
+//     // update the `textContent` property of the `span` element with the `id` of `dateSpan`
+//     document.getElementById('dateSpan').textContent = currentDateTime.substring(0,8);
+
+// }
+// setInterval(updateDateTime, 1000);
+
 
 async function getapi(url)
 {
