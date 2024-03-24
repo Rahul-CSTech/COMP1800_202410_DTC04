@@ -9,6 +9,14 @@ firebase.auth().onAuthStateChanged(function(user) {
           })
         }
 
+        function getEmail() {
+            db.collection("users").doc(user.uid).get()
+            .then((userDoc) => {
+                var userName = userDoc.data().email;
+                document.getElementById("email").innerHTML = userName;
+            })
+          }
+
         document.getElementById("logout").onclick = function () {
             firebase.auth().signOut().then(() => {
                 console.log("Logging out.")
@@ -17,6 +25,8 @@ firebase.auth().onAuthStateChanged(function(user) {
                 console.log(error)
             });
         };
+
+        getEmail();
         getUserName();
     } else {
         // No user is signed in.
