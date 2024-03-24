@@ -1,10 +1,3 @@
-function logout() {
-    firebase.auth().signOut().then(() => {
-        console.log("logging out");
-      }).catch((error) => {
-        });
-  }
-
 // Motivaitional Quote API
 const api_url ="https://api.quotable.io/quotes/random";
 
