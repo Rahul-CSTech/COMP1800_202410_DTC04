@@ -33,7 +33,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                       var detail = doc.data().note
                       document.getElementById("display_title").innerHTML = title
                       document.getElementById("display_note").innerHTML = detail
-                      document.querySelector('a').href = "journal_edit.html?docID="+doc.id
+                      document.querySelector('#user').href = "journal_edit.html?docID="+doc.id
                   })
           })
       }
