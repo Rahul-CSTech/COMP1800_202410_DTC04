@@ -1,10 +1,3 @@
-function logout() {
-    firebase.auth().signOut().then(() => {
-        console.log("logging out");
-      }).catch((error) => {
-        });
-  }
-
 // Motivaitional Quote API
 const api_url ="https://api.quotable.io/quotes/random";
 
@@ -21,6 +14,38 @@ const api_url ="https://api.quotable.io/quotes/random";
 // }
 // setInterval(updateDateTime, 1000);
 
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+      // User is signed in.
+      function readNote() {
+      
+          db.collection("users").doc(user.uid).collection("notes").orderBy("date").get()
+              .then((querySnapshot) => {
+                  querySnapshot.forEach((doc) => {
+                      var title = doc.data().title
+                      var detail = doc.data().note
+                      document.getElementById("display_title").innerHTML = title
+                      document.getElementById("display_note").innerHTML = detail
+                      document.querySelector('#user').href = "journal_edit.html?docID="+doc.id
+                  })
+          })
+      }
+
+      function getUserName() {
+        db.collection("users").doc(user.uid).get()
+        .then((userDoc) => {
+            var userName = userDoc.data().user;
+            document.getElementById("user").innerHTML = userName;
+        })
+      }
+
+      getUserName();
+      readNote();
+  } else {
+      // No user is signed in.
+      console.log("No user is signed in.")
+  }
+});
 
 async function getapi(url)
 {

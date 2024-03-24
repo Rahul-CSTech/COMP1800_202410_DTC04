@@ -36,11 +36,13 @@
     <script>
         tailwind.config = {
             theme: {
-                
-               
                 extend: {   
+                    borderWidth: {
+                        10: '19px',
+                    },
                     colors: {
                         dominant: "#4A6FA5",
+                        submissive: "#7997c3",
                         accent: {
                             50: "#DBE9EE",
                             100: "#C0D6DF",
@@ -48,81 +50,82 @@
                             300: "#192638"
                         },
                     },
+                    height: {
+                        38: "152px"
+                    },
                 },
             }
         }
     </script>
 </head>
 
-<body class= "max-w-screen-md m-auto">
+<body class= "">
     <!------------------------------>
     <!-- Your HTML Layout go here -->
     
 
     <!------------------------------>
-    <!-- Stuff for body goes here -->
-    <section class="mt-28 flex justify-around relative flex-row p-5">
-        <div class="circle per-50">
-            <div class="inner">50%</div>
-        </div>
-
-        <div contenteditable class="board">
-            <p>Today's agenda</p>
-            <p>Today is ⛅</p>
-            <p><u>Go get it!</u></p>
+    <!-- Welcome Card -->
+    <section class = "mt-24">
+        <div id="welcome" class="">
+            <div class="bg-dominant mr-8 text-slate-50 rounded-e-full py-4">
+                <h1 class="mx-8 text-xl font-bold">Welcome to Heemang, <span id = "user">User</span>!</h1>
+            </div>
         </div>
     </section>
 
-    <section class="mx-12 h-40 bg-dominant text-slate-50 text-xl rounded-2xl">
-        <div class = "h-18 translate-y-4">
-            <h1 class = "px-4 text-center font-semibold">Here's a quote to get <br>your day started:</h1>
-            <p class="text-xl m-auto px-8 pb-2 pt-2 mb-4" id="motivQuote">Inspirational quotes provided by</p>
+    <!------------------------------>
+    <!-- Daily Quote -->
+    <section class = "mx-8 mt-6 h-40 border-10 border-submissive bg-submissive text-slate-50 rounded-2xl overflow-y-scroll">
+        <div class = "">
+            <h1 class = "leading-tight text-2xl font-bold -translate-y-2">Here's a quote to get <br>your day started:</h1>
+            <p class="leading-tight pt-2 -translate-y-2" id="motivQuote"></p>
         </div>
     </section>
 
-    <article class = "flex flex-row ">
-        <section class = "flex-col basis-1/2 text-center">
-            <div>
-                <p class = "leading-none text-xl font-semibold mt-2">Tasks</p>
-                <ul class = "text-left">
-                    <li id = "task" class="flex justify-between border-2 m-5 p-1">
-                        <p class="font-sans leading-6 text-gray-900">Lorem ipsum dolor sit amet.</p>
-                    </li>
-                    <li class="flex justify-between border-2 m-5 p-1">
-                        <p class="font-sans leading-6 text-gray-900">Lorem ipsum dolor sit amet.</p>
-                    </li>
-                    <li class="flex justify-between border-2 m-5 p-1">
-                        <p class="font-sans leading-6 text-gray-900">Lorem ipsum dolor sit amet.</p>
-                    </li>
-                    <li class="flex justify-between border-2 m-5 p-1">
-                        <p class="font-sans leading-6 text-gray-900">Lorem ipsum dolor sit amet.</p>
-                    </li>
-                </ul>
-            </section>
+    <!------------------------------>
+    <!-- ? and Journal -->
+    <section class="flex flex-row mx-8 mt-6 justify-between items-center h-52 overflow-hidden">
+        <div>
+            
+        </div>
+        <!-- <div class = "flex gap-y-3 flex-col justify-between">
+            <div class = "h-24 bg-white rounded-2xl w-32">
                 
             </div>
-            <div>
-                <p class = "leading-none text-xl font-semibold mt-2">Recomended actions</p>
-                <ul>
-                    <li class="flex justify-between py-2 px-4">
-                        <div class="flex">
-                        <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="images/Placeholder.png">
-                        <p class="font-sans leading-6 text-gray-900">Lorem ipsum dolor sit amet.</p>
-                        </div>
-                    </li>
-                    <li class="flex justify-between py-2 px-4">
-                        <div class="flex">
-                            <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="images/Placeholder.png">
-                            <p class="font-sans leading-6 text-gray-900">Lorem ipsum dolor sit amet.</p>
-                        </div>
-                    </li>
-                </ul>
+            <div class = "h-24 bg-white rounded-2xl w-32">
+                
             </div>
+        </div> -->
+        <div class = "basis-3/5">
+            <div onclick = "window.location.href = '/journal.html';" class = "cursor-pointer justify-self-center bg-submissive h-52 border-10 border-submissive rounded-2xl">
+                <div class = "leading-tight -translate-y-2 font-bold text-2xl text-slate-50 pb-1">
+                    Your last note:
+                </div>
+                <div id = "journal_main" class = "-translate-y-3 h-38 overflow-hidden">
+                    <div class = "flex flex-col gap-y-1 pt-1">
+                        <h1 id = "display_title" class = "text-slate-50 text-lg font-bold"></h1>
+                        <p id = "display_note" class = "pt-1 leading-tight -translate-y-2 text-slate-50"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        
-        </section>
-    </article>
-
+    <!------------------------------>
+    <!--Tasks and Methodology  -->
+    <section class="flex flex-row mx-8 mt-6 justify-between items-center h-52">
+        <div onclick = "window.location.href = '/tasks.html';" class = "cursor-pointer mr-2 h-52 basis-1/2 bg-submissive rounded-2xl border-10 border-submissive">
+            <div class = "leading-tight -translate-y-2 font-bold text-2xl text-slate-50 pb-1">
+                Tasks
+            </div>
+        </div>
+        <div class = "ml-2 h-52 basis-1/2 bg-submissive rounded-2xl border-10 border-submissive">
+            <div class = "leading-tight -translate-y-2 font-bold text-2xl text-slate-50 pb-1">
+                Help
+            </div>
+        </div>
+    </section>
     <!-- Bottom Nav-->
     <nav id = 'footerNav'></nav>
     <nav id = "headerNav"></nav>
