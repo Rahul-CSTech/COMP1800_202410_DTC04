@@ -14,15 +14,26 @@ firebase.auth().onAuthStateChanged(function (user) {
                         console.log(querySnapshot)
                         console.log(querySnapshot.size)
 
+                        let addDelRow = document.getElementById("optionsRow").cloneNode(true)
+                       
                         querySnapshot.forEach((doc) => {
 
                             var newcard = cardprototype.cloneNode(true);
+                           
                             
                             var taskTime = doc.data().taskTime
                             var taskDate = doc.data().taskDate
                             var taskInfo = doc.data().taskInfo
                             var taskName = doc.data().taskName
                             newcard.id = taskDate
+                            var row = addDelRow.cloneNode(true);
+                            newcard.appendChild(row);
+                            newcard.addEventListener("click", () => {row.classList.toggle("hidden")
+                                newcard.classList.toggle("pb-0")
+                        });
+                           
+                           
+                           
 
                             newcard.querySelector("#taskTodayName").innerHTML = taskName;
                             newcard.querySelector("#taskTodayInfo").innerHTML = taskInfo;
