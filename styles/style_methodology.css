@@ -76,14 +76,9 @@
 }
 
 input[type="text"] {
-  padding: 10px;
-  border-radius: 20px;
   border: none;
-  font-size: 16px;
   background-color: #7997c3;
   color: #f8fafc;
-  width: calc(100% - 70px);
-  margin-right: 10px;
 }
 
 input:focus {
@@ -118,13 +113,8 @@ button[disabled] {
   color: #7997c3;
 }
 
-.message.me:before {
-  content: "";
-  position: absolute;
-  border-width: 20px 20px 20px 0;
-  border-color: transparent #f8fafc transparent transparent transparent;
-  top: 0;
-  left: -20px;
+.message.me {
+  margin-left: auto;  
 }
 
 .message.bot:before {
