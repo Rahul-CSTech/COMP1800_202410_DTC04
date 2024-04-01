@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>1800-DTC04</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
     <!-- Tailwind Library CSS CDN go here -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
 
@@ -66,11 +66,12 @@
     </script>
 </head>
 
-<body>
+<body class = "text-slate-50">
     <nav id = "headerNav"></nav>
 
     <div class="background-image"></div>
-    <div class="chat-container mt-24 w-full mx-8">
+
+    <div class="chat-container mt-24 w-full px-8">
         <div class="bg-dominant rounded-2xl">
             <div id="intro-container" class="pt-6">
                 <p id="intro-message" class = "text-center font-semibold text-xl mx-8">We are what we repeatedly do. Excellence, then, is not<br>an act, but a habit.</p>
@@ -79,11 +80,14 @@
             <div id="intro-question">
                 <button id="start-btn" class = "bg-submissive rounded-2xl h-14 max-w-28 mx-auto text-2xl" onclick="startChat()">Start</button>
             </div>
-            <div id="chat" class = "mx-8 py-4">
-                <p class = "text-xl font-bold text-center pb-4">Feel free to ask anything regarding your habit forming.</p>                
+            <div id="chat" class = "px-8 py-4">
+                <p class = "text-xl font-bold text-center pb-4">Feel free to ask anything regarding your habit forming.</p>   
+
                 <div class="messages"></div>
+
                 <div id="loading" class="fa-2x"><i class="fa-solid fa-spinner fa-spin-pulse"></i></div>
-                <div class="input-container mt-4" style="display: flex">
+
+                <div class="input-container mt-4 flex justify-end mb-2">
                     <input type="text" id="user-input" class = "placeholder-slate-50" placeholder="Type here">
                     <button id="send-btn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
                 </div>
