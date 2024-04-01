@@ -12,6 +12,7 @@ let assistantMessages = [];
 function startChat() {
     document.getElementById("intro-container").style.display = "none";
     document.getElementById("intro-question").style.display = "none";
+    document.getElementById("info-container").style.display = "none";
     document.getElementById("chat").style.display = "block";
     let welcomeMsg = "Hello!\n"+ 
                     "Are you struggling with habit formation?\n" +

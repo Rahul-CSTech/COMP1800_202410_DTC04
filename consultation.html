@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>1800-DTC04</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    
+
     <!-- Tailwind Library CSS CDN go here -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
 
@@ -71,23 +71,27 @@
 
     <div class="background-image"></div>
 
-    <div class="chat-container mt-24 w-full px-8">
+    <div class="chat-container my-24 w-full px-8">
         <div class="bg-dominant rounded-2xl">
             <div id="intro-container" class="pt-6">
                 <p id="intro-message" class = "text-center font-semibold text-xl mx-8">We are what we repeatedly do. Excellence, then, is not<br>an act, but a habit.</p>
                 <p class = "mx-auto text-center font-bold text-xl pt-4">- Aristotle -</p>
             </div>
+
+            <div id = "info-container" class = "text-center mt-6">
+                Chat with  our consulant if you have any questions, or are in need of some guidance.<br><span class = "px-4">As the information provided is sourced from the web, user discretion is advised.</span>
+            </div>
             <div id="intro-question">
                 <button id="start-btn" class = "bg-submissive rounded-2xl h-14 max-w-28 mx-auto text-2xl" onclick="startChat()">Start</button>
             </div>
-            <div id="chat" class = "px-8 py-4">
-                <p class = "text-xl font-bold text-center pb-4">Feel free to ask anything regarding your habit forming.</p>   
+            <div id="chat" class = "px-8 pt-6 pb-4">
+                <p class = "text-xl font-bold text-center pb-6">Feel free to ask anything regarding your habit forming.</p>   
 
                 <div class="messages"></div>
 
                 <div id="loading" class="fa-2x"><i class="fa-solid fa-spinner fa-spin-pulse"></i></div>
 
-                <div class="input-container mt-4 flex justify-end mb-2">
+                <div class="input-container mt-6 flex justify-end mb-2">
                     <input type="text" id="user-input" class = "placeholder-slate-50" placeholder="Type here">
                     <button id="send-btn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
                 </div>
