@@ -1,11 +1,14 @@
 firebase.auth().onAuthStateChanged(function (user) {
 
     if (user) {
-       
+
+        // Reference to the tasks collection
+
+        var tasksRef = db.collection("users").doc(user.uid).collection("tasks")
         // User is signed in.
         function makeCard() {
-           
-            db.collection("users").doc(user.uid).collection("tasks").get()
+
+            tasksRef.get()
                 .then((querySnapshot) => {
 
                     if (querySnapshot.empty != true) {
@@ -15,25 +18,27 @@ firebase.auth().onAuthStateChanged(function (user) {
                         console.log(querySnapshot.size)
 
                         let addDelRow = document.getElementById("optionsRow").cloneNode(true)
-                       
+
                         querySnapshot.forEach((doc) => {
 
                             var newcard = cardprototype.cloneNode(true);
-                           
-                            
+
+
                             var taskTime = doc.data().taskTime
                             var taskDate = doc.data().taskDate
                             var taskInfo = doc.data().taskInfo
                             var taskName = doc.data().taskName
-                            newcard.id = taskDate
+                            newcard.id = doc.id
                             var row = addDelRow.cloneNode(true);
                             newcard.appendChild(row);
-                            newcard.addEventListener("click", () => {row.classList.toggle("hidden")
+                            newcard.addEventListener("click", () => {
+                                row.classList.toggle("hidden")
                                 newcard.classList.toggle("pb-0")
-                        });
-                           
-                           
-                           
+                            });
+                            newcard.querySelector("#deleteButton").addEventListener("click", () => {
+                                newcard.remove();
+                                deleteTask(doc.id, tasksRef);
+                            })
 
                             newcard.querySelector("#taskTodayName").innerHTML = taskName;
                             newcard.querySelector("#taskTodayInfo").innerHTML = taskInfo;
@@ -45,9 +50,9 @@ firebase.auth().onAuthStateChanged(function (user) {
                     }
 
                 }
-            )
+                )
         }
-        
+
         makeCard();
         // document.getElementById("todayTaskList").appendChild(cardprototype);
     }
@@ -58,3 +63,8 @@ firebase.auth().onAuthStateChanged(function (user) {
     }
 });
 
+function deleteTask(identity, tasksRef) {
+    tasksRef.doc(identity).delete().then(() => {
+        console.log(`${identity} deleted`)
+    }).catch((error) => { console.error("Error removing the document.", error) })
+}
