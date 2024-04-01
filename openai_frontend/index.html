@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>1800-DTC04</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Main CSS File -->
+    <link href="style_methodology.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-image"></div>
+    <div class="chat-container">
+        <div class="chat-content">
+            <div id="intro-container" class="intro-container">
+                <h1></h1>
+                <p id="introduction"></p>
+                <p id="intro-message">We are what repeatedly do</p>
+                <p id="intro-message">Excellence, then, is not an act, but a habit.</p>
+                <br>
+                <p id="intro-message">- Aristotle -</p>
+            </div>
+            <div id="intro-question">
+                <button id="start-btn" onclick="startChat()">Start</button>
+            </div>
+            <div id="chat">
+                <p>Ask anything for your habit forming.</p>                
+                <div class="messages"></div>
+                <div id="loading" class="fa-2x"><i class="fa-solid fa-spinner fa-spin-pulse"></i></div>
+                <div class="input-container" style="display: flex">
+                    <input type="text" id="user-input" placeholder="Type here">
+                    <button id="send-btn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Script File -->
+    <script type="text/javascript" src="./script.js"></script>
+</body>
+
+</html>
