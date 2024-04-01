@@ -71,45 +71,40 @@
     </section>
 
 
-    <section class="bg-accent-100 mt-8 mx-4 rounded-lg">
-        <input type="text" id="promptInput" placeholder="Placeholder" class = "border-2">
-        <button type = "button" id="generateButton" class = "cursor-pointer">result!</button>
-        <div id="response"></div>
+    <section class="flex flex-col justify-center mt-8 mx-8 rounded-lg">
+        <form action = "https://comp1800-dtc4-server.onrender.com/heemangQuery">
+            <textarea type = "text" id= "note" placeholder = "Enter note here." col=56 rows=16 class = "focus:outline-none placeholder-slate-50 bg-submissive rounded-2xl p-4 w-full overflow-scroll"></textarea><br>     
+        </form>
+        <div class = "flex justify-center">    
+            <button id = "submit" class = "mt-8 text-slate-50 bg-dominant w-48 h-20 rounded-2xl text-2xl font-bold">SUBMIT</button>       
+        </div>
+        <div id = "result"></div>
     </section>
+
+
 
     <nav id="footerNav"></nav>
 
     <script>
-        const promptInput = document.getElementById('promptInput');
-        const generateButton = document.getElementById('generateButton');
-        const responseDiv = document.getElementById('response');
+    console.log(document.getElementById("note").value)
+    document.getElementById("submit").addEventListener("submit", (e) => {
+        e.preventDefault()
 
-        generateButton.addEventListener('click', async () => {
-            const prompt = promptInput.value;
-
-            try {
-                const response = await fetch('http://localhost:3000/generate', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({prompt})
-                });
-
-                const data = await response.json();
-                responseDiv.textContent = data.text;
-            } catch (error) {
-                console.error(error);
-                responseDiv.textContent = error.message;
-            }
-
-        });
+        fetch(`https://comp1800-dtc4-server.onrender.com/heemangQuery?form=${note.value}`)
+        .then((resp) => resp.json())
+        .then((data) => {
+            console.log(data)
+            document.getElementById("result").innerHTML = data.choices[0].message.content;
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    })
     </script>
 
     <script src="./scripts/firebaseAPI_TEAM04.js"></script>
     <script src="./scripts/skeleton.js"></script>
-
-
+    <script type = "module" src = "./scripts/server.js"></script>
 </body>
 
 </html>
