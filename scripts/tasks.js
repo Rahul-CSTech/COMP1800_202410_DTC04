@@ -39,6 +39,11 @@ firebase.auth().onAuthStateChanged(function (user) {
                                 newcard.remove();
                                 deleteTask(doc.id, tasksRef);
                             })
+                            newcard.querySelector("#editButton").addEventListener("click", () => {
+                                
+                                    window.location.href = "task_new.html?taskId="+doc.id
+                                    }
+                            )
 
                             newcard.querySelector("#taskTodayName").innerHTML = taskName;
                             newcard.querySelector("#taskTodayInfo").innerHTML = taskInfo;

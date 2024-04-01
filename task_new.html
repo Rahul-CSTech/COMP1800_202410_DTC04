@@ -68,7 +68,7 @@
     <nav id="headerNav"></nav>
 
     <section class="my-28 text-slate-50">
-        <div class="h-auto rounded-2xl max-w-4xl">
+        <div class="h-auto rounded-2xl max-w-4xl m-auto">
             <form class="m-8 flex flex-col gap-y-2">
                 <div>
                     <input id="taskName" placeholder="Enter the name of the task"
@@ -84,13 +84,14 @@
                     <input id = "taskTime" class="focus:outline-none text-dominant rounded-xl px-1" type="time"   placeholder="13:00" value="13:00" />
                 </div>
                 <div>
-                    <textarea type="text" id="taskInfo" placeholder="Enter note here." col=56 rows=15
+                    <textarea type="text" id="taskInfo" placeholder="Enter note here." col=56 rows=5
                     class="focus:outline-none placeholder-slate-50 bg-submissive rounded-2xl p-4 w-full "></textarea>
                 </div>
             </form>
         </div>
-        <div class="flex justify-center">
-            <button id = "save" class = "bg-dominant w-48 h-20 rounded-2xl text-2xl font-bold">SAVE</button>       
+        <div class="flex justify-around">
+            <button onclick="history.back()" id = "discard" class = "bg-red-600 w-1/3 h-20 rounded-2xl text-2xl font-bold">DISCARD</button>  
+            <button id = "save" class = "bg-dominant w-1/3 h-20 rounded-2xl text-2xl font-bold">SAVE</button>  
         </div>
     </section>
 
@@ -99,6 +100,7 @@
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/firebaseAPI_TEAM04.js"></script>
     <script src="./scripts/task_new.js"></script>
-
+    <!-- <script src="./scripts/tasks.js"></script> -->
+    
    
 </body>

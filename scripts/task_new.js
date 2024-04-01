@@ -8,28 +8,51 @@ console.log('time is', timeValue.value)
 
 
 firebase.auth().onAuthStateChanged(function(user)  {
-    if (user) {
+    if (user) { 
+       var taskCollRef = db.collection("users").doc(user.uid).collection('tasks')
+        
+       // populate the fields in the page using the url 
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const taskId = urlParams.get("taskId");
+        
+        if (taskId) {
+        document.getElementById("save").innerText = "Update";
+                         // function editTask() {
+        taskCollRef.doc(taskId).get()
+        .then((doc) =>  doc.data())
+        .then( (taskData) => {
+            
+        document.getElementById("taskName").value = taskData.taskName; 
+        document.getElementById("taskDate").value = taskData.taskDate;
+        document.getElementById("taskTime").value = taskData.taskTime;
+        document.getElementById("taskInfo").value = taskData.taskInfo })
+        } 
+        
+         
 
-    function saveTask(event) {
-       task = db.collection("users").doc(firebase.auth().currentUser.uid).collection('tasks')
-       task.add({
+    function saveTask() {
+        if (taskId){
+            taskCollRef.doc(taskId).set({
+                taskName: document.getElementById("taskName").value,
+                taskDate: document.getElementById("taskDate").value,
+                taskTime: document.getElementById("taskTime").value,
+                taskInfo: document.getElementById("taskInfo").value,
+                }).then(() => history.back())
+        }
+
+        else {
+        taskCollRef.add({
         taskName: document.getElementById("taskName").value,
         taskDate: document.getElementById("taskDate").value,
         taskTime: document.getElementById("taskTime").value,
         taskInfo: document.getElementById("taskInfo").value,
-        })
-        .then(() => {
-            history.back()
-        })
+        }).then(() => history.back())}
+        
     }
-
-    try {
-        document.getElementById("save").addEventListener("click", saveTask);
-        }
-     catch(TypeError) {
-        console.log("Save button type error")
+    document.getElementById("save").addEventListener("click", saveTask)
     }
 
 } 
 
-});
+)
