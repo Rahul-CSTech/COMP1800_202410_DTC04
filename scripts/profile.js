@@ -34,6 +34,21 @@ firebase.auth().onAuthStateChanged(function(user) {
     }
   });
 
+function save_user() {
+    note = db.collection("users").doc(firebase.auth().currentUser.uid)
 
+    note.update({
+        user: document.getElementById("user_edit").value,
+    })
+    .then(() => {
+        location.reload()
+    })
+    
+}
 
-
+function edit_profile() {
+    $('#user').toggle()
+    $('#user_edit').toggle()
+    $('#save_buttons').toggle()
+    $('#edit_buttons').toggle()
+}
