@@ -25,7 +25,7 @@ app.get('/', function(req, res) {
   
 
 // POST method route
-app.post('/methodology', async function (req, res) {
+app.post('/consultation', async function (req, res) {
     console.log(req.body);
     let {userMessages, assistantMessages} = req.body
 
