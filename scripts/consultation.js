@@ -57,7 +57,7 @@ async function sendMessage() {
     input.value = '';
     loadingOn();
     try {
-        const response = await fetch("https://bcit-comp1800-dtc04.web.app/consultation", {
+        const response = await fetch("http://localhost:3000/consultation", {
             method: "POST",
             headers: {"Content-Type": "application/json",},
             body: JSON.stringify({ "userMessages": userMessages, "assistantMessages": assistantMessages }),

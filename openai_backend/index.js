@@ -8,15 +8,11 @@ const openai = new OpenAI(
     {apiKey: constants.API_KEY}
 );
 
-var cors = require('cors');
+
 
 // CORS 이슈 해결
-let corsOptions = {
-  origin: 'https://bcit-comp1800-dtc04.web.app/consultation',
-  credentials: true
-}
-
-app.use(cors(corsOptions));
+var cors = require('cors');
+app.use(cors());
 
 
 // POST 요청 받을 수 있게 만듬
@@ -78,10 +74,6 @@ app.post('/consultation', async function (req, res) {
     res.json({"assistant": chatGPTResult});
 });
 
-
-module.exports.handler = serverless(app);
-
-
-// app.listen(3000, function () {
-//   console.log('Server is running on port 3000');
-// });
+app.listen(3000, function () {
+  console.log('Server is running on port 3000');
+});
