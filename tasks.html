@@ -57,7 +57,10 @@
 </head>
 
 <body>
+
+    
     <section class="my-24">
+
         <section>
             <div id="welcome" class="">
                 <div class="bg-dominant mx-8 text-slate-50 rounded-full py-4">
@@ -65,29 +68,50 @@
                 </div>
             </div>
         </section>
+
+
             <div id="todayTaskList" class="">
-                <div id="taskToday" class="flex bg-submissive mx-8 text-slate-50 rounded my-4 py-4 flex-row justify-between flex-wrap">
-                    <div class="flex flex-col">
-                        <span id="taskTodayName" class="ml-8 text-l font-bold">Nothing here</span>
-                        <span id="taskTodayTime" class="ml-8 font-semibold"></span>
+                <time class="text-lg font-semibold text-gray-900 dark:text-white">January 13th, 2022</time>
+
+
+                <!-- Decorative element -->
+
+                  <div id="taskToday" class="flex">
+                      <div class="col-start-5 col-end-6 ml-5 relative mr-10">
+                        <div class="h-full w-6 flex items-center justify-center">
+                          <div class="h-full w-1 bg-blue-800 pointer-events-none"></div>
+                        </div>
+                        <div class="w-6 h-6 absolute top-1/2 -mt-3 rounded-full bg-blue-500 shadow"></div>
+                      </div>
+                      
+                 <!-- Task card  -->
+                 <div>
+                    <div  class="flex col-start-1 col-end-5 bg-submissive text-slate-100 rounded-xl w-full mr-5 my-4 py-4 flex-row shadow-md flex-wrap px-8">
+                        <div >
+                            <h3 id="taskTodayName" class=" text-l font-bold">Nothing here</h3>
+                            <div>
+                             <span id="taskTodayDate" class="mr-2 font-semibold"></span>at
+                            <span id="taskTodayTime" class="ml-2 font-semibold"></span>
+                        </div>
+                            <span id="taskTodayInfo" class="mr-8">Click the add button to add tasks</span>
+                        </div>
                     </div>
                     
-                    <div class="flex flex-col">
-                        <span id="taskTodayDate" class="mr-8 font-semibold"></span>
-                        <span id="taskTodayInfo" class="mr-8">Click the add button to add tasks</span>
-                    </div>
-               
+                </div>
+              
                </div>
-            </div>
-            <div id="optionsRow" class="hidden flex justify-around basis-full mt-4 bg-white">
-                <a id="editButton" class="px-2 py-1 w-1/4 bg-cyan-600 rounded-full text-center" >Edit</a>
-                <a id="deleteButton" class="px-2 py-1 w-1/4 bg-red-600 rounded-full text-center">Delete</a>
-            </div>
-        </div>
-        <div class="">
 
-        </div>
-        </div>
+                 <!-- Options row -->
+                 <div id="optionsRow" class="hidden flex justify-around basis-full pt-4 mt-4 bg-white">
+                    <a id="editButton" class="px-2 py-1 w-1/4 bg-cyan-600 rounded-md text-center" >Edit</a>
+                    <a id="deleteButton" class="px-2 py-1 w-1/4 bg-red-600 rounded-md text-center">Delete</a>
+                </div>
+            </div>
+
+           
+       
+       
+        
     </section>
 
     <a href="task_new.html" class="fixed bottom-28 right-4 bg-dominant rounded-full">

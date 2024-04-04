@@ -8,7 +8,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         // User is signed in.
         function makeCard() {
 
-            tasksRef.get()
+            tasksRef.orderBy("taskTimes", "asc").get()
                 .then((querySnapshot) => {
 
                     if (querySnapshot.empty != true) {
@@ -18,14 +18,17 @@ firebase.auth().onAuthStateChanged(function (user) {
                         console.log(querySnapshot.size)
 
                         let addDelRow = document.getElementById("optionsRow").cloneNode(true)
-
+                        
                         querySnapshot.forEach((doc) => {
 
+                            
+
+                            doc.data().taskTimes.forEach((tasktime) => {
                             var newcard = cardprototype.cloneNode(true);
 
 
-                            var taskTime = doc.data().taskTime
-                            var taskDate = doc.data().taskDate
+                            var taskTime = tasktime
+                           
                             var taskInfo = doc.data().taskInfo
                             var taskName = doc.data().taskName
                             newcard.id = doc.id
@@ -47,11 +50,11 @@ firebase.auth().onAuthStateChanged(function (user) {
 
                             newcard.querySelector("#taskTodayName").innerHTML = taskName;
                             newcard.querySelector("#taskTodayInfo").innerHTML = taskInfo;
-                            newcard.querySelector("#taskTodayDate").innerHTML = taskDate;
-                            newcard.querySelector("#taskTodayTime").innerHTML = taskTime;
+                            newcard.querySelector("#taskTodayDate").innerHTML = stampToDate(tasktime);
+                            newcard.querySelector("#taskTodayTime").innerHTML = stampToTime(taskTime);
                             document.getElementById("todayTaskList").appendChild(newcard);
-                        });
-                        // document.getElementById("taskToday").remove();
+                         }) });
+                 
                     }
 
                 }
@@ -72,4 +75,26 @@ function deleteTask(identity, tasksRef) {
     tasksRef.doc(identity).delete().then(() => {
         console.log(`${identity} deleted`)
     }).catch((error) => { console.error("Error removing the document.", error) })
+}
+
+
+function stampToDate(timestamp ){
+    timestamp = new Date(timestamp)
+    var stampdate = timestamp.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "2-digit",
+      })
+      return stampdate
+}
+
+function stampToTime(timestamp) {
+    timestamp = new Date(timestamp)
+    var stamptime = timestamp.toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+
+    return stamptime
+
 }

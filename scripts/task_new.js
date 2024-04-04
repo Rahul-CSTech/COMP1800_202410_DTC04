@@ -30,7 +30,7 @@ firebase.auth().onAuthStateChanged(function(user)  {
         } 
         
          
-
+    // 
     function saveTask() {
         if (taskId){
             taskCollRef.doc(taskId).set({
@@ -42,10 +42,15 @@ firebase.auth().onAuthStateChanged(function(user)  {
         }
 
         else {
+        
+        taskDate = (document.getElementById("taskDate").value).toString();
+        taskTime = (document.getElementById("taskTime").value).toString();
+        taskTimestamp = combineDateTimeToTimestamp(taskDate, taskTime);
+        console.log(taskTimestamp);
         taskCollRef.add({
         taskName: document.getElementById("taskName").value,
-        taskDate: document.getElementById("taskDate").value,
-        taskTime: document.getElementById("taskTime").value,
+        taskTimes: [taskTimestamp],
+    
         taskInfo: document.getElementById("taskInfo").value,
         }).then(() => history.back())}
         
@@ -53,6 +58,32 @@ firebase.auth().onAuthStateChanged(function(user)  {
     document.getElementById("save").addEventListener("click", saveTask)
     }
 
-} 
+})
 
-)
+
+console.log((document.getElementById("taskDate").value).toString());
+
+console.log((document.getElementById("taskTime").value).toString());
+
+
+
+
+function combineDateTimeToTimestamp(dateString, timeString) {
+    // Create a Date object from the date string
+    const date = new Date(dateString);
+  
+    // Parse the time string (assuming format HH:MM:SS)
+    const timeParts = timeString.split(':').map(Number);
+    const hours = timeParts[0];
+    const minutes = timeParts[1];
+   
+  
+    // Set the time components of the Date object
+    date.setHours(hours, minutes);
+  
+    // Get the timestamp in milliseconds since epoch
+    const timestamp = date.getTime();
+  
+    return timestamp;
+  }
+  

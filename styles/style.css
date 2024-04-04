@@ -54,3 +54,8 @@
     font-weight: 600;
     color: rgba(21, 129, 237, 0.75);
   }
+
+
+[x-cloak] {
+display: none;
+}
