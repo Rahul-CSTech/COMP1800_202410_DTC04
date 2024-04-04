@@ -54,6 +54,8 @@ firebase.auth().onAuthStateChanged(function(user)  {
         taskInfo: document.getElementById("taskInfo").value,
         }).then(() => history.back())}
         
+       
+        
     }
     document.getElementById("save").addEventListener("click", saveTask)
     }

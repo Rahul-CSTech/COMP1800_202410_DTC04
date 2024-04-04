@@ -8,6 +8,8 @@ const openai = new OpenAI(
     {apiKey: constants.API_KEY}
 );
 
+
+
 // CORS 이슈 해결
 var cors = require('cors');
 app.use(cors());
@@ -25,7 +27,7 @@ app.get('/', function(req, res) {
   
 
 // POST method route
-app.post('/methodology', async function (req, res) {
+app.post('/consultation', async function (req, res) {
     console.log(req.body);
     let {userMessages, assistantMessages} = req.body
 
@@ -72,8 +74,6 @@ app.post('/methodology', async function (req, res) {
     res.json({"assistant": chatGPTResult});
 });
 
-
-
-app.listen(5000, function () {
+app.listen(3000, function () {
   console.log('Server is running on port 3000');
 });
