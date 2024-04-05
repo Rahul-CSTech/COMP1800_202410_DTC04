@@ -1,0 +1,133 @@
+<!-- 
+<style>
+    #image-slideshow {
+  max-width: 200px;
+  position: relative;
+  /* margin: auto; */
+  overflow:hidden;
+}
+.img {
+  width: 100%
+}
+.fade {
+
+animation: slide-in;
+
+animation-duration: 2s;
+}
+@keyframes slide-in {
+ 0%{
+    /* transform: translateX(-1000px); */
+    margin-right: 100%
+  }
+  25% {
+    transform: translateX(0);
+
+  }
+ 75% {
+    /* transform : translateX(1000px) */
+    margin-left: 100%;
+  }
+}
+
+</style> -->
+
+
+<html>
+
+<div id="image-slideshow">
+
+    <div class="image fade">
+   
+    </div>
+      
+    <div class="image fade">
+    
+    </div>
+      
+    <div class="image fade">
+  
+    </div>
+  </div>
+</html>
+
+
+<script>
+
+    async function getPhotoFromPexels(searchTerm, apiKey) {
+      // Replace with your Pexels API key
+      const pexelsApiKey = apiKey;
+    
+    
+    
+      // Base URL for Pexels API photos search
+      const baseUrl = 'https://api.pexels.com/v1/search';
+    const url = new URL(baseUrl);
+      url.searchParams.append('query', searchTerm);
+      url.searchParams.append('per_page', 3); // Request only 1 photo
+    
+      // Create the request headers with your API key
+      const headers = new Headers({
+        Authorization: apiKey
+      });
+    
+      try {
+        // Fetch the photo data from Pexels API
+        const response = await fetch(url, {
+          headers,
+        
+        });
+    
+        // Check for successful response
+     
+    
+        // Parse the response as JSON
+        const data = await response.json();
+    
+        // Extract the photo information
+        const photo = data.photos;
+    
+    
+    
+        return photo
+      } catch (error) {
+        console.error('Error fetching photo:', error);
+        return 'An error occurred while fetching the photo.';
+      }
+    
+    }
+    
+    
+    getPhotoFromPexels('nature', 'W9IX7RzvsrCd5NGsTAsvlx59uyFkaoSFlv6Lw3ETMIyQSVRglNI1vfSa')
+      .then(photo => {
+        console.log('Photo URL:', photo); // Access the photo URL
+     
+    imageArray = document.getElementsByClassName("image");
+    for (let i = 0; i < imageArray.length; i++) {
+        const element = imageArray[i];
+        const photourl = photo[i]['src']['medium'];
+
+        // Set the inner HTML with the correct image source
+        element.innerHTML = `<img src="${photourl}" alt="Image from Pexels">`
+        
+    };})
+    
+    
+    
+    let index = 0;
+    displayImages();
+    function displayImages() {
+      let i;
+      const images = document.getElementsByClassName("image");
+      for (i = 0; i < images.length; i++) {
+        images[i].style.display = "none";
+      }
+      index++;
+      if (index > images.length) {
+        index = 1;
+      }
+      images[index-1].style.display = "block";
+      setTimeout(displayImages, 4000); 
+    }
+
+    </script>
