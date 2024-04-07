@@ -1,42 +1,39 @@
+//Make prototype object for task cards and banners to make task objects
 let cardprototype = document.getElementById("taskToday").cloneNode(true);
 let bannerprototype = document.getElementById("timeBanner");
 let addDelRow = document.getElementById("optionsRow").cloneNode(true)
 
-var bannercard = cardprototype.clode
-
+// Heyyyyyyyyyyyy
+//firebase authorization
 firebase.auth().onAuthStateChanged(function (user) {
 
     if (user) {
         // User is signed in.
         // Reference to the tasks collection
 
-        var tasksRef = db.collection("users").doc(user.uid).collection("tasks")
-        
-        
+        let tasksRef = db.collection("users").doc(user.uid).collection("tasks")
+
         // arrange data in asceding order according to time
-            tasksRef.orderBy("taskTimes", "asc").get().then((querySnapshot) => {
-        
-                    if (querySnapshot.empty != true) {
+        tasksRef.orderBy("taskTimes", "asc").get().then((querySnapshot) => {
 
-                        document.getElementById("taskToday").remove();
-                        console.log(querySnapshot)
-    
+            if (querySnapshot.empty != true) {
+               
+                // remove placeholder if data exists in database
+                document.getElementById("taskToday").remove();
+                // data in querysnapshot looped for existing data
+                querySnapshot.forEach((doc) => {
+                    doc.data().taskTimes.forEach((tasktime) => {
+                        // cloned task objects populated with data from database  and append to DOM             
+                        makeTaskCard(tasktime, doc,tasksRef);
 
+                        // document.getElementById("todayTaskList").appendChild(newcard);
 
-                        querySnapshot.forEach((doc) => {
-                            doc.data().taskTimes.forEach((tasktime) => {
+                    })
+                });
+            }
+        }
+        )
 
-                              let newcard =  makeTaskCard(tasktime, doc);
-                                console.log(newcard)
-                                document.getElementById("todayTaskList").appendChild(newcard);
-
-                            })
-                        });
-                    }
-                }
-                )
-        
-        // document.getElementById("todayTaskList").appendChild(cardprototype);
     }
 
     else {
@@ -45,8 +42,8 @@ firebase.auth().onAuthStateChanged(function (user) {
     }
 });
 
-function deleteTask(identity, tasksRef) {
-    tasksRef.doc(identity).delete().then(() => {
+function deleteTask(identity, refer) {
+    refer.doc(identity).delete().then(() => {
         console.log(`${identity} deleted`)
     }).catch((error) => { console.error("Error removing the document.", error) })
 }
@@ -54,7 +51,7 @@ function deleteTask(identity, tasksRef) {
 
 function stampToDate(timestamp) {
     timestamp = new Date(timestamp)
-    var stampdate = timestamp.toLocaleDateString("en-US", {
+    let stampdate = timestamp.toLocaleDateString("en-US", {
         year: "numeric",
         month: "long",
         day: "2-digit",
@@ -64,7 +61,7 @@ function stampToDate(timestamp) {
 
 function stampToTime(timestamp) {
     timestamp = new Date(timestamp)
-    var stamptime = timestamp.toLocaleTimeString([], {
+    let stamptime = timestamp.toLocaleTimeString([], {
         hour: '2-digit',
         minute: '2-digit'
     });
@@ -73,7 +70,7 @@ function stampToTime(timestamp) {
 
 }
 
-function makeTaskCard(tasktime, doc) {
+function makeTaskCard(tasktime, doc, tasksRef) {
     var newcard = cardprototype.cloneNode(true);
     var taskTime = tasktime
     var taskInfo = doc.data().taskInfo
@@ -89,9 +86,10 @@ function makeTaskCard(tasktime, doc) {
         newcard.remove();
         deleteTask(doc.id, tasksRef);
     })
+
     newcard.querySelector("#editButton").addEventListener("click", () => {
 
-        window.location.href = "task_new.html?taskId=" + doc.id
+        window.location.href = "task_new.html?taskId=" + doc.id + "&taskTime=" + taskTime
     }
     )
 
@@ -99,6 +97,7 @@ function makeTaskCard(tasktime, doc) {
     newcard.querySelector("#taskTodayInfo").innerHTML = taskInfo;
     newcard.querySelector("#taskTodayDate").innerHTML = stampToDate(tasktime);
     newcard.querySelector("#taskTodayTime").innerHTML = stampToTime(taskTime);
-    return newcard
+    // task prototype object inserted into the DOM
+    document.getElementById("todayTaskList").appendChild(newcard);
 
 }
