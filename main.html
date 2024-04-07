@@ -83,21 +83,41 @@
     </section>
 
 
-<div id="weather_wrapper" class = "mt-6 mx-8 flex flex-row shadow-lg">
-	<div id="weatherCard" class = "">
-		<div class="currentTemp">
-			<span class="temp">6&deg;</span>
-			<span class="location">Vancouver</span>
-		</div>
-		<div id="currentWeather">
-			<span class="conditions">&#xf00d;</span>
-			<div class="info">
-				<span class="rain">1.3 MM</span>
-				<span class="wind">10 KM/H</span>
-			</div>
-		</div>
-	</div>
-</div>
+
+
+    <div id="weather_wrapper" class = "mt-6 mx-8 flex flex-row shadow-lg">
+        <div id="weatherCard">
+            <div id="currentTemp" class = "rounded-s-2xl">
+                <span id="temp"></span>
+                <span id="location"></span>
+            </div>
+            <div id="currentWeather" class = 'rounded-e-2xl'>
+                <div id="weather"></div>
+                <div id="info" class = 'flex flex-col rounded-br-2xl'>
+                    <span id="description" class = 'ml-3'></span>
+                    <span id="wind"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id = "test"></div>
+
+    <script>
+        fetch(`http://localhost:2000/getWeatherForACityByName?cname=vancouver}`)
+            .then((resp) => resp.json())
+            .then((data) => {
+                document.getElementById('location').innerHTML += `Vancouver`;
+                document.getElementById('temp').innerHTML += `<div> ${data.main.temp}°C </div>`;
+                document.getElementById('description').innerHTML += `${data.weather[0].main}`;
+                document.getElementById('wind').innerHTML += `${data.wind.speed}`;
+                document.getElementById('weather').innerHTML += `<div id = 'conditions' class = "ml-8"> <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" </div>`;
+            })
+            .catch(err => {
+                console.log(err)
+            })
+
+    </script>
 
     <!------------------------------>
     <!-- Calender -->
