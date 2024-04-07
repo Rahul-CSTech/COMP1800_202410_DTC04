@@ -52,6 +52,7 @@ firebase.auth().onAuthStateChanged(function(user)  {
                       taskInfo: newTaskInfo,
 
                     })
+                    // .then(() => history.back())
               
                     // Navigate back after successful update
                   } catch (error) {
@@ -80,27 +81,19 @@ firebase.auth().onAuthStateChanged(function(user)  {
 })
 
 
-console.log((document.getElementById("taskDate").value).toString());
-console.log((document.getElementById("taskTime").value).toString());
 
-
-function combineDateTimeToTimestamp(dateString, timeString) {
+function combineDateTimeToTimestamp(dateStr, timeStr) {
     // Create a Date object from the date string
-    const date = new Date(dateString);
-  
-    // Parse the time string (assuming format HH:MM:SS)
-    const timeParts = timeString.split(':');
-    const hours = timeParts[0];
-    const minutes = timeParts[1];
+    console.log(dateStr, timeStr)
    
-  
-    // Set the time components of the Date object
-    date.setHours(hours, minutes);
-    console.log("this is the date ", date)
-    // Get the timestamp in milliseconds since epoch
+    const combinedString = `${dateStr}T${timeStr}`;
+
+// Create a Date object with time zone offset (-7 hours for GMT-7)
+    const date = new Date(combinedString + "-07:00")
     const timestamp = date.getTime();
+
+    // Get the timestamp in milliseconds since epoch
     console.log(timestamp)
-    console.log(typeof(timestamp))
     return timestamp;
   }
   
@@ -112,12 +105,13 @@ function editTask(taskCollRef){
 
      let today = new Date(parseInt(taskTime))
 
-     console.log("the obtained time is" , today)
      // changing taskDate format to yyyy-mm-dd
-     let formattedDate = today.toLocaleDateString().split(", ").reverse().join("-");
+     let formattedDate = today.toLocaleString("en-GB").split(", ")[0].split('/').reverse().join("-")
+     console.log(formattedDate)
+    // 
 
      // changing tasktime to hh:mm:ss format
-     let formattedTime = today.toLocaleString("en-GB")
+     let formattedTime = today.toLocaleString("en-GB").split(", ")[1]
      console.log(formattedDate, formattedTime)
      
      document.getElementById("save").innerText = "Update";
