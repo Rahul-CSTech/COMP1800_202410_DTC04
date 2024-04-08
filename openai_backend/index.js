@@ -1,42 +1,40 @@
+// Imports necessary libraies for interacting with OpebAL's API and creating web server.
 const OpenAI = require("openai");
 const express = require('express');
 const app = express();
-
 
 const constants = require('./constants.json');
 const openai = new OpenAI(
     {apiKey: constants.API_KEY}
 );
 
-
-
-// CORS 이슈 해결
+// Resolve CORS issues
 var cors = require('cors');
 app.use(cors());
 
-
-// POST 요청 받을 수 있게 만듬
+// make our app to be able to receive POST request
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); 
 
-
-// Get 요청 받음
+// Receive GET reuqest(for debuggin purpose)
 app.get('/', function(req, res) {
   res.send('Welcome Server World');
 });
   
-
-// POST method route
+// This is core route that handles the conversational interaction with AI assistant.
+// Data extraction: It extracts userMessages and assistantMessages from the incoming request's body
 app.post('/consultation', async function (req, res) {
     console.log(req.body);
     let {userMessages, assistantMessages} = req.body
 
+    // Message formatting and OPenAI Call
     let messages = [
         {role: "system", content: constants.SYSTEM_COMMENT},
         {role: "user", content: constants.USER_COMMENT},
         {role: "assistant", content: constants.ASSISTANT_COMMENT},
     ]
 
+    // an array of an object messages are contained in messages
     while (userMessages.length != 0 || assistantMessages.length != 0) {
         if (userMessages.length != 0) {
             messages.push(
@@ -44,6 +42,7 @@ app.post('/consultation', async function (req, res) {
                   String(userMessages.shift()).replace(/\n/g,"")+'"}')
             )
         }
+        // same logic as the above, but assistant role
         if (assistantMessages.length != 0) {
             messages.push(
                 JSON.parse('{"role": "assistant", "content": "'+
@@ -52,6 +51,9 @@ app.post('/consultation', async function (req, res) {
         }
     }
 
+
+    // This sends request to OpenAI server with the made message
+    // If errors happens, it tries twice more
     const maxRetries = 3;
     let retries = 0;
     let completion
@@ -69,11 +71,13 @@ app.post('/consultation', async function (req, res) {
       }
     }
 
+    // This returns the result and make it as a json format
     let chatGPTResult = completion.choices[0].message.content
     console.log(chatGPTResult);
     res.json({"assistant": chatGPTResult});
 });
 
+// This starts Express server, listening for requests on port 3000.
 app.listen(3000, function () {
   console.log('Server is running on port 3000');
 });
