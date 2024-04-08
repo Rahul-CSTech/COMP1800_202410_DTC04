@@ -65,18 +65,18 @@ display: none;
 
 #weather_wrapper{
 	width: 345px;
-  height: 125px;
+  height: 100px;
 }
 
 #weatherCard{
 	width: 400px;
-	height: 125px;
+	height: 100px;
 	font-family: 'Open Sans';
 	position: relative;
 }
 #currentTemp{
 	width: 180px;
-	height: 125px;
+	height: 100px;
 	background: #4A6FA5;
 	position: absolute;
 	top: 0;
@@ -84,7 +84,7 @@ display: none;
 }
 #currentWeather{
 	width: 165px;
-	height: 125px;
+	height: 100px;
 	background: #7997c3;
 	margin: 0;
 	position: absolute;
@@ -92,27 +92,27 @@ display: none;
 	right: 0;
 }
 #temp{
-	font-size: 45px;
+	font-size: 40px;
 	text-align: center;
   font-weight: 500;
 	display: block;
 	font-weight: 300;
 	color: rgb(255, 255, 255);
-	padding: 8px 0 0;
+	padding: 0 0 0;
 }
 #location{
 	color: rgb(255, 255, 255);
 	text-align: center;
 	text-transform: uppercase;
 	font-weight: 700;
-	font-size: 26px;
+	font-size: 18px;
 	display: block;
 }
 #conditions{
 	font-family: weathericons;
 	font-size: 65px;
-  width: 165px;
-	height: 120px;
+  	width: 165px;
+	height: 100px;
 	display: block;
 }
 #info{
