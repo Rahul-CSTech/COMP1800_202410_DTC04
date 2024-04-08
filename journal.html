@@ -29,6 +29,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="styles/style.css">
@@ -52,9 +54,7 @@
                         },
                     },
                     fontFamily: {
-                        petit: ["Petit Formal Script"],
-                        leckerli: ['Leckerli One']
-
+                        arimo: ['Arimo'],
                     },
                 },
             },
@@ -62,7 +62,7 @@
     </script>
 </head>     
 
-<body class = "">
+<body class = "font-arimo">
     <nav id = "headerNav"></nav>
 
     <!------------------------------>
@@ -78,14 +78,13 @@
 
     <!------------------------------>
     <!-- Template -->
-
     <template id = "note_template">
         <a class = "">
-        <div id = "display_bg" class = "justify-self-center mt-6 w-40 h-52 border-10 border-submissive basis-1/2 rounded-2xl overflow-hidden shadow-lg">
+        <div id = "display_bg" class = "justify-self-center mt-6 w-full h-52 border-10 border-submissive basis-1/2 rounded-md overflow-hidden shadow-lg">
             <div class = "flex flex-col gap-y-2">
-                <h1 id = "display_title" class = "text-slate-50 text-xl font-bold"></h1>
-                <p id = "display_date" class = "font-semibold text-slate-50"></p>
-                <p id = "display_note" class = "text-slate-50"></p>
+                <h1 id = "display_title" class = "leading-none text-slate-50 text-xl font-bold"></h1>
+                <p id = "display_date" class = "leading-tight font-semibold text-slate-50"></p>
+                <p id = "display_note" class = "leading-none text-slate-50 line-clamp-6 overflow-hidden"></p>
             </div>
         </div>
         </a>
@@ -93,14 +92,14 @@
 
     <!------------------------------>
     <!-- Information header -->
-    <div class = "mx-6 bg-dominant h-40 mt-8 rounded-2xl shadow-lg">
+    <div class = "mx-6 bg-dominant h-40 mt-6 rounded-2xl shadow-lg">
         <h2 class = "font-semibold text-lg text-slate-50 text-center px-16 pt-4">This is where you can jot down your days!</h2>
         <p class = "text-slate-50 text-center px-6">Aim to reflect on the things you could improve, but more importantly the things you did well!</p>
     </div>
 
     <!------------------------------>
     <!-- Scripts arrive here -->
-    <section id = "note_card" class = "grid grid-cols-2 place-items-center mx-8 gap-x-10 mb-24"></section>
+    <section id = "note_card" class = "flex-col place-items-center mx-8 gap-x-10 mb-24"></section>
 
     <div class = "fixed bottom-28 right-4 bg-dominant fill-dominant rounded-full">
         <a href = "./journal_new.html">
