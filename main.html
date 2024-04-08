@@ -75,7 +75,7 @@
                     <div class = "border-2 border-gray-400 text-gray-500 mt-8 mx-4 mb-2 w-40 h-16 bg-slate-50 rounded-2xl overflow-y-scroll bg-opacity-85">
                         <p class = 'leading-tight px-2 pt-2 font-bold opacity-100'>Here's a quote to start your day:</p>
                     </div>
-                    <div class = 'border-2 border-gray-400 text-gray-600 mx-4 mb-2 w-fit h-fit max-h-24 bg-slate-50 rounded-2xl overflow-y-scroll bg-opacity-85'>
+                    <div class = 'border-2 border-gray-400 text-gray-600 mx-4 mb-2 w-fit h-fit max-h-20 bg-slate-50 rounded-2xl overflow-y-scroll bg-opacity-85'>
                         <p class="leading-tight py-2 px-2 font-semibold opacity-100" id="motivQuote"></p>
                     </div>
                 </div>
@@ -102,6 +102,7 @@
         </div>
     </div>
 
+    <!-- Read Weather API -->
     <script>
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=Vancouver&appid=b660f3402c54cb9a9c48f89c35249e5c&units=metric`)
             .then((resp) => resp.json())

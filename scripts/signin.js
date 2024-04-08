@@ -1,3 +1,5 @@
+// Sign In Page
+
 document.getElementById("login").addEventListener("click", () => {
     var email = document.getElementById("email").value
     var password = document.getElementById("password").value
@@ -12,6 +14,7 @@ document.getElementById("login").addEventListener("click", () => {
             // ...
         })
         .catch((error) => {
+            // Error Handling for Sign In
             var errorCode = error.code;
             var errorMessage = error.message;
             if (errorCode == "auth/user-not-found") {
@@ -35,6 +38,7 @@ document.getElementById("login").addEventListener("click", () => {
 
         })
         .then (() => {
+            // Redirect on succesful sign in
             if (signinSuccess == true)
                 window.location.href="main.html"
         });

@@ -1,8 +1,11 @@
+// Sign Up Page
+
 document.getElementById("signup").addEventListener("click", () => {
     var htmlEmail = document.getElementById('email').value
     var htmlUser = document.getElementById('username').value
     var htmlPass = document.getElementById("password").value
 
+    // Error Handling for Incorrect User
     if (htmlUser.length == 0){
         document.getElementById("email").classList.remove("border-2", "border-red-500")
         document.getElementById("username").classList.remove("border-2", "border-red-500")
@@ -19,6 +22,7 @@ document.getElementById("signup").addEventListener("click", () => {
         return
     }
 
+    // Firebase attempt sign up with input forms
     firebase.auth().createUserWithEmailAndPassword(htmlEmail, htmlPass)
         .then((userCredential) => {
             // Signed in 
@@ -30,6 +34,7 @@ document.getElementById("signup").addEventListener("click", () => {
             .then (() => window.location.href = "main.html");
         })
         .catch((error) => {
+            // Error Handling for Incorrect Email and/or Pass
             var errorCode = error.code;
             var errorMessage = error.message;
             console.log(errorCode)
