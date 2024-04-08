@@ -1,9 +1,12 @@
+// Journal New Note Page
+
 date_creation = document.getElementById("date").innerHTML = new Date().toLocaleString();
 
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         // User is signed in.
 
+        // Access users collection to add note
         async function addNote() {
             note = db.collection("users").doc(firebase.auth().currentUser.uid).collection('notes')
 
@@ -16,6 +19,7 @@ firebase.auth().onAuthStateChanged(function(user) {
             })
         }
         
+        // Checks for on click event
         document.getElementById("save").addEventListener("click", () => {
             addNote()
         })

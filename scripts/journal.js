@@ -1,9 +1,12 @@
+// Journal Main Page
+
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         // User is signed in.
         function readNote() {
             let cardTemplate = document.getElementById("note_template")
         
+            // Accesses user's notes, sorts by date and displays to journal
             db.collection("users").doc(user.uid).collection("notes").orderBy("date").get()
                 .then((querySnapshot) => {
                     querySnapshot.forEach((doc) => {
