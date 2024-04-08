@@ -1,3 +1,5 @@
+// Journal Note Edit Page
+
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         // User is signed in.
@@ -18,6 +20,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         })
         
         try {
+            // Checks for save click to update note
             document.getElementById("save").addEventListener("click", () => {
                 note = db.collection("users").doc(firebase.auth().currentUser.uid).collection('notes').doc(ID)
 
