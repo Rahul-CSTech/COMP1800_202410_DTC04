@@ -66,16 +66,17 @@
 
     <!------------------------------>
     <!-- Welcome Card -->
+
     <section class = "mt-24">
-        <div id="welcome" class="h-64 bg-cover mx-8 rounded-2xl object-contain bg-no-repeat bg-[url('./images/Welcome.png')]">
+        <div id="welcome" class="h-64 bg-cover mx-8 rounded-2xl object-contain bg-no-repeat bg-[url('./images/Welcome.png')] shadow-lg">
             <h1 class="text-center mx-2 font-bold text-xl text-slate-50 pt-4">Welcome to Heemang, <span id = "user">User!</span></h1>
             <div class = "relative">
-                <div class = "absolute top-4 right-1 flex flex-col justify-end">
-                    <div class = "mb-2 w-40 h-16 bg-slate-50 rounded-2xl overflow-y-scroll">
-                        <p class = 'px-2 pt-2 font-bold'>Here's a quote to start your day:</p>
+                <div class = "absolute top-4 flex flex-col justify-end">
+                    <div class = "border-2 border-gray-400 text-gray-500 mt-8 mx-4 mb-2 w-40 h-16 bg-slate-50 rounded-2xl overflow-y-scroll bg-opacity-85">
+                        <p class = 'leading-tight px-2 pt-2 font-bold opacity-100'>Here's a quote to start your day:</p>
                     </div>
-                    <div class = 'mr-4 mb-2 w-40 h-fit max-h-28 bg-slate-50 rounded-2xl overflow-y-scroll'>
-                        <p class="py-2 px-2 font-semibold" id="motivQuote"></p>
+                    <div class = 'border-2 border-gray-400 text-gray-600 mx-4 mb-2 w-fit h-fit max-h-24 bg-slate-50 rounded-2xl overflow-y-scroll bg-opacity-85'>
+                        <p class="leading-tight py-2 px-2 font-semibold opacity-100" id="motivQuote"></p>
                     </div>
                 </div>
             </div>
@@ -83,50 +84,52 @@
     </section>
 
     <!------------------------------>
-    <!-- Calender -->
- 
-    <div id="calendarApp" class="w-full h-600">
-        <iframe src="./text/calendar.html" frameborder="0"></iframe>
-        </div>
+    <!-- Weather -->
 
-    <!-- <div class = "mx-8 mt-6 h-52 border-10 border-submissive bg-submissive text-slate-50 rounded-2xl overflow-y-scroll">
-        <h1 class = "leading-tight text-2xl font-bold -translate-y-2">Here's a quote to get <br>your day started:</h1>
-        <p class="leading-tight pt-2 -translate-y-2" id="motivQuote"></p>
-    </div> -->
-
-    <!------------------------------>
-    <!-- ? and Journal -->
-    <!-- <section class="flex flex-row mx-8 mt-6 justify-between items-center h-52 overflow-hidden">
-        <div>
-            
-        </div>
-        <div class = "flex gap-y-3 flex-col justify-between">
-            <div class = "h-24 bg-white rounded-2xl w-32">
-                
+    <div id="weather_wrapper" class = "mt-6 mx-8 flex flex-row shadow-lg">
+        <div id="weatherCard">
+            <div id="currentTemp" class = "rounded-s-2xl">
+                <span id="temp"></span>
+                <span id="location"></span>
             </div>
-            <div class = "h-24 bg-white rounded-2xl w-32">
-                
-            </div>
-        </div>
-        
-        <div class = "basis-3/5">
-            <div onclick = "window.location.href = './consultation.html';" class = "cursor-pointer ml-2 h-52 basis-1/2 bg-submissive rounded-2xl border-10 border-submissive">
-                <div class = "leading-tight -translate-y-2 font-bold text-2xl text-slate-50 pb-1">
-                    Chat with our consultant!
+            <div id="currentWeather" class = 'rounded-e-2xl'>
+                <div id="weather"></div>
+                <div id="info" class = 'flex flex-col rounded-br-2xl'>
+                    <span id="description" class = 'ml-3'></span>
+                    <span id="wind"></span>
                 </div>
             </div>
-    </section> -->
+        </div>
+    </div>
+
+    <script>
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=Vancouver&appid=b660f3402c54cb9a9c48f89c35249e5c&units=metric`)
+            .then((resp) => resp.json())
+            .then((data) => {
+                document.getElementById('location').innerHTML += `Vancouver`;
+                document.getElementById('temp').innerHTML += `<div> ${data.main.temp}°C </div>`;
+                document.getElementById('description').innerHTML += `${data.weather[0].main}`;
+                document.getElementById('wind').innerHTML += `${data.wind.speed}`;
+                document.getElementById('weather').innerHTML += `<div id = 'conditions' class = "ml-8"> <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" </div>`;
+            })
+            .catch(err => {
+                console.log(err)
+            })
+
+    </script>
+
 
     <!------------------------------>
-    <!--Tasks and Methodology  -->
+    <!--Tasks and Note  -->
+
     <section class="flex flex-row mx-8 mt-6 justify-between items-center h-52">
-        <div onclick = "window.location.href = './tasks.html';" class = "cursor-pointer mr-2 h-52 basis-1/2 bg-submissive rounded-2xl border-10 border-submissive">
+        <div onclick = "window.location.href = './tasks.html';" class = "cursor-pointer mr-2 h-52 basis-1/2 bg-submissive rounded-2xl border-10 border-submissive shadow-lg">
             <div class = "leading-tight -translate-y-2 font-bold text-2xl text-slate-50 pb-1">
                 Tasks
             </div>
         </div>
 
-        <div onclick = "window.location.href = './journal.html';" class = "cursor-pointer justify-self-center bg-submissive h-52 border-10 border-submissive rounded-2xl">
+        <div onclick = "window.location.href = './journal.html';" class = "cursor-pointer justify-self-center bg-submissive h-52 border-10 border-submissive rounded-2xl shadow-lg">
             <div class = "leading-tight -translate-y-2 font-bold text-2xl text-slate-50 pb-1">
                 Your last note:
             </div>
@@ -139,7 +142,18 @@
         </div>
     </section>
 
-    <div onclick = "window.location.href = './consultation.html';" class = "mb-24 mt-6 mx-8 cursor-pointer h-40 basis-1/2 bg-submissive rounded-2xl border-10 border-submissive">
+    <!------------------------------>
+    <!-- Calender -->
+
+    <div id="calendarApp" class = 'mt-6'>
+        <iframe src="./text/calendar.html" class = "shadow-lg h-[340px] mx-8" width ="83%" frameborder="0"></iframe>
+    </div>
+    
+
+    <!------------------------------>
+    <!-- Calnder -->
+
+    <div onclick = "window.location.href = './consultation.html';" class = "mb-24 mt-6 mx-8 cursor-pointer h-40 basis-1/2 bg-submissive rounded-2xl border-10 border-submissive shadow-lg">
         <div class = "leading-tight -translate-y-2 font-bold text-2xl text-slate-50 pb-1">
             Chat with our consultant!
         </div>
@@ -150,16 +164,10 @@
     <nav id = 'footerNav'></nav>
     <nav id = "headerNav"></nav>
 
-    <!---------------------------------------------->
-    <!-- Your own JavaScript functions go here    -->
-    <!---------------------------------------------->
-
     <!-- Link to scripts of your own -->
     <script src="./scripts/firebaseAPI_TEAM04.js"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/calendar.js" async></script>
-   
 
 </body>
 

@@ -51,10 +51,8 @@ async function getapi(url)
 {
   const response = await fetch(url);
   var quotes = await response.json();
-  console.log(quotes);
   let quote = quotes[0].content;
   document.getElementById("motivQuote").innerHTML = quote;
-  console.log(quote);
 }
 
 getapi(api_url);

@@ -3,9 +3,7 @@
 firebase.auth().onAuthStateChanged(function (user) {
 
     if (user) {
-
         var tasksRef = db.collection("users").doc(user.uid).collection("tasks")
-        console.log(tasksRef)
 
         tasksRef.orderBy("taskTimes", "asc").get()
             .then((querySnapshot) => {
@@ -25,7 +23,6 @@ firebase.auth().onAuthStateChanged(function (user) {
 
 
                     }) 
-                    console.log(taskTimeArray);
                 } makeCal(taskTimeArray);
                 
             }
@@ -81,11 +78,8 @@ function makeCal(meArray){
                 isToday = "active";
             
             else
-            console.log(meArray)
-            console.log(todaystring)
                 if (meArray.includes(todaystring)) {
                     isToday = "scheduled";
-                    console.log("true!!")
                 }
             liTag += `<li class="${isToday}">${i}</li>`;
 
