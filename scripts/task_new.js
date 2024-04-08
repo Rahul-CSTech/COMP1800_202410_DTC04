@@ -52,7 +52,7 @@ firebase.auth().onAuthStateChanged(function(user)  {
                       taskInfo: newTaskInfo,
 
                     })
-                    // .then(() => history.back())
+                    .then(() => history.back())
               
                     // Navigate back after successful update
                   } catch (error) {
