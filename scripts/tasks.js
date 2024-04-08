@@ -5,6 +5,11 @@ let bannerprototype = document.getElementById("timeBanner").cloneNode(true);
 document.getElementById("timeBanner").remove()
 let addDelRow = document.getElementById("optionsRow").cloneNode(true)
 
+// search URL for datestring from main page
+let urlParams = new URLSearchParams(window.location.search);
+let urlDate = urlParams.get("datestring");
+
+
 //firebase authorization
 firebase.auth().onAuthStateChanged(function (user) {
 
@@ -26,8 +31,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                 let buffer_tasktime = 0
               
                  // data in querysnapshot looped for existing data
-                querySnapshot.forEach((doc) => {
-                    
+                querySnapshot.forEach((doc) => {    
                     doc.data().taskTimes.forEach((tasktime) => {
 
 
@@ -35,9 +39,11 @@ firebase.auth().onAuthStateChanged(function (user) {
                         dateString = taskdate.toLocaleDateString("en-US",{ weekday: "long",
                         year: "numeric",
                         month: "long",
-                        day: "numeric",})
-                        
-                            
+                        day: "numeric",})  
+
+
+                           
+                        console.log("dateString", dateString)   
                         if (buffer_tasktime != dateString)
                          {
                         // banner inserted into the DOM
@@ -46,10 +52,12 @@ firebase.auth().onAuthStateChanged(function (user) {
                          }
                         // cloned task objects populated with data from database  and append to DOM  
                         makeTaskCard(tasktime, doc,tasksRef);
-
                     })
                 });
-            }
+                if (urlDate) {
+                    ScrollToText(urlDate);
+                }
+            } 
         }
         )
     }
@@ -60,6 +68,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     }
 });
 
+// delete task from the document
 function deleteTask(identity, refer) {
     refer.doc(identity).delete().then(() => {
         console.log(`${identity} deleted`)
@@ -67,13 +76,14 @@ function deleteTask(identity, refer) {
 }
 
 
-function stampToDate(timestamp) {
-    timestamp = new Date(timestamp)
-    let stampdate = timestamp.toLocaleDateString("en-US", {
+function stampToDate(datestamp) {
+   
+    let stampdate = new Date(datestamp).toLocaleDateString("en-US", {
         year: "numeric",
         month: "long",
         day: "2-digit",
     })
+  
     return stampdate
 }
 
@@ -83,18 +93,17 @@ function stampToTime(timestamp) {
         hour: '2-digit',
         minute: '2-digit'
     });
-
+    
     return stamptime
-
 }
 
 function makeTaskCard(tasktime, doc, tasksRef) {
-    var newcard = cardprototype.cloneNode(true);
-    var taskTime = tasktime
-    var taskInfo = doc.data().taskInfo
-    var taskName = doc.data().taskName
+    let newcard = cardprototype.cloneNode(true);
+    let taskTime = tasktime
+    let taskInfo = doc.data().taskInfo
+    let taskName = doc.data().taskName
     newcard.id = doc.id
-    var row = addDelRow.cloneNode(true);
+    let row = addDelRow.cloneNode(true);
     newcard.appendChild(row);
     newcard.addEventListener("click", () => {
         row.classList.toggle("hidden")
@@ -104,25 +113,30 @@ function makeTaskCard(tasktime, doc, tasksRef) {
         newcard.remove();
         deleteTask(doc.id, tasksRef);
     })
-
     newcard.querySelector("#editButton").addEventListener("click", () => {
 
         window.location.href = "task_new.html?taskId=" + doc.id + "&taskTime=" + taskTime
     }
     )
-
     newcard.querySelector("#taskTodayName").innerHTML = taskName;
     newcard.querySelector("#taskTodayInfo").innerHTML = taskInfo;
-    newcard.querySelector("#taskTodayDate").innerHTML = stampToDate(tasktime) + "at";
+    newcard.querySelector("#taskTodayDate").innerHTML = stampToDate(taskTime);
     newcard.querySelector("#taskTodayTime").innerHTML = stampToTime(taskTime);
     // task prototype object inserted into the DOM
     document.getElementById("todayTaskList").appendChild(newcard);
-
 }
 
+// helper function to make_banner to convert date into ddmmyyy format 
+function stampToBannerDate(timestamp) {
+    const date = new Date(timestamp);
+    const day = date.getDate();
+    const month = date.getMonth() + 1; // Adjust for 0-based month index
+    const year = date.getFullYear();
+    ddmmyyString = day.toString() + month.toString() + year.toString()
+    return ddmmyyString
+}
 
 function make_banner(timeinput) {
-
     let today = new Date().toLocaleDateString("en-US",{ weekday: "long",
     year: "numeric",
     month: "long",
@@ -131,10 +145,17 @@ function make_banner(timeinput) {
     year: "numeric",
     month: "long",
     day: "numeric",})
-    console.log(today)
-    console.log(thedate)
+   
     if (today === thedate) timeinput = "Today"
     let newBanner = bannerprototype.cloneNode(true);
+    newBanner.id = stampToBannerDate(timeinput)
     newBanner.querySelector("time").innerText = timeinput;
     document.getElementById("todayTaskList").appendChild(newBanner);
 }
+
+
+function ScrollToText(seekString) {
+    // 1. Check if the content element exists
+    const timeElement = document.getElementById(seekString)
+    timeElement.scrollIntoView({ behavior: "smooth" });
+  }

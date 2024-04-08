@@ -1,4 +1,4 @@
-//변수 선언
+// Assign the variables
 const messages = document.querySelector('.messages');
 const input = document.getElementById('user-input');
 const button = document.getElementById('send-btn');
@@ -8,7 +8,7 @@ let userMessages = [];
 let assistantMessages = [];
 
 
-//처음 들어왔을때
+// When the user firstly clicks the consultation page
 function startChat() {
     document.getElementById("intro-container").style.display = "none";
     document.getElementById("intro-question").style.display = "none";
@@ -23,7 +23,7 @@ function startChat() {
 }
 
 
-//메시지 입력후 엔터키를 입력했을때 이벤트 리스너 추가
+//Add event listener when an user enters afeter typing messages
 input.addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
         sendMessage();
@@ -31,7 +31,7 @@ input.addEventListener("keydown", function(event) {
 });
 
 
-//응답 메시지 화면에 뿌리기
+// Show in the display the response from OpenAI server
 function appendMessage(text, sender) {
     const message = document.createElement('div');
     message.classList.add('message');
@@ -49,7 +49,7 @@ function appendMessage(text, sender) {
 }
 
 
-//chatGPT API 서버에 요청하기
+//Request chatGPT API server
 async function sendMessage() {
     const query = input.value;
     if (!query) return;
@@ -66,7 +66,7 @@ async function sendMessage() {
         appendMessage(prediction.assistant, 'bot');
     } catch (error) {
         console.error('Error fetching data:', error);
-        alert('오류가 발생하였습니다.:' + error)
+        alert('Error occurred.:' + error)
     } finally {
         loadingOff();
         document.getElementById("intro-message").innerHTML = ""
@@ -74,13 +74,13 @@ async function sendMessage() {
 }
 
 
-// 서버 요청을 기다리는 로딩중
+// Loading server request
 function loadingOn() {
     loading.style.display = 'block'
 }
 
 
-// 서버 요청을 결과 왔을때 로딩완료
+// Loading completed, when server request is loaded
 function loadingOff() {
     loading.style.display = 'none'
     button.disabled = false;

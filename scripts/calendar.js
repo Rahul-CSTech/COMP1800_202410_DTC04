@@ -1,5 +1,4 @@
 
-
 firebase.auth().onAuthStateChanged(function (user) {
 
     if (user) {
@@ -7,27 +6,23 @@ firebase.auth().onAuthStateChanged(function (user) {
 
         tasksRef.orderBy("taskTimes", "asc").get()
             .then((querySnapshot) => {
-               
+
                 let taskTimeArray = []
                 if (querySnapshot) {
 
-                    
+
                     querySnapshot.forEach((doc) => {
 
                         doc.data().taskTimes.forEach((tasktime) => {
 
                             const newel = stampToDate(tasktime)
                             taskTimeArray.push(newel)
-
                         })
-
-
-                    }) 
+                    })
                 } makeCal(taskTimeArray);
-                
+
             }
             )
-
     }
 })
 
@@ -42,8 +37,8 @@ function stampToDate(timestamp) {
 
 
 
-function makeCal(meArray){
-    
+function makeCal(meArray) {
+
     const daysTag = document.querySelector(".days"),
         currentDate = document.querySelector(".current-date"),
         prevNextIcon = document.querySelectorAll(".icons span");
@@ -68,21 +63,26 @@ function makeCal(meArray){
             liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
         }
 
-        for (let i = 1; i <= lastDateofMonth; i++) { // creating li of all days of current month
+        for (let i = 1; i <= lastDateofMonth; i++) {
+            // creating li of all days of current month
             // adding active class to li if the current day, month, and year matched
-            let todaystring = i.toString() + (currMonth + 1).toString() + currYear.toString()
 
+            let todaystring = i.toString() + (currMonth + 1).toString() + currYear.toString()
+            console.log("this is todaystring", todaystring)
             let isToday = ""
+            let clickScript = ""
             if (i === date.getDate() && currMonth === new Date().getMonth()
                 && currYear === new Date().getFullYear())
-                isToday = "active";
-            
+                liTag += `<li class="active"}">${i}</li>`;
+
+            // adding 'scheduled' class to dates which exist in database as tasks and making the element hyperlinks to tasks page
             else
                 if (meArray.includes(todaystring)) {
-                    isToday = "scheduled";
+                    liTag += `<li class="scheduled" onclick="
+                    parent.window.location.href='../tasks.html?datestring=${todaystring}'">${i}</li>`;
                 }
-            liTag += `<li class="${isToday}">${i}</li>`;
-
+                else
+                    liTag += `<li class=""}">${i}</li>`;
         }
 
         for (let i = lastDayofMonth; i < 6; i++) { // creating li of next month first days
