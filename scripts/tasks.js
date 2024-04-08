@@ -2,6 +2,7 @@
 
 let cardprototype = document.getElementById("taskToday").cloneNode(true);
 let bannerprototype = document.getElementById("timeBanner").cloneNode(true);
+document.getElementById("timeBanner").remove()
 let addDelRow = document.getElementById("optionsRow").cloneNode(true)
 
 //firebase authorization
@@ -21,27 +22,30 @@ firebase.auth().onAuthStateChanged(function (user) {
                 document.getElementById("taskToday").remove();
                 
                 
-                // data in querysnapshot looped for existing data
+               // for time banner funcitonality which helps check if a a particular date is repeated among tasks
                 let buffer_tasktime = 0
-                let mydate = new Date();
-
+              
+                 // data in querysnapshot looped for existing data
                 querySnapshot.forEach((doc) => {
                     
-
                     doc.data().taskTimes.forEach((tasktime) => {
+
+
                         let taskdate = new Date(tasktime);
-
-
+                        dateString = taskdate.toLocaleDateString("en-US",{ weekday: "long",
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",})
                         
-                        // cloned task objects populated with data from database  and append to DOM       
-                        if (buffer_tasktime != tasktime )
+                            
+                        if (buffer_tasktime != dateString)
                          {
-                            make_banner(tasktime);
-                            buffer_tasktime = tasktime
+                        // banner inserted into the DOM
+                            make_banner(dateString);
+                            buffer_tasktime = dateString
                          }
-
+                        // cloned task objects populated with data from database  and append to DOM  
                         makeTaskCard(tasktime, doc,tasksRef);
-                        // document.getElementById("todayTaskList").appendChild(newcard);
 
                     })
                 });
@@ -119,9 +123,18 @@ function makeTaskCard(tasktime, doc, tasksRef) {
 
 function make_banner(timeinput) {
 
-    let timeText = stampToTime(timeinput);
-      let newBanner = bannerprototype.cloneNode(true);
-      newBanner.querySelector("time").innerText = timeText;
-      document.getElementById("todayTaskList").appendChild(newBanner);
-
+    let today = new Date().toLocaleDateString("en-US",{ weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",})
+    let thedate =  new Date(timeinput).toLocaleDateString("en-US",{ weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",})
+    console.log(today)
+    console.log(thedate)
+    if (today === thedate) timeinput = "Today"
+    let newBanner = bannerprototype.cloneNode(true);
+    newBanner.querySelector("time").innerText = timeinput;
+    document.getElementById("todayTaskList").appendChild(newBanner);
 }
