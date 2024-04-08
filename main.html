@@ -70,12 +70,12 @@
         <div id="welcome" class="h-64 bg-cover mx-8 rounded-2xl object-contain bg-no-repeat bg-[url('./images/Welcome.png')] shadow-lg">
             <h1 class="text-center mx-2 font-bold text-xl text-slate-50 pt-4">Welcome to Heemang, <span id = "user">User!</span></h1>
             <div class = "relative">
-                <div class = "absolute top-4 right-1 flex flex-col justify-end">
-                    <div class = "mb-2 w-40 h-16 bg-slate-50 rounded-2xl overflow-y-scroll bg-opacity-85">
-                        <p class = 'px-2 pt-2 font-bold opacity-100'>Here's a quote to start your day:</p>
+                <div class = "absolute top-4 flex flex-col justify-end">
+                    <div class = "border-2 border-gray-400 text-gray-500 mt-8 mx-4 mb-2 w-40 h-16 bg-slate-50 rounded-2xl overflow-y-scroll bg-opacity-85">
+                        <p class = 'leading-tight px-2 pt-2 font-bold opacity-100'>Here's a quote to start your day:</p>
                     </div>
-                    <div class = 'mr-4 mb-2 w-40 h-fit max-h-28 bg-slate-50 rounded-2xl overflow-y-scroll bg-opacity-85'>
-                        <p class="py-2 px-2 font-semibold opacity-100" id="motivQuote"></p>
+                    <div class = 'border-2 border-gray-400 text-gray-600 mx-4 mb-2 w-fit h-fit max-h-24 bg-slate-50 rounded-2xl overflow-y-scroll bg-opacity-85'>
+                        <p class="leading-tight py-2 px-2 font-semibold opacity-100" id="motivQuote"></p>
                     </div>
                 </div>
             </div>
@@ -101,10 +101,8 @@
         </div>
     </div>
 
-    <div id = "test"></div>
-
     <script>
-        fetch(`http://localhost:2000/getWeatherForACityByName?cname=vancouver}`)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=Vancouver&appid=b660f3402c54cb9a9c48f89c35249e5c&units=metric`)
             .then((resp) => resp.json())
             .then((data) => {
                 document.getElementById('location').innerHTML += `Vancouver`;
@@ -121,10 +119,10 @@
 
     <!------------------------------>
     <!-- Calender -->
-    
-    <div id="calendarApp" class="w-full mt-6">
-        <iframe src="./text/calendar.html" width ="100%" frameborder="0"></iframe>
-        </div>
+    <div id="calendarApp" class = 'mt-6'>
+        <iframe src="./text/calendar.html" class = "shadow-lg h-[340px] mx-8" width ="83%" frameborder="0"></iframe>
+    </div>
+
 
     <!-- <div class = "mx-8 mt-6 h-52 border-10 border-submissive bg-submissive text-slate-50 rounded-2xl overflow-y-scroll">
         <h1 class = "leading-tight text-2xl font-bold -translate-y-2">Here's a quote to get <br>your day started:</h1>
@@ -195,7 +193,6 @@
     <script src="./scripts/firebaseAPI_TEAM04.js"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/skeleton.js"></script>
-   
 
 </body>
 
