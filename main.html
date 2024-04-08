@@ -32,6 +32,9 @@
         rel="stylesheet">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="styles/style.css">
@@ -56,13 +59,16 @@
                     height: {
                         38: "152px"
                     },
+                    fontFamily: {
+                        arimo: ['Arimo'],
+                    },
                 },
             }
         }
     </script>
 </head>
 
-<body class="max-w-[700px]">
+<body class="max-w-[700px] font-arimo">
     <!------------------------------>
     <!-- Your HTML Layout go here -->
 
@@ -75,12 +81,12 @@
             class="h-64 bg-cover mx-8 rounded-2xl object-contain bg-no-repeat bg-[url('./images/Welcome.png')] shadow-lg">
             <h1 class="text-center mx-2 font-bold text-xl text-slate-50 pt-4">Welcome to Heemang, <span
                     id="user">User!</span></h1>
-            <div class="relative">
+            <div class="">
                 <!-- <div id="weather_wrapper" > -->
 
                 <div id="weatherCard"
-                    class=" ml-6 flex flex-row drop-shadow-lg rounded-3xl max-w-[300px] bg-slate-50 bg-opacity-10">
-                    <div id="currentTemp" class="rounded-s-2xl m-auto">
+                    class="h-20 mt-4 mx-auto flex flex-row drop-shadow-lg rounded-3xl bg-black bg-opacity-30 max-w-[300px]">
+                    <div id="currentTemp" class="ml-2 rounded-s-2xl m-auto">
                         <span id="temp"></span>
                         <span id="location" class="text-slate-100"></span>
                     </div>
@@ -95,12 +101,12 @@
                     </div>
                 </div>
                 <!-- </div> -->
-            
-
                     <div
-                        class=' relative bottom-1 left-1 border-1 border-gray-400 text-white  w-fit h-fit bg-slate-50 rounded-2xl bg-opacity-20 '>
-                        <span class='leading-tight px-2 pt-2 font-bold opacity-100 '>A wise man once said:</span>
-                        <p class="leading-tight py-2 px-2 font-semibold opacity-100" id="motivQuote"></p>
+                        class='mx-4 mt-2 border-1 border-gray-400 text-white h-24 bg-black rounded-2xl bg-opacity-30 '>
+                        <p class = 'pt-2'><span class='px-2 pt-2 font-bold opacity-100 '>A wise man once said:</span></p>
+                        <div class = 'h-12 overflow-hidden'>
+                            <p class="leading-tight py-2 px-2 font-semibold opacity-100 line-clamp-2 overflow-hidden" id="motivQuote"></p>
+                        </div>
                     </div>
                
             </div>
@@ -154,7 +160,7 @@
             <div id="journal_main" class="max-w-40 basis-1/2 -translate-y-3 h-38 overflow-hidden">
                 <div class="flex flex-col gap-y-1 pt-1">
                     <h1 id="display_title" class="text-slate-50 text-lg font-bold"></h1>
-                    <p id="display_note" class="pt-1 leading-tight -translate-y-2 text-slate-50"></p>
+                    <p id="display_note" class="pt-1 leading-tight line-clamp-3 -translate-y-2 text-slate-50"></p>
                 </div>
             </div>
         </div>
