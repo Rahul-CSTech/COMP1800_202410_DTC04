@@ -1,9 +1,9 @@
 //Make prototype object for task cards and banners to make task objects
+
 let cardprototype = document.getElementById("taskToday").cloneNode(true);
-let bannerprototype = document.getElementById("timeBanner");
+let bannerprototype = document.getElementById("timeBanner").cloneNode(true);
 let addDelRow = document.getElementById("optionsRow").cloneNode(true)
 
-// Heyyyyyyyyyyyy
 //firebase authorization
 firebase.auth().onAuthStateChanged(function (user) {
 
@@ -17,15 +17,30 @@ firebase.auth().onAuthStateChanged(function (user) {
         tasksRef.orderBy("taskTimes", "asc").get().then((querySnapshot) => {
 
             if (querySnapshot.empty != true) {
-               
                 // remove placeholder if data exists in database
                 document.getElementById("taskToday").remove();
+                
+                
                 // data in querysnapshot looped for existing data
-                querySnapshot.forEach((doc) => {
-                    doc.data().taskTimes.forEach((tasktime) => {
-                        // cloned task objects populated with data from database  and append to DOM             
-                        makeTaskCard(tasktime, doc,tasksRef);
+                let buffer_tasktime = 0
+                let mydate = new Date();
 
+                querySnapshot.forEach((doc) => {
+                    
+
+                    doc.data().taskTimes.forEach((tasktime) => {
+                        let taskdate = new Date(tasktime);
+
+
+                        
+                        // cloned task objects populated with data from database  and append to DOM       
+                        if (buffer_tasktime != tasktime )
+                         {
+                            make_banner(tasktime);
+                            buffer_tasktime = tasktime
+                         }
+
+                        makeTaskCard(tasktime, doc,tasksRef);
                         // document.getElementById("todayTaskList").appendChild(newcard);
 
                     })
@@ -33,7 +48,6 @@ firebase.auth().onAuthStateChanged(function (user) {
             }
         }
         )
-
     }
 
     else {
@@ -99,5 +113,15 @@ function makeTaskCard(tasktime, doc, tasksRef) {
     newcard.querySelector("#taskTodayTime").innerHTML = stampToTime(taskTime);
     // task prototype object inserted into the DOM
     document.getElementById("todayTaskList").appendChild(newcard);
+
+}
+
+
+function make_banner(timeinput) {
+
+    let timeText = stampToTime(timeinput);
+      let newBanner = bannerprototype.cloneNode(true);
+      newBanner.querySelector("time").innerText = timeText;
+      document.getElementById("todayTaskList").appendChild(newBanner);
 
 }
