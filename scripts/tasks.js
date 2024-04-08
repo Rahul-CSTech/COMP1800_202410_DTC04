@@ -2,8 +2,11 @@
 
 let cardprototype = document.getElementById("taskToday").cloneNode(true);
 let bannerprototype = document.getElementById("timeBanner").cloneNode(true);
+let dropdownprototype = document.getElementById("threeDotButton").cloneNode(true);
+let dropdownBoxprototype = document.getElementById("dropdownDots").cloneNode(true)
+
 document.getElementById("timeBanner").remove()
-let addDelRow = document.getElementById("optionsRow").cloneNode(true)
+// let addDelRow = document.getElementById("optionsRow").cloneNode(true)
 
 // search URL for datestring from main page
 let urlParams = new URLSearchParams(window.location.search);
@@ -83,9 +86,9 @@ function stampToDate(datestamp) {
         month: "long",
         day: "2-digit",
     })
-  
     return stampdate
 }
+
 
 function stampToTime(timestamp) {
     timestamp = new Date(timestamp)
@@ -97,27 +100,35 @@ function stampToTime(timestamp) {
     return stamptime
 }
 
+
 function makeTaskCard(tasktime, doc, tasksRef) {
     let newcard = cardprototype.cloneNode(true);
     let taskTime = tasktime
     let taskInfo = doc.data().taskInfo
     let taskName = doc.data().taskName
     newcard.id = doc.id
-    let row = addDelRow.cloneNode(true);
-    newcard.appendChild(row);
-    newcard.addEventListener("click", () => {
-        row.classList.toggle("hidden")
-        newcard.classList.toggle("pb-0")
-    });
-    newcard.querySelector("#deleteButton").addEventListener("click", () => {
+    newcard.querySelector("#dropdownDots").remove()
+    let dropdownBoxElement = dropdownBoxprototype.cloneNode(true)
+   
+    
+    // let row = addDelRow.cloneNode(true);
+    // newcard.appendChild(row);
+    // newcard.addEventListener("click", () => {
+    //     row.classList.toggle("hidden")
+    //     newcard.classList.toggle("pb-0")
+    // });
+    dropdownBoxElement.querySelector("#deleteButton").addEventListener("click", () => {
         newcard.remove();
         deleteTask(doc.id, tasksRef);
     })
-    newcard.querySelector("#editButton").addEventListener("click", () => {
+    dropdownBoxElement.querySelector("#editButton").addEventListener("click", () => {
 
         window.location.href = "task_new.html?taskId=" + doc.id + "&taskTime=" + taskTime
     }
     )
+    dropdownBoxElement.id = "dropdown" + doc.id
+    newcard.querySelector("#dropdownMenuIconHorizontalButton").setAttribute("data-dropdown-toggle", `dropdown${doc.id}`)
+    newcard.querySelector("#threeDotButton").appendChild(dropdownBoxElement);
     newcard.querySelector("#taskTodayName").innerHTML = taskName;
     newcard.querySelector("#taskTodayInfo").innerHTML = taskInfo;
     newcard.querySelector("#taskTodayDate").innerHTML = stampToDate(taskTime);
