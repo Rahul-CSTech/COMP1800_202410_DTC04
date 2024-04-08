@@ -95,7 +95,7 @@ function makeTaskCard(tasktime, doc, tasksRef) {
 
     newcard.querySelector("#taskTodayName").innerHTML = taskName;
     newcard.querySelector("#taskTodayInfo").innerHTML = taskInfo;
-    newcard.querySelector("#taskTodayDate").innerHTML = stampToDate(tasktime);
+    newcard.querySelector("#taskTodayDate").innerHTML = stampToDate(tasktime) + "at";
     newcard.querySelector("#taskTodayTime").innerHTML = stampToTime(taskTime);
     // task prototype object inserted into the DOM
     document.getElementById("todayTaskList").appendChild(newcard);

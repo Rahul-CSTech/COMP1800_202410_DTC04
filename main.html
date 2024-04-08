@@ -66,6 +66,7 @@
 
     <!------------------------------>
     <!-- Welcome Card -->
+
     <section class = "mt-24">
         <div id="welcome" class="h-64 bg-cover mx-8 rounded-2xl object-contain bg-no-repeat bg-[url('./images/Welcome.png')] shadow-lg">
             <h1 class="text-center mx-2 font-bold text-xl text-slate-50 pt-4">Welcome to Heemang, <span id = "user">User!</span></h1>
@@ -82,8 +83,8 @@
         </div>
     </section>
 
-
-
+    <!------------------------------>
+    <!-- Weather -->
 
     <div id="weather_wrapper" class = "mt-6 mx-8 flex flex-row shadow-lg">
         <div id="weatherCard">
@@ -117,43 +118,10 @@
 
     </script>
 
-    <!------------------------------>
-    <!-- Calender -->
-    <div id="calendarApp" class = 'mt-6'>
-        <iframe src="./text/calendar.html" class = "shadow-lg h-[340px] mx-8" width ="83%" frameborder="0"></iframe>
-    </div>
-
-
-    <!-- <div class = "mx-8 mt-6 h-52 border-10 border-submissive bg-submissive text-slate-50 rounded-2xl overflow-y-scroll">
-        <h1 class = "leading-tight text-2xl font-bold -translate-y-2">Here's a quote to get <br>your day started:</h1>
-        <p class="leading-tight pt-2 -translate-y-2" id="motivQuote"></p>
-    </div> -->
 
     <!------------------------------>
-    <!-- ? and Journal -->
-    <!-- <section class="flex flex-row mx-8 mt-6 justify-between items-center h-52 overflow-hidden">
-        <div>
-            
-        </div>
-        <div class = "flex gap-y-3 flex-col justify-between">
-            <div class = "h-24 bg-white rounded-2xl w-32">
-                
-            </div>
-            <div class = "h-24 bg-white rounded-2xl w-32">
-                
-            </div>
-        </div>
-        
-        <div class = "basis-3/5">
-            <div onclick = "window.location.href = './consultation.html';" class = "cursor-pointer ml-2 h-52 basis-1/2 bg-submissive rounded-2xl border-10 border-submissive">
-                <div class = "leading-tight -translate-y-2 font-bold text-2xl text-slate-50 pb-1">
-                    Chat with our consultant!
-                </div>
-            </div>
-    </section> -->
+    <!--Tasks and Note  -->
 
-    <!------------------------------>
-    <!--Tasks and Methodology  -->
     <section class="flex flex-row mx-8 mt-6 justify-between items-center h-52">
         <div onclick = "window.location.href = './tasks.html';" class = "cursor-pointer mr-2 h-52 basis-1/2 bg-submissive rounded-2xl border-10 border-submissive shadow-lg">
             <div class = "leading-tight -translate-y-2 font-bold text-2xl text-slate-50 pb-1">
@@ -174,6 +142,17 @@
         </div>
     </section>
 
+    <!------------------------------>
+    <!-- Calender -->
+
+    <div id="calendarApp" class = 'mt-6'>
+        <iframe src="./text/calendar.html" class = "shadow-lg h-[340px] mx-8" width ="83%" frameborder="0"></iframe>
+    </div>
+    
+
+    <!------------------------------>
+    <!-- Calnder -->
+
     <div onclick = "window.location.href = './consultation.html';" class = "mb-24 mt-6 mx-8 cursor-pointer h-40 basis-1/2 bg-submissive rounded-2xl border-10 border-submissive shadow-lg">
         <div class = "leading-tight -translate-y-2 font-bold text-2xl text-slate-50 pb-1">
             Chat with our consultant!
@@ -184,10 +163,6 @@
     <!-- Bottom Nav-->
     <nav id = 'footerNav'></nav>
     <nav id = "headerNav"></nav>
-
-    <!---------------------------------------------->
-    <!-- Your own JavaScript functions go here    -->
-    <!---------------------------------------------->
 
     <!-- Link to scripts of your own -->
     <script src="./scripts/firebaseAPI_TEAM04.js"></script>
