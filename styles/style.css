@@ -2,82 +2,19 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/weather-icons/1.2/css/weather-icons.min.css);
 
   
-  .board {
-	font-family: "Caveat";
-	font-size: 1rem; 
-	/* adjust the font size to scale the whole board  */
-	letter-spacing: .15em;
-	text-transform: uppercase;
-	line-height: 1.5;
 
-	
-	width: auto;
-	height: 175px;
-	padding: 10px;
-	overflow: hidden;
-	color: #fff;
-	border: 10px solid #eee;
-	
-	background: rgba(21, 129, 237, 0.75);
-	
-	&:focus {
-		outline: none;
-	}
-	
-	
-}
-
-.circle {
-    position: relative;
-    width: 150px;
-    height: 150px;
-    margin: 0.5rem;
-    border-radius: 50%;
-    background: #FFCDB2;
-    overflow: hidden;
-  }
-.circle.per-50 {
-    background-image: conic-gradient(#ebf926 50%, #4bd42c 0);
-  }
-
-  .circle .inner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 115px;
-    height: 115px;
-    background: white;
-    border-radius: 50%;
-    font-size: 1.85em;
-    font-weight: 600;
-    color: rgba(21, 129, 237, 0.75);
-  }
-
-
-[x-cloak] {
-display: none;
-}
-
-
-#weather_wrapper{
-	width: 345px;
-  height: 125px;
-}
-
+/* 
 #weatherCard{
-	width: 400px;
+	width: 320px;
 	height: 125px;
 	font-family: 'Open Sans';
 	position: relative;
+	opacity: .9;
 }
 #currentTemp{
-	width: 180px;
+	width: 165px;
 	height: 125px;
-	background: #4A6FA5;
+	background: #4a79a5;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -91,29 +28,30 @@ display: none;
 	top: 0;
 	right: 0;
 }
-#temp{
-	font-size: 45px;
+/* #temp{
+	font-size: 22px;
 	text-align: center;
   font-weight: 500;
 	display: block;
 	font-weight: 300;
 	color: rgb(255, 255, 255);
-	padding: 8px 0 0;
+	padding: 8px 0 0; 
 }
+
 #location{
 	color: rgb(255, 255, 255);
 	text-align: center;
 	text-transform: uppercase;
-	font-weight: 700;
-	font-size: 26px;
+	font-weight: 300;
+	font-size: 10x;
 	display: block;
 }
 #conditions{
 	font-family: weathericons;
-	font-size: 65px;
-  width: 165px;
-	height: 120px;
-	display: block;
+	font-size: 30px;
+  /* width: 165px; */
+	/* height: 120px; */
+	/* display: block;
 }
 #info{
 	width: 165px;
@@ -122,7 +60,7 @@ display: none;
 	bottom: 0;
 	right: 0;
 	background: #7997c3;
-	font-weight: 700;
+	font-weight: 300;
 	color: rgb(255, 255, 255);
 	text-align: center;
 }
@@ -132,20 +70,39 @@ display: none;
   text-align: center;
   word-spacing: 60px;
 	top: 9px;
-}
-#wind {
+}*/
+/* #wind {
 	width: 30%;
 	right: 5px;
 	position: absolute;
-	word-spacing: 60px;
+	word-spacing: 30px;
 	top: 9px;
-}
+} */
 #wind::before{
-	display: block;
+	/* display: block; */
 	content: '\f050';
 	font-family: weathericons;
 	font-size: 25px;
-	left: -30px;
-	position: absolute;
-	top: -7px;
+	/* left: -40px; */
+	/* position: absolute;
+	top: -7px; */
+} 
+
+img {
+	height: 70px;
+}
+ #temp {
+	font-family: 'Open Sans';
+	font-size: 22px;
+	text-align: center;
+  
+	display: block;
+	font-weight: 300;
+	color: rgb(255, 255, 255);
+	padding: 8px 0 0; 
+}
+
+::before{
+	padding-right:4px;
+	font-size:1rem;
 }
