@@ -31,6 +31,19 @@ firebase.auth().onAuthStateChanged(function(user) {
           })
       }
 
+      function readTask() {
+      
+        db.collection("users").doc(user.uid).collection("tasks").orderBy("taskTimes").get()
+            .then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    var task_title = doc.data().taskName
+                    var task_detail = doc.data().taskInfo
+                    document.getElementById("display_task").innerHTML = task_title
+                    document.getElementById("display_task").innerHTML = task_detail
+                })
+        })
+    }
+
       function getUserName() {
         db.collection("users").doc(user.uid).get()
         .then((userDoc) => {
@@ -38,8 +51,10 @@ firebase.auth().onAuthStateChanged(function(user) {
             document.getElementById("user").innerHTML = userName;
         })
       }
+      
 
       getUserName();
+      readTask();
       readNote();
   } else {
       // No user is signed in.
