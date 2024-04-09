@@ -1,3 +1,7 @@
+
+const confirmationModal = document.getElementById('confirmationModal');
+const closeModalButton = document.querySelector('.close-modal');
+const confirmButton = document.querySelector('.confirm-action');
 //Make prototype object for task cards and banners to make task objects
 
 let cardprototype = document.getElementById("taskToday").cloneNode(true);
@@ -99,16 +103,16 @@ function stampToTime(timestamp) {
     
     return stamptime
 }
-
-
 function makeTaskCard(tasktime, doc, tasksRef) {
     let newcard = cardprototype.cloneNode(true);
     let taskTime = tasktime
     let taskInfo = doc.data().taskInfo
     let taskName = doc.data().taskName
     newcard.id = doc.id
-    newcard.querySelector("#dropdownDots").remove()
-    let dropdownBoxElement = dropdownBoxprototype.cloneNode(true)
+    newcard.querySelector("#threeDotButton").remove()
+
+    let dropdownElement = dropdownprototype.cloneNode(true)
+
    
     
     // let row = addDelRow.cloneNode(true);
@@ -117,21 +121,54 @@ function makeTaskCard(tasktime, doc, tasksRef) {
     //     row.classList.toggle("hidden")
     //     newcard.classList.toggle("pb-0")
     // });
-    dropdownBoxElement.querySelector("#deleteButton").addEventListener("click", () => {
+
+
+
+
+
+    let button = dropdownElement.querySelector("#dropdownMenuIconHorizontalButton"); 
+    let dropdownList = dropdownElement.querySelector("#dropdownDots"); 
+    
+    // Function to toggle visibility of the dropdown list
+    function toggleDropdown() {
+      if (dropdownList.classList.contains('hidden')) {
+        dropdownList.classList.remove('hidden');
+      } else {
+        dropdownList.classList.add('hidden');
+      }
+    }  
+    // Event listener for button click
+    button.addEventListener('click', toggleDropdown);
+    // Event listener to close dropdown on click outside
+    // document.addEventListener('click', function(event) {
+    //     if (event.target != button) {
+    //         dropdownList.classList.add('hidden');
+    //     }
+    //     });
+
+
+    dropdownElement.querySelector("#deleteButton").addEventListener(
+        
+        "click", () => {
+
+            
         newcard.remove();
         deleteTask(doc.id, tasksRef);
-    })
-    dropdownBoxElement.querySelector("#editButton").addEventListener("click", () => {
+    }
+
+)
+    dropdownElement.querySelector("#editButton").addEventListener("click", () => {
 
         window.location.href = "task_new.html?taskId=" + doc.id + "&taskTime=" + taskTime
     }
     )
-    dropdownBoxElement.id = "dropdown" + doc.id
-    newcard.querySelector("#dropdownMenuIconHorizontalButton").setAttribute("data-dropdown-toggle", `dropdown${doc.id}`)
-    newcard.querySelector("#threeDotButton").appendChild(dropdownBoxElement);
+
+
+    // dropdownBoxElement.id = "dropdown" + doc.id
+    newcard.querySelector("#firstRow").appendChild(dropdownElement);
     newcard.querySelector("#taskTodayName").innerHTML = taskName;
     newcard.querySelector("#taskTodayInfo").innerHTML = taskInfo;
-    newcard.querySelector("#taskTodayDate").innerHTML = stampToDate(taskTime);
+
     newcard.querySelector("#taskTodayTime").innerHTML = stampToTime(taskTime);
     // task prototype object inserted into the DOM
     document.getElementById("todayTaskList").appendChild(newcard);
@@ -166,7 +203,8 @@ function make_banner(timeinput) {
 
 
 function ScrollToText(seekString) {
-    // 1. Check if the content element exists
+ 
     const timeElement = document.getElementById(seekString)
     timeElement.scrollIntoView({ behavior: "smooth" });
   }
+
