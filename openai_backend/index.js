@@ -1,3 +1,6 @@
+// Due to the connection errors between Firebase and OpenAI API, We host consultation page to an independent page (https://comp1800dtc04.pages.dev)
+// The website's code and this code are the basically same
+
 // Imports necessary libraies for interacting with OpebAL's API and creating web server.
 const OpenAI = require("openai");
 const express = require('express');
