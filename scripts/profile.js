@@ -1,6 +1,9 @@
 firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-        // User is signed in.
+    if (user) { // User is signed in.
+
+        /** Obtain username data from user data in firebase and add it to 'user' field in HTML page
+         * @returns {void}
+         */
         function getUserName() {
           db.collection("users").doc(user.uid).get()
           .then((userDoc) => {
@@ -8,7 +11,10 @@ firebase.auth().onAuthStateChanged(function(user) {
               document.getElementById("user").innerHTML = userName;
           })
         }
-
+        
+        /** Obtain email data from user data in firebase and add it to 'email' field in HTML page
+         * @returns {void}
+         */
         function getEmail() {
             db.collection("users").doc(user.uid).get()
             .then((userDoc) => {
@@ -17,6 +23,7 @@ firebase.auth().onAuthStateChanged(function(user) {
             })
           }
 
+        // Add event listener to 'logout' button to sign out from the app and the firebase
         document.getElementById("logout").onclick = function () {
             firebase.auth().signOut().then(() => {
                 console.log("Logging out.")
@@ -34,6 +41,9 @@ firebase.auth().onAuthStateChanged(function(user) {
     }
   });
 
+/** 
+ * @returns {void}
+ */
 function save_user() {
     note = db.collection("users").doc(firebase.auth().currentUser.uid)
 
