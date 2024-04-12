@@ -40,33 +40,33 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 ├── tasks.html: The task main page.\
 ├── task_new.html: The page users can add their new task.
 
-It has the following subfolders and files:
+It has the following subfolders and files:\
 ├── images/: Folder containing image assets.\
-	Habit.svg: Icon representing habit tracking or formation.\
-	home.svg: Icon representing the home page or a main navigation element.\
-	journal.svg: Icon representing a journaling or logging feature.\
-	methodologies.svg: Icon representing methodologies or approaches.\
-	tasks.svg: Icon representing tasks or to-do management.
+> Habit.svg: Icon representing habit tracking or formation.\
+> home.svg: Icon representing the home page or a main navigation element.\
+> journal.svg: Icon representing a journaling or logging feature.\
+> methodologies.svg: Icon representing methodologies or approaches.\
+> tasks.svg: Icon representing tasks or to-do management.
 
 ├── scripts/: Folder containing JavaScript scripts\
-	authentication.js: Handles user login, registration, and session management.\
-	calendar.js: Implements calendar views, event scheduling, and related features.\
-	consultation.js: Facilitates consultation booking, scheduling, or management.\
-	firebaseAPI_TEAM04.js: Manages interactions with the Firebase database (data retrieval, updates, etc.)\
-	journal.js: Provides core journal viewing and listing functionality.\
-	journal_edit.js: Handles editing existing journal entries.\
-	journal_new.js: Enables creating new journal entries.\
-	profile.js: Manages user profile information and settings.\
-	signin.js: Implements the sign-in process.\
-	signup.js: Handles new user registration.\
-	tasks.js Provides task listing, viewing, and management.\
-	task_new.js: Handles the creation of new tasks.\
-	script.js: Contains general or core functionality used across multiple pages to add notes.\
-	skeleton.js: Provides a base structure and layout upon which pages can be built.
+> authentication.js: Handles user login, registration, and session management.\
+> calendar.js: Implements calendar views, event scheduling, and related features.\
+> consultation.js: Facilitates consultation booking, scheduling, or management.\
+> firebaseAPI_TEAM04.js: Manages interactions with the Firebase database (data retrieval, updates, etc.)\
+> journal.js: Provides core journal viewing and listing functionality.\
+> journal_edit.js: Handles editing existing journal entries.\
+> journal_new.js: Enables creating new journal entries.\
+> profile.js: Manages user profile information and settings.\
+> signin.js: Implements the sign-in process.\
+> signup.js: Handles new user registration.\
+> tasks.js Provides task listing, viewing, and management.\
+> task_new.js: Handles the creation of new tasks.\
+> script.js: Contains general or core functionality used across multiple pages to add notes.\
+> skeleton.js: Provides a base structure and layout upon which pages can be built.
 
 ├── styles/: Folder containing CSS style sheets.\
 	style.css: Primary stylesheet for the project, defining the general look and feel.\
-	style_methodology.css: Stylesheet containing specific styles for a "consultation" component or section of your project.\
+	style_methodology.css: Stylesheet containing specific styles for a "consultation" component or section of your project.
 
 ├── openai_backend/: Folder containing code/configuration related to OpenAI integration.\
 	constants.json: Contains configuration values and constants used throughout the project.\
@@ -94,8 +94,8 @@ In-app icons are from https://icons8.com/
 - update buttons in tasks doesn't work yet
 
 ## contact
-Roy Vina - roy.jeph@gmail.com
-Rahul Sharma - rahulsharma15160@gmail.com
+Roy Vina - roy.jeph@gmail.com\
+Rahul Sharma - rahulsharma15160@gmail.com\
 Juhyun Park - juhyun5328@outlook.com
 
 ## Acknowledgements 
