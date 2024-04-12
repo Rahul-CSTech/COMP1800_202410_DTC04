@@ -1,45 +1,22 @@
 # Project Title
+Heemang
 
-## 1. Project Description
-State your app in a nutshell, or one-sentence pitch. Give some elaboration on what the core features are.  
-This browser based web application to ... 
 
-## 2. Names of Contributors
-List team members and/or short bio's here... 
-* I am Rahul and I am glad to be on this collaborative project.
-* Hi, my name is Juhyun. I am excited to start this journey of creating a web application.
-* My name is Roy! I'll do my best.
-	
-## 3. Technologies and Resources Used
+## Project Description
+This is a planner app loaded with additional help from intelligent AI.
+
+## Technologies and Resources Used
 List technologies (with version numbers), API's, icons, fonts, images, media or data sources, and other resources that were used.
 * HTML, CSS, JavaScript
 * Bootstrap 5.0 (Frontend library)
 * Firebase 8.0 (BAAS - Backend as a Service)
-* ...
+* NodeJS 20.11
+* cors: 2.8.5
+* express: 4.19.2
+* openai: 4.31.0
+* serverless-http:3.2.0
 
-## 4. Complete setup/installion/usage
-State what a user needs to do when they come to your project.  How do others start using your code or application?
-Here are the steps ...
-* ...
-* ...
-* ...
-
-## 5. Known Bugs and Limitations
-Here are some known bugs:
-* ...
-* ...
-* ...
-
-## 6. Features for Future
-What we'd like to build in the future:
-* ...
-* ...
-* ...
-	
-## 7. Contents of Folder
-Content of the project folder:
-
-```
+## Contents
  Top level of project folder: 
 ├── .gitignore: Specifies files and patterns to exclude from Git tracking.
 ├── README.md: This descriptive project documentation.
@@ -62,7 +39,6 @@ Content of the project folder:
 ├── consultation.html: The page users can interact with our AI-based consultant.
 ├── tasks.html: The task main page
 ├── task_new.html: The page users can add their new task
-
 
 It has the following subfolders and files:
 ├── images/: Folder containing image assets.
@@ -109,10 +85,23 @@ It has the following subfolders and files:
 	login.html: Dedicated page for user login.
 	template.html: Base template upon which other pages are designed.
 
+## Resourcess
+In-app icons are from https://icons8.com/
 
 
+## limitations
+- we have not make a function for confirmation when editing or adding journals and tasks
+- update buttons in tasks doesn't work yet
 
+## contact
+Roy Vina - roy.jeph@gmail.com
+Rahul Sharma - rahulsharma15160@gmail.com
+Juhyun Park - juhyun5328@outlook.com
 
+## Acknowledgements 
+* <a href="https://fonts.google.com/">Petit Formal Script</a>
+* <a href="https://fonts.google.com/">Leckerli One</a>
+* <a href="https://fonts.google.com/">Arimo</a>
 
 
 
