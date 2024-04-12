@@ -62,7 +62,7 @@ It has the following subfolders and files:
 	tasks.js Provides task listing, viewing, and management.\
 	task_new.js: Handles the creation of new tasks.\
 	script.js: Contains general or core functionality used across multiple pages to add notes.\
-	skeleton.js: Provides a base structure and layout upon which pages can be built.\
+	skeleton.js: Provides a base structure and layout upon which pages can be built.
 
 ├── styles/: Folder containing CSS style sheets.\
 	style.css: Primary stylesheet for the project, defining the general look and feel.\
@@ -72,7 +72,7 @@ It has the following subfolders and files:
 	constants.json: Contains configuration values and constants used throughout the project.\
 	index.js: The main entry point for your Node.js application.\
 	package-lock.json: Automatically generated file for managing exact package dependencies.\
-	package.json: Project metadata, including name, description, dependencies, and scripts.\
+	package.json: Project metadata, including name, description, dependencies, and scripts.
 
 ├── text/: Folder containing text-related files or data.\
 	head.html: Contains metadata, title, link to stylesheets, and other elements in the <head> section of HTML pages.\
