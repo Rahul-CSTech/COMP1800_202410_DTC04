@@ -17,7 +17,7 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 * serverless-http:3.2.0
 
 ## Contents
- Top level of project folder: 
+ Top level of project folder:\
 ├── .gitignore: Specifies files and patterns to exclude from Git tracking.\
 ├── README.md: This descriptive project documentation.\
 ├── .firebase/: Folder containing Firebase-related assets.\
