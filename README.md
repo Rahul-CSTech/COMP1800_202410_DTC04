@@ -18,16 +18,16 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 
 ## Contents
  Top level of project folder: 
-├── .gitignore: Specifies files and patterns to exclude from Git tracking.
-├── README.md: This descriptive project documentation.
-├── .firebase/: Folder containing Firebase-related assets.
-├── .firebaserc: Firebase configuration file.
-├── 404.html: Custom error page for 'Not Found' situations.
-├── firebase.json: Firebase hosting configuration.
-├── firestore.indexes.json: Firestore index definitions.
-├── firestore.rules: Firestore security rules.
-├── storage.rules: Firebase Storage security rules.
-├── tailwind.config.js (using Tailwind CSS)
+├── .gitignore: Specifies files and patterns to exclude from Git tracking.\
+├── README.md: This descriptive project documentation.\
+├── .firebase/: Folder containing Firebase-related assets.\
+├── .firebaserc: Firebase configuration file.\
+├── 404.html: Custom error page for 'Not Found' situations.\
+├── firebase.json: Firebase hosting configuration.\
+├── firestore.indexes.json: Firestore index definitions.\
+├── firestore.rules: Firestore security rules.\
+├── storage.rules: Firebase Storage security rules.\
+├── tailwind.config.js (using Tailwind CSS)\
 
 ├── index.html: The first login page, which user can choose between SignIn/SignUp
 ├── signup.html: The page users can sign up.
