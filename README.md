@@ -65,25 +65,25 @@ It has the following subfolders and files:\
 > skeleton.js: Provides a base structure and layout upon which pages can be built.
 
 ├── styles/: Folder containing CSS style sheets.\
-	style.css: Primary stylesheet for the project, defining the general look and feel.\
-	style_methodology.css: Stylesheet containing specific styles for a "consultation" component or section of your project.
+> style.css: Primary stylesheet for the project, defining the general look and feel.\
+> style_methodology.css: Stylesheet containing specific styles for a "consultation" component or section of your project.
 
 ├── openai_backend/: Folder containing code/configuration related to OpenAI integration.\
-	constants.json: Contains configuration values and constants used throughout the project.\
-	index.js: The main entry point for your Node.js application.\
-	package-lock.json: Automatically generated file for managing exact package dependencies.\
-	package.json: Project metadata, including name, description, dependencies, and scripts.
+> constants.json: Contains configuration values and constants used throughout the project.\
+> index.js: The main entry point for your Node.js application.\
+> package-lock.json: Automatically generated file for managing exact package dependencies.\
+> package.json: Project metadata, including name, description, dependencies, and scripts.
 
 ├── text/: Folder containing text-related files or data.\
-	head.html: Contains metadata, title, link to stylesheets, and other elements in the <head> section of HTML pages.\
-	header.html: Contains the website's main header area.\
-	header_login_nav.html Llogin-specific navigation or menu within the header.\
-	header_main_nav.html: The website's primary navigation menu.\
-	footer.html: Contains footer content.\
-	calendar.html: The calendar-focused page of the application.\
-	jumbotron.html: Contains a prominent hero section or banner on a page.\
-	login.html: Dedicated page for user login.\
-	template.html: Base template upon which other pages are designed.
+> head.html: Contains metadata, title, link to stylesheets, and other elements in the <head> section of HTML pages.\
+> header.html: Contains the website's main header area.\
+> header_login_nav.html Llogin-specific navigation or menu within the header.\
+> header_main_nav.html: The website's primary navigation menu.\
+> footer.html: Contains footer content.\
+> calendar.html: The calendar-focused page of the application.\
+> jumbotron.html: Contains a prominent hero section or banner on a page.\
+> login.html: Dedicated page for user login.\
+> template.html: Base template upon which other pages are designed.
 
 ## Resourcess
 In-app icons are from https://icons8.com/
