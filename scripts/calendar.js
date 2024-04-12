@@ -1,31 +1,31 @@
-
+// sign in user
 firebase.auth().onAuthStateChanged(function (user) {
 
     if (user) {
         var tasksRef = db.collection("users").doc(user.uid).collection("tasks")
-
         tasksRef.orderBy("taskTimes", "asc").get()
             .then((querySnapshot) => {
-
+                // empty array to add task times
                 let taskTimeArray = []
                 if (querySnapshot) {
-
-
                     querySnapshot.forEach((doc) => {
 
                         doc.data().taskTimes.forEach((tasktime) => {
-
                             const newel = stampToDate(tasktime)
+                            // add task times to array
                             taskTimeArray.push(newel)
                         })
                     })
+                    // call function 
                 } makeCal(taskTimeArray);
-
-            }
-            )
+            })
     }
 })
 
+/** Formats timestamp to day, month, year date format
+ * @param {string} timestamp - 
+ * @returns {string} - converted time format
+ */
 function stampToDate(timestamp) {
     const date = new Date(timestamp);
     const day = date.getDate();
@@ -36,9 +36,10 @@ function stampToDate(timestamp) {
 }
 
 
-
+/** Builds an HTML element which serves as calendar on the main page
+ * @param {Array} meArray - the array contains time datestrings of all tasks for the user
+ */
 function makeCal(meArray) {
-
     const daysTag = document.querySelector(".days"),
         currentDate = document.querySelector(".current-date"),
         prevNextIcon = document.querySelectorAll(".icons span");
@@ -52,14 +53,17 @@ function makeCal(meArray) {
     const months = ["January", "February", "March", "April", "May", "June", "July",
         "August", "September", "October", "November", "December"];
 
+    /** Nested function to add days and dates tables to a particular month. Called each time a month is needed to be rendered on the page.
+     * @return {void} - Only does DOM manipulation
+     */
     function renderCalendar() {
         let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(), // getting first day of month
             lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(), // getting last date of month
             lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(), // getting last day of month
             lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate(); // getting last date of previous month
         let liTag = "";
-
-        for (let i = firstDayofMonth; i > 0; i--) { // creating li of previous month last days
+        // creating li of previous month last days
+        for (let i = firstDayofMonth; i > 0; i--) { 
             liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
         }
 
@@ -69,8 +73,7 @@ function makeCal(meArray) {
 
             let todaystring = i.toString() + (currMonth + 1).toString() + currYear.toString()
             console.log("this is todaystring", todaystring)
-            let isToday = ""
-            let clickScript = ""
+           
             if (i === date.getDate() && currMonth === new Date().getMonth()
                 && currYear === new Date().getFullYear())
                 liTag += `<li class="active"}">${i}</li>`;
@@ -81,6 +84,7 @@ function makeCal(meArray) {
                     liTag += `<li class="scheduled" onclick="
                     parent.window.location.href='../tasks.html?datestring=${todaystring}'">${i}</li>`;
                 }
+                // if a date is neither scheduled or is the current date, it is not highlighted in the rendered calendar
                 else
                     liTag += `<li class=""}">${i}</li>`;
         }
@@ -92,8 +96,8 @@ function makeCal(meArray) {
         daysTag.innerHTML = liTag;
     }
     renderCalendar();
-
-    prevNextIcon.forEach(icon => { // getting prev and next icons
+    // getting prev and next icons
+    prevNextIcon.forEach(icon => { 
         icon.addEventListener("click", () => { // adding click event on both icons
             // if clicked icon is previous icon then decrement current month by 1 else increment it by 1
             currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
@@ -106,7 +110,7 @@ function makeCal(meArray) {
             } else {
                 date = new Date(); // pass the current date as date value
             }
-            renderCalendar(); // calling renderCalendar function
+            renderCalendar(); // calling renderCalendar function each time the chevron icon is clicked
         });
     });
 }
