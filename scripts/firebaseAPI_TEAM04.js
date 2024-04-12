@@ -1,3 +1,5 @@
+// firebase configuration file for the project
+
 const firebaseConfig = {
     apiKey: "AIzaSyAMdnShAqlZW8e7zFLnenWjIsu1Tjydcug",
     authDomain: "bcit-comp1800-dtc04.firebaseapp.com",

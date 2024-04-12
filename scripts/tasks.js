@@ -1,7 +1,3 @@
-
-const confirmationModal = document.getElementById('confirmationModal');
-const closeModalButton = document.querySelector('.close-modal');
-const confirmButton = document.querySelector('.confirm-action');
 //Make prototype object for task cards and banners to make task objects
 
 let cardprototype = document.getElementById("taskToday").cloneNode(true);
@@ -103,6 +99,8 @@ function stampToTime(timestamp) {
     
     return stamptime
 }
+
+
 function makeTaskCard(tasktime, doc, tasksRef) {
     let newcard = cardprototype.cloneNode(true);
     let taskTime = tasktime
@@ -112,18 +110,6 @@ function makeTaskCard(tasktime, doc, tasksRef) {
     newcard.querySelector("#threeDotButton").remove()
 
     let dropdownElement = dropdownprototype.cloneNode(true)
-
-   
-    
-    // let row = addDelRow.cloneNode(true);
-    // newcard.appendChild(row);
-    // newcard.addEventListener("click", () => {
-    //     row.classList.toggle("hidden")
-    //     newcard.classList.toggle("pb-0")
-    // });
-
-
-
 
 
     let button = dropdownElement.querySelector("#dropdownMenuIconHorizontalButton"); 
@@ -137,32 +123,20 @@ function makeTaskCard(tasktime, doc, tasksRef) {
         dropdownList.classList.add('hidden');
       }
     }  
-    // Event listener for button click
+
     button.addEventListener('click', toggleDropdown);
-    // Event listener to close dropdown on click outside
-    // document.addEventListener('click', function(event) {
-    //     if (event.target != button) {
-    //         dropdownList.classList.add('hidden');
-    //     }
-    //     });
 
 
-    dropdownElement.querySelector("#deleteButton").addEventListener(
-        
-        "click", () => {
-
-            
+    dropdownElement.querySelector("#deleteButton").addEventListener( 
+        "click", () => {       
         newcard.remove();
         deleteTask(doc.id, tasksRef);
-    }
-
-)
+    })
     dropdownElement.querySelector("#editButton").addEventListener("click", () => {
 
         window.location.href = "task_new.html?taskId=" + doc.id + "&taskTime=" + taskTime
     }
     )
-
 
     // dropdownBoxElement.id = "dropdown" + doc.id
     newcard.querySelector("#firstRow").appendChild(dropdownElement);

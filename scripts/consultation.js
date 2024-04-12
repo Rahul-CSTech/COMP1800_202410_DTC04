@@ -1,14 +1,18 @@
-// Assign the variables
+// Inititate html objects to be manipulated
 const messages = document.querySelector('.messages');
 const input = document.getElementById('user-input');
 const button = document.getElementById('send-btn');
 const loading = document.getElementById('loading');
+
+// initialize empty variables 
 let chatCnt = 0;
 let userMessages = [];
 let assistantMessages = [];
 
 
-// When the user firstly clicks the consultation page
+/** Inserts a chatbox into the consultation.html page
+ * @returns {void} - Only manipulates DOM to build a chatbox with a welcome message
+ */
 function startChat() {
     document.getElementById("intro-container").style.display = "none";
     document.getElementById("intro-question").style.display = "none";
@@ -31,7 +35,11 @@ input.addEventListener("keydown", function(event) {
 });
 
 
-// Show in the display the response from OpenAI server
+/** Inserts text into the chatbox
+ * @param {string} text - The message which is to be inserted to the DOM 
+ * @param {string} sender - To identify if the sender is 'bot' or 'me'
+ * @return {none} - Only manipulates DOM
+ */
 function appendMessage(text, sender) {
     const message = document.createElement('div');
     message.classList.add('message');
@@ -49,7 +57,9 @@ function appendMessage(text, sender) {
 }
 
 
-//Request chatGPT API server
+/** Request chatGPT API server for response to message appended the last in the chatbox
+ * @returns {void} - 
+ */
 async function sendMessage() {
     const query = input.value;
     if (!query) return;
@@ -74,13 +84,17 @@ async function sendMessage() {
 }
 
 
-// Loading server request
+/** Inserts 'loading' visual when waiting for a response from OpenAI server
+ * @returns {void} - Only manipulates DOM
+ */
 function loadingOn() {
     loading.style.display = 'block'
 }
 
 
-// Loading completed, when server request is loaded
+/** Removes 'loading' visual when response from OpenAI is loaded
+ * @returns {void} - Only manipulates DOM
+*/
 function loadingOff() {
     loading.style.display = 'none'
     button.disabled = false;
