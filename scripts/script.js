@@ -2,8 +2,6 @@
 
 // Motivaitional Quote API
 const api_url = "https://api.quotable.io/quotes/random";
-
-
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     // User is signed in.
@@ -21,7 +19,6 @@ firebase.auth().onAuthStateChanged(function (user) {
           })
         })
     }
-
     /** Gets username from database and adds it to 'user' field in HTML
      * @returns {void} - Only manipulates DOM
      */
@@ -32,7 +29,6 @@ firebase.auth().onAuthStateChanged(function (user) {
           document.getElementById("user").innerHTML = userName;
         })
     }
-
     getUserName();
     readNote();
   } else {
@@ -40,8 +36,6 @@ firebase.auth().onAuthStateChanged(function (user) {
     console.log("No user is signed in.")
   }
 });
-
-
 /** Get quote from Quotable API
  * @param {string} url - Defined at the top of the page
  * @returns {void} - Only gets Quote string and inserts it into a widget in main page

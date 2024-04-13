@@ -3,10 +3,11 @@
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         // User is signed in.
+        // The URL provides the ID for the journal entry to be edited
         let params = new URL( window.location.href ); //get URL of search bar
         let ID = params.searchParams.get( "docID" ); //get value for key "id"
         console.log( ID );
-
+        // Query database for the said ID
         db.collection("users").doc(firebase.auth().currentUser.uid).collection("notes").doc(ID).get()
         .then( doc => {
             title = doc.data().title;

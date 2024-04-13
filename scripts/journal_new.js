@@ -5,8 +5,7 @@ date_creation = document.getElementById("date").innerHTML = new Date().toLocaleS
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         // User is signed in.
-
-        /** Access users collection to add note
+        /** Access users collection to add 'note' into HTML Page
          * @returns {void} - Only manipulates DOM
          */
         async function addNote() {
@@ -19,8 +18,7 @@ firebase.auth().onAuthStateChanged(function(user) {
             }).then(() => {
                 history.back()
             })
-        }
-        
+        } 
         // Checks for on click event
         document.getElementById("save").addEventListener("click", () => {
             addNote()

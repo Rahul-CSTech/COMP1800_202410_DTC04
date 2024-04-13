@@ -11,7 +11,6 @@ firebase.auth().onAuthStateChanged(function(user) {
               document.getElementById("user").innerHTML = userName;
           })
         }
-        
         /** Obtain email data from user data in firebase and add it to 'email' field in HTML page
          * @returns {void}
          */
@@ -22,7 +21,6 @@ firebase.auth().onAuthStateChanged(function(user) {
                 document.getElementById("email").innerHTML = userName;
             })
           }
-
         // Add event listener to 'logout' button to sign out from the app and the firebase
         document.getElementById("logout").onclick = function () {
             firebase.auth().signOut().then(() => {
@@ -32,7 +30,6 @@ firebase.auth().onAuthStateChanged(function(user) {
                 console.log(error)
             });
         };
-
         getEmail();
         getUserName();
     } else {
@@ -40,7 +37,6 @@ firebase.auth().onAuthStateChanged(function(user) {
         console.log("No user is signed in.")
     }
   });
-
 /** Adds data to firebase for new user
  * @returns {void} - only adds data to firebase
  */
@@ -53,7 +49,6 @@ function save_user() {
     .then(() => {
         location.reload()
     })
-    
 }
 /** Hides the placeholder element when elements are populated with data from firebase
  * @returns {void} - Only manipulates DOM

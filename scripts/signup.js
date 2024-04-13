@@ -21,7 +21,6 @@ document.getElementById("signup").addEventListener("click", () => {
         console.log("Nothing was entered for username.")
         return
     }
-
     // Firebase attempt sign up with input forms
     firebase.auth().createUserWithEmailAndPassword(htmlEmail, htmlPass)
         .then((userCredential) => {

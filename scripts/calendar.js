@@ -38,6 +38,7 @@ function stampToDate(timestamp) {
 
 /** Builds an HTML element which serves as calendar on the main page
  * @param {Array} meArray - the array contains time datestrings of all tasks for the user
+ * @returns {void} - Only manipulates DOM
  */
 function makeCal(meArray) {
     const daysTag = document.querySelector(".days"),

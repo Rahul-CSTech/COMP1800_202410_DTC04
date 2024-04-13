@@ -1,5 +1,4 @@
 // Sign In Page
-
 document.getElementById("login").addEventListener("click", () => {
     var email = document.getElementById("email").value
     var password = document.getElementById("password").value
@@ -11,7 +10,7 @@ document.getElementById("login").addEventListener("click", () => {
             var user = userCredential.user;
             console.log("Logged in with user:", user.uid)
             signinSuccess = true
-            // ...
+            // 
         })
         .catch((error) => {
             // Error Handling for Sign In

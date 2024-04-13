@@ -7,7 +7,6 @@ firebase.auth().onAuthStateChanged(function (user) {
 
             // DOM object copied to make fresh prototypes for each document in 'notes'
             let cardTemplate = document.getElementById("note_template")
-
             // Accesses user's notes, sorts by date and displays to journal
             db.collection("users").doc(user.uid).collection("notes").orderBy("date").get()
                 .then((querySnapshot) => {
@@ -33,15 +32,12 @@ firebase.auth().onAuthStateChanged(function (user) {
                     })
                 })
         }
-
-
         readNote();
     } else {
         // No user is signed in.
         console.log("No user is signed in.")
     }
 });
-
 /** Toggle 'infoheader' to hide when page is populated with new 'note' html objects
  * @returns {void} - Only manipulates DOM
  */

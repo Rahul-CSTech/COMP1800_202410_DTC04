@@ -1,19 +1,14 @@
-// The current time inPlaceholder time in the time input
+// The current time is inserted into the time input form field as Placeholder value
 dateNow = new Date().toISOString();
-console.log(dateNow);
 let dateControl = document.querySelector('input[id="taskDate"]')
 dateControl.value = dateNow.substring(0, 10)
-
-// 
+// The 
 let timeValue = document.querySelector('input[id="taskTime"]')
-console.log('time is', timeValue.value)
 
  // the url is searched for the taskId to be edited to check if a task is intended to be edited from the tasks.html page,
  let urlParams = new URLSearchParams(window.location.search);
  let taskId = urlParams.get("taskId");
  const taskTime = urlParams.get("taskTime")
-
-
 firebase.auth().onAuthStateChanged(function(user)  {
     if (user) { 
        let taskCollRef = db.collection("users").doc(user.uid).collection('tasks')
@@ -22,7 +17,6 @@ firebase.auth().onAuthStateChanged(function(user)  {
         if (taskId) {
             editTask(taskCollRef)
         } 
-  
     /** Reads values from fields in the HTML document and add them to database
      * @returns {void}
      */
@@ -33,10 +27,8 @@ firebase.auth().onAuthStateChanged(function(user)  {
         let taskTimeStamp = combineDateTimeToTimestamp(dateString, timeString)
         let newTaskName = document.getElementById("taskName").value;
         let newTaskInfo = document.getElementById("taskInfo").value;
-
         // if task is intended to be edited, the task information in the database is updated with new data 
         if (taskId){
-
                 /** Updates 'tasks' document in firebase
                  * @returns {none} - Only updates database
                  */
@@ -55,7 +47,6 @@ firebase.auth().onAuthStateChanged(function(user)  {
                       taskName: newTaskName,
                       taskTimes: filteredArray,
                       taskInfo: newTaskInfo,
-
                     })
                     // Navigate to previous page
                     .then(() => history.back())
@@ -66,7 +57,6 @@ firebase.auth().onAuthStateChanged(function(user)  {
                 }
                 updateTask();
               }
-
         // new data is added if the information does not  
         else {
             taskCollRef.add({
@@ -76,12 +66,9 @@ firebase.auth().onAuthStateChanged(function(user)  {
           // navigate back
         }).then(() => history.back())}          
     }
-
     document.getElementById("save").addEventListener("click", saveTask)
     }
 })
-
-
 /** Converts date and time strings into Unix Epoch timestamp
  * @param {string} dateStr - represents date, month and year
  * @param {string} timeStr - represents time
@@ -117,15 +104,17 @@ function editTask(taskCollRef){
      let formattedTime = today.toLocaleString("en-GB").split(", ")[1]
      console.log(formattedDate, formattedTime)
 
+    // The 'delete' button is changed into 'Update' button when as task is to be edited
      document.getElementById("save").innerText = "Update";
 
-
+    // Database queried for data of a particular task using taskId
      taskCollRef.doc(taskId).get()
      .then((doc) =>  doc.data())
      .then( (taskData) => {
-
+    // the fields are populated with details of the task to be edited
      document.getElementById("taskName").value = taskData.taskName; 
      document.getElementById("taskDate").value = formattedDate;
      document.getElementById("taskTime").value = formattedTime;
-     document.getElementById("taskInfo").value = taskData.taskInfo })
+     document.getElementById("taskInfo").value = taskData.taskInfo 
+    })
 }

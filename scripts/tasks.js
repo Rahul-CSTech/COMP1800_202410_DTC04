@@ -27,10 +27,8 @@ firebase.auth().onAuthStateChanged(function (user) {
                 // remove placeholder if data exists in database
                 document.getElementById("taskToday").remove();
 
-
-                // for time banner funcitonality which helps check if a a particular date is repeated among tasks
+                // A value for time banner functinality which helps check if a a particular date is repeated among tasks
                 let buffer_tasktime = 0
-
                 // data in querysnapshot looped for existing data
                 querySnapshot.forEach((doc) => {
                     doc.data().taskTimes.forEach((tasktime) => {
@@ -43,7 +41,6 @@ firebase.auth().onAuthStateChanged(function (user) {
                             month: "long",
                             day: "numeric",
                         })
-
                         // code to make a unique banner element for each day which has at least one task
                         if (buffer_tasktime != dateString) {
                             // banner inserted into the DOM
@@ -62,7 +59,6 @@ firebase.auth().onAuthStateChanged(function (user) {
         }
         )
     }
-
     else {
         // No user is signed in.
         console.log("No user is signed in.")
