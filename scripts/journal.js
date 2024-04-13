@@ -1,13 +1,13 @@
 // Journal Main Page
 
-firebase.auth().onAuthStateChanged(function(user) {
+firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         // User is signed in.
         function readNote() {
 
             // DOM object copied to make fresh prototypes for each document in 'notes'
             let cardTemplate = document.getElementById("note_template")
-        
+
             // Accesses user's notes, sorts by date and displays to journal
             db.collection("users").doc(user.uid).collection("notes").orderBy("date").get()
                 .then((querySnapshot) => {
@@ -17,7 +17,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                         var title = doc.data().title
                         var date = doc.data().date
                         var detail = doc.data().note
-                        
+
                         //
                         let newcard = document.importNode(cardTemplate.content, true)
 
@@ -27,14 +27,14 @@ firebase.auth().onAuthStateChanged(function(user) {
                         newcard.getElementById("display_date").innerHTML = date
                         newcard.getElementById("display_note").innerHTML = detail
                         // Add redirect link to the prototype
-                        newcard.querySelector('a').href = "journal_edit.html?docID="+doc.id
+                        newcard.querySelector('a').href = "journal_edit.html?docID=" + doc.id
                         // Append the prototype into the DOM
                         document.getElementById("note_card").appendChild(newcard)
                     })
                 })
         }
 
-        
+
         readNote();
     } else {
         // No user is signed in.

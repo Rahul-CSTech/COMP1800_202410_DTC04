@@ -4,7 +4,7 @@ document.getElementById("login").addEventListener("click", () => {
     var email = document.getElementById("email").value
     var password = document.getElementById("password").value
     var signinSuccess = false
-
+    // Authenticate user
     firebase.auth().signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
             // Signed in
@@ -26,6 +26,7 @@ document.getElementById("login").addEventListener("click", () => {
                 document.getElementById("email_label").innerHTML="Email does not exist."
                 console.log(errorMessage)
             }
+            // add and remove HTML elements when signin failed to display error
             if (errorCode == "auth/wrong-password") {
                 document.getElementById("email").classList.remove("border-2", "border-red-500")
                 document.getElementById("password").classList.remove("border-2", "border-red-500")

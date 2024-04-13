@@ -1,3 +1,5 @@
+// Scripts for journal.html and Motivational Quote API on main page
+
 // Motivaitional Quote API
 const api_url = "https://api.quotable.io/quotes/random";
 
@@ -7,6 +9,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     // User is signed in.
     function readNote() {
 
+      // Insert notes into the journal.html
       db.collection("users").doc(user.uid).collection("notes").orderBy("date").get()
         .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
@@ -19,6 +22,9 @@ firebase.auth().onAuthStateChanged(function (user) {
         })
     }
 
+    /** Gets username from database and adds it to 'user' field in HTML
+     * @returns {void} - Only manipulates DOM
+     */
     function getUserName() {
       db.collection("users").doc(user.uid).get()
         .then((userDoc) => {
@@ -35,6 +41,11 @@ firebase.auth().onAuthStateChanged(function (user) {
   }
 });
 
+
+/** Get quote from Quotable API
+ * @param {string} url - Defined at the top of the page
+ * @returns {void} - Only gets Quote string and inserts it into a widget in main page
+ */
 async function getapi(url) {
   const response = await fetch(url);
   var quotes = await response.json();

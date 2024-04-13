@@ -41,8 +41,8 @@ firebase.auth().onAuthStateChanged(function(user) {
     }
   });
 
-/** 
- * @returns {void}
+/** Adds data to firebase for new user
+ * @returns {void} - only adds data to firebase
  */
 function save_user() {
     note = db.collection("users").doc(firebase.auth().currentUser.uid)
@@ -55,7 +55,9 @@ function save_user() {
     })
     
 }
-
+/** Hides the placeholder element when elements are populated with data from firebase
+ * @returns {void} - Only manipulates DOM
+ */
 function edit_profile() {
     $('#user').toggle()
     $('#user_edit').toggle()

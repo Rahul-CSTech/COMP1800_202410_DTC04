@@ -1,8 +1,10 @@
+// The current time inPlaceholder time in the time input
 dateNow = new Date().toISOString();
 console.log(dateNow);
 let dateControl = document.querySelector('input[id="taskDate"]')
 dateControl.value = dateNow.substring(0, 10)
 
+// 
 let timeValue = document.querySelector('input[id="taskTime"]')
 console.log('time is', timeValue.value)
 
@@ -21,10 +23,11 @@ firebase.auth().onAuthStateChanged(function(user)  {
             editTask(taskCollRef)
         } 
   
-    // 
+    /** Reads values from fields in the HTML document and add them to database
+     * @returns {void}
+     */
     function saveTask() {
 
-         
         let dateString = document.getElementById("taskDate").value
         let timeString = document.getElementById("taskTime").value
         let taskTimeStamp = combineDateTimeToTimestamp(dateString, timeString)
@@ -34,7 +37,9 @@ firebase.auth().onAuthStateChanged(function(user)  {
         // if task is intended to be edited, the task information in the database is updated with new data 
         if (taskId){
 
-            
+                /** Updates 'tasks' document in firebase
+                 * @returns {none} - Only updates database
+                 */
                 async function updateTask() {
                   try {
                     const docSnapshot = await taskCollRef.doc(taskId).get();
@@ -52,40 +57,39 @@ firebase.auth().onAuthStateChanged(function(user)  {
                       taskInfo: newTaskInfo,
 
                     })
+                    // Navigate to previous page
                     .then(() => history.back())
               
                     // Navigate back after successful update
                   } catch (error) {
                     console.error("Error updating task:", error);}
                 }
-              
                 updateTask();
-                            
-        }
+              }
 
-        // new data is added if new information
-
+        // new data is added if the information does not  
         else {
-    
             taskCollRef.add({
             taskName: newTaskName,
             taskTimes: [taskTimeStamp],
             taskInfo: newTaskInfo
-
+          // navigate back
         }).then(() => history.back())}          
     }
 
     document.getElementById("save").addEventListener("click", saveTask)
     }
-
 })
 
 
-
+/** Converts date and time strings into Unix Epoch timestamp
+ * @param {string} dateStr - represents date, month and year
+ * @param {string} timeStr - represents time
+ * @returns {string} - timestamp is returned as string
+ */
 function combineDateTimeToTimestamp(dateStr, timeStr) {
     // Create a Date object from the date string
     console.log(dateStr, timeStr)
-   
     const combinedString = `${dateStr}T${timeStr}`;
 
 // Create a Date object with time zone offset (-7 hours for GMT-7)
@@ -97,12 +101,11 @@ function combineDateTimeToTimestamp(dateStr, timeStr) {
     return timestamp;
   }
   
-
-function editTask(taskCollRef){
-
-     
-    //  let taskTime = urlParams.get("taskTime")
-
+/** Populates the editted task element again qith a query from the database
+ * @param {object} taskCollRef - reference to the document in the database
+ * @returns {void} - Only manipulates DOM
+ */
+function editTask(taskCollRef){     
      let today = new Date(parseInt(taskTime))
 
      // changing taskDate format to yyyy-mm-dd
@@ -113,9 +116,9 @@ function editTask(taskCollRef){
      // changing tasktime to hh:mm:ss format
      let formattedTime = today.toLocaleString("en-GB").split(", ")[1]
      console.log(formattedDate, formattedTime)
-     
+
      document.getElementById("save").innerText = "Update";
-     // function editTask() 
+
 
      taskCollRef.doc(taskId).get()
      .then((doc) =>  doc.data())
